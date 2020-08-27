@@ -24,7 +24,6 @@
     ".NETCoreApp,Version=v3.1": {
       "WebMVC/1.0.0": {
         "dependencies": {
-          "MyCoreMvc.Application": "1.0.0",
           "MyCoreMvc.EFCore": "1.0.0",
           "MyCoreMvc.Entitys": "1.0.0",
           "MyCoreMvc.Repositorys": "1.0.0",
@@ -3374,13 +3373,6 @@
           "WindowsBase.dll": {}
         },
         "compileOnly": true
-      },
-      "MyCoreMvc.Application/1.0.0": {
-        "dependencies": {
-          "MyCoreMvc.Entitys": "1.0.0",
-          "MyCoreMvc.Repositorys": "1.0.0"
-        },
-        "compileOnly": true
       }
     }
   },
@@ -5622,11 +5614,6 @@
     },
     "WindowsBase/4.0.0.0": {
       "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "MyCoreMvc.Application/1.0.0": {
-      "type": "project",
       "serviceable": false,
       "sha512": ""
     }

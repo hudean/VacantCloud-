@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyCoreMvc.Application\MyCoreMvc.Application.csproj" />
     <ProjectReference Include="..\MyCoreMvc.EFCore\MyCoreMvc.EFCore.csproj" />
     <ProjectReference Include="..\MyCoreMvc.Entitys\MyCoreMvc.Entitys.csproj" />
     <ProjectReference Include="..\MyCoreMvc.Repositorys\MyCoreMvc.Repositorys.csproj" />

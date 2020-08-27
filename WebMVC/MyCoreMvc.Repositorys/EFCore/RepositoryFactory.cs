@@ -16,7 +16,8 @@ namespace MyCoreMvc.Repositorys
 
         public static  void Injection(IServiceCollection services, IConfiguration Configuration)
         {
-            string dbType = "";
+            string dbType = Configuration.GetValue<string>("DbType");
+            string dbType2 = Configuration["DbType"];
             switch (dbType)
             {
                 case "SqlServer":

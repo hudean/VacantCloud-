@@ -15,11 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCoreMvc.Repositorys", "My
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCore.Sharding", "EFCore.Sharding\EFCore.Sharding.csproj", "{3D2C4367-EF25-4888-9607-71AF1FD4A037}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoreMVC.Applications", "MyCoreMVC.Applications\MyCoreMVC.Applications.csproj", "{FA69AFEB-E2AC-4729-9EEB-16A58B3E86F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCoreMVC.Applications", "MyCoreMVC.Applications\MyCoreMVC.Applications.csproj", "{FA69AFEB-E2AC-4729-9EEB-16A58B3E86F7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Framework 基础设施层", "01 Framework 基础设施层", "{02EB8812-71C3-4DC7-AFE2-ABDB9B1131CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoreMvc.Common", "MyCoreMvc.Common\MyCoreMvc.Common.csproj", "{175F028D-16DB-4CA4-9BBB-C08C2CC1D4D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCoreMvc.Common", "MyCoreMvc.Common\MyCoreMvc.Common.csproj", "{175F028D-16DB-4CA4-9BBB-C08C2CC1D4D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{E88EF711-B6FB-4369-AE5C-9A0C00A48CEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{175F028D-16DB-4CA4-9BBB-C08C2CC1D4D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{175F028D-16DB-4CA4-9BBB-C08C2CC1D4D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{175F028D-16DB-4CA4-9BBB-C08C2CC1D4D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E88EF711-B6FB-4369-AE5C-9A0C00A48CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E88EF711-B6FB-4369-AE5C-9A0C00A48CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E88EF711-B6FB-4369-AE5C-9A0C00A48CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E88EF711-B6FB-4369-AE5C-9A0C00A48CEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
