@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace EntityFrameworkCore.Entitys
+namespace MyCoreMvc.Entitys
 { 
     //[Table("Tenants")]
     //public  class Tenants:Entity<long>

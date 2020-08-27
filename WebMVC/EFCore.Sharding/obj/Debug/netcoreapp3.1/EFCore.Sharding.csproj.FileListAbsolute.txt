@@ -1,0 +1,8 @@
+E:\我的code\WebMVC\EFCore.Sharding\bin\Debug\netcoreapp3.1\EFCore.Sharding.deps.json
+E:\我的code\WebMVC\EFCore.Sharding\bin\Debug\netcoreapp3.1\EFCore.Sharding.dll
+E:\我的code\WebMVC\EFCore.Sharding\bin\Debug\netcoreapp3.1\EFCore.Sharding.pdb
+E:\我的code\WebMVC\EFCore.Sharding\obj\Debug\netcoreapp3.1\EFCore.Sharding.AssemblyInfoInputs.cache
+E:\我的code\WebMVC\EFCore.Sharding\obj\Debug\netcoreapp3.1\EFCore.Sharding.AssemblyInfo.cs
+E:\我的code\WebMVC\EFCore.Sharding\obj\Debug\netcoreapp3.1\EFCore.Sharding.csproj.CoreCompileInputs.cache
+E:\我的code\WebMVC\EFCore.Sharding\obj\Debug\netcoreapp3.1\EFCore.Sharding.dll
+E:\我的code\WebMVC\EFCore.Sharding\obj\Debug\netcoreapp3.1\EFCore.Sharding.pdb

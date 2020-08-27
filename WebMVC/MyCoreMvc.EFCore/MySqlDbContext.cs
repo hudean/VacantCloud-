@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -9,24 +10,24 @@ namespace MyCoreMvc.EFCore
 {
     public class MySqlDbContext : DbContext
     {
-        private string ConnectionString { get; set; }
+       // private string ConnectionString { get; set; }
         public MySqlDbContext(DbContextOptions<MySqlDbContext> options) : base(options)
         { 
         
         }
-        public MySqlDbContext(DbContextOptions<MySqlDbContext> options, string connectionString) : base(options)
-        {
-            ConnectionString = connectionString;
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseMySql(ConnectionString);
+        //public MySqlDbContext(DbContextOptions<MySqlDbContext> options, string connectionString) : base(options)
+        //{
+        //    ConnectionString = connectionString;
+        //}
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+        //    optionsBuilder.UseMySql(ConnectionString);
 
 
-        // optionsBuilder.UseSqlServer(ConnectionString, p => p.CommandTimeout(GlobalContext.SystemConfig.DBCommandTimeout));
-        // optionsBuilder.AddInterceptors(new DbCommandCustomInterceptor());
-        }
+        //// optionsBuilder.UseSqlServer(ConnectionString, p => p.CommandTimeout(GlobalContext.SystemConfig.DBCommandTimeout));
+        //// optionsBuilder.AddInterceptors(new DbCommandCustomInterceptor());
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

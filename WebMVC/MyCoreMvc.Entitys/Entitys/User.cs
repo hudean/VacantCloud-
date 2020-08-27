@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace EntityFrameworkCore.Entitys
+namespace MyCoreMvc.Entitys
 {
     /// <summary>
     /// 后台用户表

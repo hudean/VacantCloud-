@@ -29,7 +29,14 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj"
+              },
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -209,6 +216,9 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+              "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj"
+              },
               "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj": {
                 "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj"
               }
@@ -291,6 +301,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyCoreMvc.Repositorys;
 
 namespace WebMVC
 {
@@ -39,11 +40,19 @@ namespace WebMVC
             //{
             //    options.UseSqlServer(Configuration.GetConnectionString("Default"));//获取配置的连接字符串
             //});
-            
-            //改造连接数据库方式
+            //重点仓储和服务注入方式要一样
+            //依赖注入仓储  
+            //services.AddScoped(typeof(IRepository<,>), typeof(MyRepository<,>));
+            //services.AddScoped(typeof(IRepository<>), typeof(MyRepository<>));
 
-
-
+            //services.AddScoped<IUserService,UserService>();
+            //services.AddScoped<IRoleService, RoleService>();
+            RepositoryFactory.Injection(services, Configuration);
+            services.AddSession();
+            //services.AddMvc(options =>
+            //{
+            //    options.Filters.Add<Filter.MyExceptionFilter>();
+            //});
 
         }
 

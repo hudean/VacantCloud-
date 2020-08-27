@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "EFCore.Sharding/1.0.0": {
+        "runtime": {
+          "EFCore.Sharding.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EFCore.Sharding/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

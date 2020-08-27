@@ -10,3 +10,5 @@ E:\我的code\WebMVC\MyCoreMvc.Repositorys\obj\Debug\netcoreapp3.1\MyCoreMvc.Rep
 E:\我的code\WebMVC\MyCoreMvc.Repositorys\obj\Debug\netcoreapp3.1\MyCoreMvc.Repositorys.csproj.CopyComplete
 E:\我的code\WebMVC\MyCoreMvc.Repositorys\obj\Debug\netcoreapp3.1\MyCoreMvc.Repositorys.dll
 E:\我的code\WebMVC\MyCoreMvc.Repositorys\obj\Debug\netcoreapp3.1\MyCoreMvc.Repositorys.pdb
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\bin\Debug\netcoreapp3.1\MyCoreMvc.EFCore.dll
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\bin\Debug\netcoreapp3.1\MyCoreMvc.EFCore.pdb

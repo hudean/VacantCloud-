@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace EntityFrameworkCore.Entitys
+namespace MyCoreMvc.Entitys
 {
     /// <summary>
     /// 权限表

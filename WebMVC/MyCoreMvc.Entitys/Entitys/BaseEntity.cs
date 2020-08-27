@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace EntityFrameworkCore.Entitys
+namespace MyCoreMvc.Entitys
 {
     public abstract  class BaseEntity
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace EntityFrameworkCore
+namespace MyCoreMvc.Entitys
 {
     /// <summary>
     /// This exception is thrown if an entity excepted to be found but not found.
