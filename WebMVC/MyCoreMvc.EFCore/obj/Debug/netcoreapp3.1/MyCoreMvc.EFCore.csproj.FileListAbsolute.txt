@@ -1,0 +1,8 @@
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\MyCoreMvc.EFCore.deps.json
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\MyCoreMvc.EFCore.dll
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\MyCoreMvc.EFCore.pdb
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\MyCoreMvc.EFCore.csprojAssemblyReference.cache
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\MyCoreMvc.EFCore.AssemblyInfoInputs.cache
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\MyCoreMvc.EFCore.AssemblyInfo.cs
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\MyCoreMvc.EFCore.dll
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\MyCoreMvc.EFCore.pdb

@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMVC", "WebMVC\WebMVC.csproj", "{84061939-3B79-406F-9C4D-6098EF66D6E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoreMvc.Entitys", "MyCoreMvc.Entitys\MyCoreMvc.Entitys.csproj", "{E1033CA2-7ABC-4E45-B2AC-B6005AE9DB9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoreMvc.Application", "MyCoreMvc.Application\MyCoreMvc.Application.csproj", "{3208B386-9DBE-4E31-857D-4C78014C2EB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 DataAccess数据库核心层", "02 DataAccess数据库核心层", "{BDE89092-2927-4461-A54D-9A1C5D1113ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoreMvc.EFCore", "MyCoreMvc.EFCore\MyCoreMvc.EFCore.csproj", "{3EDEBED1-21CE-4103-A3D0-A3E47A791E90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoreMvc.Repositorys", "MyCoreMvc.Repositorys\MyCoreMvc.Repositorys.csproj", "{DB8EAAAC-67C7-4B2E-AF84-D9D912FD8B24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.Sharding", "EFCore.Sharding\EFCore.Sharding.csproj", "{3D2C4367-EF25-4888-9607-71AF1FD4A037}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84061939-3B79-406F-9C4D-6098EF66D6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84061939-3B79-406F-9C4D-6098EF66D6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84061939-3B79-406F-9C4D-6098EF66D6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84061939-3B79-406F-9C4D-6098EF66D6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1033CA2-7ABC-4E45-B2AC-B6005AE9DB9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1033CA2-7ABC-4E45-B2AC-B6005AE9DB9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1033CA2-7ABC-4E45-B2AC-B6005AE9DB9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1033CA2-7ABC-4E45-B2AC-B6005AE9DB9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3208B386-9DBE-4E31-857D-4C78014C2EB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3208B386-9DBE-4E31-857D-4C78014C2EB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3208B386-9DBE-4E31-857D-4C78014C2EB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3208B386-9DBE-4E31-857D-4C78014C2EB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EDEBED1-21CE-4103-A3D0-A3E47A791E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EDEBED1-21CE-4103-A3D0-A3E47A791E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EDEBED1-21CE-4103-A3D0-A3E47A791E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EDEBED1-21CE-4103-A3D0-A3E47A791E90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB8EAAAC-67C7-4B2E-AF84-D9D912FD8B24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB8EAAAC-67C7-4B2E-AF84-D9D912FD8B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB8EAAAC-67C7-4B2E-AF84-D9D912FD8B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB8EAAAC-67C7-4B2E-AF84-D9D912FD8B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D2C4367-EF25-4888-9607-71AF1FD4A037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D2C4367-EF25-4888-9607-71AF1FD4A037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D2C4367-EF25-4888-9607-71AF1FD4A037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D2C4367-EF25-4888-9607-71AF1FD4A037}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3EDEBED1-21CE-4103-A3D0-A3E47A791E90} = {BDE89092-2927-4461-A54D-9A1C5D1113ED}
+		{DB8EAAAC-67C7-4B2E-AF84-D9D912FD8B24} = {BDE89092-2927-4461-A54D-9A1C5D1113ED}
+		{3D2C4367-EF25-4888-9607-71AF1FD4A037} = {BDE89092-2927-4461-A54D-9A1C5D1113ED}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00258917-1991-4183-ACC9-D9FD01D9F12C}
+	EndGlobalSection
+EndGlobal

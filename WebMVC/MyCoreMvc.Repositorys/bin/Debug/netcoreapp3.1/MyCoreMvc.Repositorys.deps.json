@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "MyCoreMvc.Repositorys/1.0.0": {
+        "dependencies": {
+          "MyCoreMvc.Entitys": "1.0.0"
+        },
+        "runtime": {
+          "MyCoreMvc.Repositorys.dll": {}
+        }
+      },
+      "MyCoreMvc.Entitys/1.0.0": {
+        "runtime": {
+          "MyCoreMvc.Entitys.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MyCoreMvc.Repositorys/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyCoreMvc.Entitys/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
