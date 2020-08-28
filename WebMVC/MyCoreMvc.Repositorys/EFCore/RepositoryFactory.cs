@@ -1,10 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyCoreMvc.EFCore;
-using MyCoreMvc.Repositorys.EFCore;
+using MySql.Data.MySqlClient;
+using Pomelo.EntityFrameworkCore.MySql.Storage.Internal;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -17,7 +21,8 @@ namespace MyCoreMvc.Repositorys
         public static  void Injection(IServiceCollection services, IConfiguration Configuration)
         {
             string dbType = Configuration.GetValue<string>("DbType");
-            string dbType2 = Configuration["DbType"];
+            //string dbType2 = Configuration["DbType"];
+            string connStr = Configuration.GetConnectionString("Default");
             switch (dbType)
             {
                 case "SqlServer":
@@ -26,7 +31,8 @@ namespace MyCoreMvc.Repositorys
                     //依赖注入仓储  
                     services.AddDbContext<SqlServerDbContext>(options =>
                     {
-                        options.UseSqlServer(Configuration.GetConnectionString("Default"));//获取配置的连接字符串
+                        // options.UseSqlServer(Configuration.GetConnectionString("Default"));//获取配置的连接字符串
+                        options.UseSqlServer(connStr);
 
                     });
                     services.AddScoped(typeof(IRepository<,>), typeof(SqlServerRepository<,>));
@@ -37,7 +43,8 @@ namespace MyCoreMvc.Repositorys
                     //database = new MySqlDatabase(dbConnectionString);
                     services.AddDbContext<MySqlDbContext>(options =>
                     {
-                        options.UseMySql(Configuration.GetConnectionString("Default"));//获取配置的连接字符串
+                        //options.UseMySql(Configuration.GetConnectionString("Default"));//获取配置的连接字符串
+                        options.UseMySql(connStr);
 
                     });
                     services.AddScoped(typeof(IRepository<,>), typeof(MysqlRepository<,>));
@@ -50,7 +57,31 @@ namespace MyCoreMvc.Repositorys
                 default:
                     throw new Exception("未找到数据库配置");
             }
-
+            try
+            {
+                //检查是否连接到数据库
+                DbConnection dbConnection = new MySqlConnection();
+                //DbConnection db = 
+                dbConnection.ConnectionString = connStr;
+                var cmd = dbConnection.CreateCommand();
+                dbConnection.Open();
+                //cmd.CommandText = "select top 1 UserName from AbpUsers";
+                //object obj = cmd.ExecuteScalar();
+                //string str = obj.ToString();
+                //IDbConnection dbConnection = SqlClientFactory.Instance.CreateConnection();
+                //dbConnection.ConnectionString = connStr;
+                //dbConnection.Open();
+                //var cmd= dbConnection.CreateCommand();
+                ////cmd.CommandText = "select top 1 UserName from AbpUsers";
+                //cmd.CommandText = "select itemname from iteminfo where id=1";
+                //object obj=cmd.ExecuteScalar();
+                //string str= obj.ToString();
+                //dbConnection.Dispose();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("数据库配置连接字符串错误请检查："+ex.ToString());
+            }
 
             #region 批量注入
             //加载程序集MyApplication

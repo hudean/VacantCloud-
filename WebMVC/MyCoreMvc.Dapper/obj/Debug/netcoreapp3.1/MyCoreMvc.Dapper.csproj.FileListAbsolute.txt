@@ -1,0 +1,9 @@
+E:\我的code\WebMVC\MyCoreMvc.Dapper\bin\Debug\netcoreapp3.1\MyCoreMvc.Dapper.deps.json
+E:\我的code\WebMVC\MyCoreMvc.Dapper\bin\Debug\netcoreapp3.1\MyCoreMvc.Dapper.dll
+E:\我的code\WebMVC\MyCoreMvc.Dapper\obj\Debug\netcoreapp3.1\MyCoreMvc.Dapper.csprojAssemblyReference.cache
+E:\我的code\WebMVC\MyCoreMvc.Dapper\obj\Debug\netcoreapp3.1\MyCoreMvc.Dapper.AssemblyInfoInputs.cache
+E:\我的code\WebMVC\MyCoreMvc.Dapper\obj\Debug\netcoreapp3.1\MyCoreMvc.Dapper.AssemblyInfo.cs
+E:\我的code\WebMVC\MyCoreMvc.Dapper\bin\Debug\netcoreapp3.1\MyCoreMvc.Dapper.pdb
+E:\我的code\WebMVC\MyCoreMvc.Dapper\obj\Debug\netcoreapp3.1\MyCoreMvc.Dapper.csproj.CoreCompileInputs.cache
+E:\我的code\WebMVC\MyCoreMvc.Dapper\obj\Debug\netcoreapp3.1\MyCoreMvc.Dapper.dll
+E:\我的code\WebMVC\MyCoreMvc.Dapper\obj\Debug\netcoreapp3.1\MyCoreMvc.Dapper.pdb

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyCoreMvc.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,5 +29,13 @@ namespace MyCoreMvc.EFCore
         //    //连接数据库-一般不用
         //    optionsBuilder.UseSqlServer(ConnectionString);
         //}
+
+        public virtual DbSet<User> User { get; set; }
+
+        public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Permission> Permission { get; set; }
+
+        public virtual DbSet<RolePermissions> RolePermissions { get; set; }
+        public virtual DbSet<UserRoles> UserRoles { get; set; }
     }
 }

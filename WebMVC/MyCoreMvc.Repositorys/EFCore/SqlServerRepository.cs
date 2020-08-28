@@ -1,7 +1,10 @@
-﻿using MyCoreMvc.EFCore;
+﻿using Microsoft.EntityFrameworkCore;
+using MyCoreMvc.EFCore;
 using MyCoreMvc.Entitys;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 
@@ -23,6 +26,40 @@ namespace MyCoreMvc.Repositorys
         {
             _dbContext = dbContext;
         }
+
+
+        //public virtual DbTransaction Transaction
+        //{
+        //    get
+        //    {   //安装ef6才行
+        //        //return ((DbContextTransaction)_dbContext.Database.CurrentTransaction).UnderlyingTransaction;
+        //        //return (DbTransaction)TransactionProvider?.GetActiveTransaction(new ActiveTransactionProviderArgs
+        //        //{
+        //        //    {"ContextType", typeof(SqlServerDbContext) },
+        //        //    {"MultiTenancySide", MultiTenancySide }
+        //        //});
+        //    }
+        //}
+
+        public virtual DbConnection Connection
+        {
+            get
+            {
+                var connection = _dbContext.Database.GetDbConnection();
+
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                return connection;
+            }
+        }
+
+
+
+
+
         public override void Delete(TEntity entity)
         {
             _dbContext.Set<TEntity>().Remove(entity);
