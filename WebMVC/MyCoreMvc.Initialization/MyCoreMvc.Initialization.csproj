@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyCoreMVC.Applications\MyCoreMVC.Applications.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.Common\MyCoreMvc.Common.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.EFCore\MyCoreMvc.EFCore.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.Repositorys\MyCoreMvc.Repositorys.csproj" />
+  </ItemGroup>
+
+</Project>

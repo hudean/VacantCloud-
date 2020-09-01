@@ -21,7 +21,7 @@ namespace MyCoreMVC.Applications.Services
             return _userRepository.Insert(user);
         }
 
-        public void Delete(int id)
+        public void Delete(long id)
         {
             _userRepository.Delete(id);
         }
@@ -31,7 +31,7 @@ namespace MyCoreMVC.Applications.Services
             return _userRepository.GetAll();
         }
 
-        public User Get(int id)
+        public User Get(long id)
         {
             return _userRepository.Get(id);
         }
@@ -46,6 +46,29 @@ namespace MyCoreMVC.Applications.Services
         {
             var model = _userRepository.GetAll()?.SingleOrDefault(r => r.Name == loginName && r.Password == password);
             return model == null ? false : true;
+        }
+
+        public void IncrLoginError(long id)
+        {
+            User user = Get(id);
+            user.LastLoginErrorDateTime = DateTime.Now;
+            user.LoginErrorTimes++;
+             Update(user);
+        }
+
+        public void ResetLoginError(long id)
+        {
+            User user = Get(id);
+            user.LastLoginErrorDateTime = null;
+            user.LoginErrorTimes = 0;
+            Update(user);
+        }
+
+        public bool IsLocked(long id)
+        {
+            User user = Get(id);
+            //错误登录次数>=5，最后一次登录错误时间在30分钟之内
+            return user.LoginErrorTimes >= 5 && user.LastLoginErrorDateTime > DateTime.Now.AddMinutes(-30);
         }
     }
 }

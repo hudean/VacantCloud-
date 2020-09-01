@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 EF数据库迁移辅助�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFHelper", "EFHelper\EFHelper.csproj", "{AB0918F1-B037-4F6C-84C5-6E69C67CCC96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoreMvc.Initialization", "MyCoreMvc.Initialization\MyCoreMvc.Initialization.csproj", "{792FDEA8-04B0-4C63-9517-41F233C4CB74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{AB0918F1-B037-4F6C-84C5-6E69C67CCC96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB0918F1-B037-4F6C-84C5-6E69C67CCC96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB0918F1-B037-4F6C-84C5-6E69C67CCC96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{792FDEA8-04B0-4C63-9517-41F233C4CB74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{792FDEA8-04B0-4C63-9517-41F233C4CB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{792FDEA8-04B0-4C63-9517-41F233C4CB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{792FDEA8-04B0-4C63-9517-41F233C4CB74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +109,7 @@ Global
 		{ACF30970-79B4-4A8A-9CB0-F00E8E13FD61} = {BDE89092-2927-4461-A54D-9A1C5D1113ED}
 		{87B37BE8-6AC7-4E46-87F8-D8A6159F711F} = {BDE89092-2927-4461-A54D-9A1C5D1113ED}
 		{AB0918F1-B037-4F6C-84C5-6E69C67CCC96} = {E2C7F108-7AAE-42A7-8037-2CC94A6E34EC}
+		{792FDEA8-04B0-4C63-9517-41F233C4CB74} = {81444F93-EE80-476E-A68C-B44BDBD68BB5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {00258917-1991-4183-ACC9-D9FD01D9F12C}

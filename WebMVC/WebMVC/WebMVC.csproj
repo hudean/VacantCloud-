@@ -11,11 +11,8 @@
   <ItemGroup>
     <ProjectReference Include="..\MyCoreMvc.EFCore\MyCoreMvc.EFCore.csproj" />
     <ProjectReference Include="..\MyCoreMvc.Entitys\MyCoreMvc.Entitys.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.Initialization\MyCoreMvc.Initialization.csproj" />
     <ProjectReference Include="..\MyCoreMvc.Repositorys\MyCoreMvc.Repositorys.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Filter\" />
   </ItemGroup>
 
 </Project>

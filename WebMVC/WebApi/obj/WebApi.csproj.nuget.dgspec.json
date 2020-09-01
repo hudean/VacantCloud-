@@ -40,6 +40,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "ServiceStack": {
+              "target": "Package",
+              "version": "[5.9.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

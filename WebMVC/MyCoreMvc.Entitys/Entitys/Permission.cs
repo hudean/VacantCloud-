@@ -16,7 +16,7 @@ namespace MyCoreMvc.Entitys
         [DisplayName("描述")]
         public string Description { get; set; }
         [Required]
-        [DisplayName("描述")]
+        [DisplayName("名称")]
         public string Name { get; set; }
         //public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
         public virtual ICollection<RolePermissions> RolePermissions { get; set; } = new List<RolePermissions>();

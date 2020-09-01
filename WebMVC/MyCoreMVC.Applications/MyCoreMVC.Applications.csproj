@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\MyCoreMvc.Common\MyCoreMvc.Common.csproj" />
     <ProjectReference Include="..\MyCoreMvc.Entitys\MyCoreMvc.Entitys.csproj" />
     <ProjectReference Include="..\MyCoreMvc.Repositorys\MyCoreMvc.Repositorys.csproj" />
   </ItemGroup>

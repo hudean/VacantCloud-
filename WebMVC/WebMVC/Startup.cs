@@ -1,14 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyCoreMvc.Initialization;
 using MyCoreMvc.Repositorys;
+using WebMVC.Filter;
 
 namespace WebMVC
 {
@@ -35,6 +39,7 @@ namespace WebMVC
         {
             services.AddControllersWithViews();
 
+            #region 已注释
             //注册服务连接数据库
             //services.AddDbContext<SqlServerDbContext>(options =>
             //{
@@ -47,13 +52,41 @@ namespace WebMVC
 
             //services.AddScoped<IUserService,UserService>();
             //services.AddScoped<IRoleService, RoleService>();
-            RepositoryFactory.Injection(services, Configuration);
+            #endregion
+
+            //调用工厂模式进行依赖注入
+            InitializationFactory.Injection(services, Configuration);
+
+            //基于内存存储Session
+            services.AddDistributedMemoryCache();
             services.AddSession();
+
+            #region 第一种权限过滤
             //services.AddMvc(options =>
             //{
             //    options.Filters.Add<Filter.MyExceptionFilter>();
             //});
+            #endregion
 
+
+
+
+            #region 第二种权限过滤
+            //权限要求参数
+            var permissionRequirement = new PermissionRequirement(
+                "/Home/visitDeny",// 拒绝授权的跳转地址
+                ClaimTypes.Name,//基于用户名的授权
+                expiration: TimeSpan.FromSeconds(60 * 5)//接口的过期时间
+                );
+
+            //【授权】
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Permission", policy => policy.Requirements.Add(permissionRequirement));
+            });
+            // 注入权限处理器
+            services.AddTransient<IAuthorizationHandler, PermissionHandler>();
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,7 +104,7 @@ namespace WebMVC
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();

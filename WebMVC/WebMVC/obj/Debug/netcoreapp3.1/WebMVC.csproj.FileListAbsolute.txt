@@ -86,3 +86,10 @@ E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\log4net.config
 E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\log4net.dll
 E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.csproj.CoreCompileInputs.cache
 E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.MvcApplicationPartsAssemblyInfo.cache
+E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\AutoMapper.dll
+E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\MyCoreMVC.Applications.dll
+E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\MyCoreMvc.Common.dll
+E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\MyCoreMvc.Initialization.dll
+E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\MyCoreMVC.Applications.pdb
+E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\MyCoreMvc.Common.pdb
+E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\MyCoreMvc.Initialization.pdb

@@ -14,3 +14,5 @@ E:\我的code\WebMVC\MyCoreMVC.Applications\bin\Debug\netcoreapp3.1\MyCoreMvc.EF
 E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.csproj.CopyComplete
 E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.dll
 E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.pdb
+E:\我的code\WebMVC\MyCoreMVC.Applications\bin\Debug\netcoreapp3.1\MyCoreMvc.Common.dll
+E:\我的code\WebMVC\MyCoreMVC.Applications\bin\Debug\netcoreapp3.1\MyCoreMvc.Common.pdb

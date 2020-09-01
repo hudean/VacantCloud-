@@ -1,0 +1,428 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\我的code\\WebMVC\\MyCoreMvc.Initialization\\MyCoreMvc.Initialization.csproj": {}
+  },
+  "projects": {
+    "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\MyCoreMVC.Applications.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\MyCoreMVC.Applications.csproj",
+        "projectName": "MyCoreMVC.Applications",
+        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\MyCoreMVC.Applications.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj"
+              },
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj"
+              },
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj",
+        "projectName": "MyCoreMvc.Common",
+        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj",
+        "projectName": "MyCoreMvc.EFCore",
+        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Oracle.ManagedDataAccess.Core": {
+              "target": "Package",
+              "version": "[2.19.80, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj",
+        "projectName": "MyCoreMvc.Entitys",
+        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\我的code\\WebMVC\\MyCoreMvc.Initialization\\MyCoreMvc.Initialization.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Initialization\\MyCoreMvc.Initialization.csproj",
+        "projectName": "MyCoreMvc.Initialization",
+        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Initialization\\MyCoreMvc.Initialization.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Initialization\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\MyCoreMVC.Applications.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\MyCoreMVC.Applications.csproj"
+              },
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj"
+              },
+              "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj"
+              },
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj",
+        "projectName": "MyCoreMvc.Repositorys",
+        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj"
+              },
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

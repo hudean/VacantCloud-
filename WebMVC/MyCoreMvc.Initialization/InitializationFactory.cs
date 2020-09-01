@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyCoreMvc.EFCore;
+using MyCoreMvc.Repositorys;
+using MyCoreMVC.Applications.IServices;
 using MySql.Data.MySqlClient;
 using Pomelo.EntityFrameworkCore.MySql.Storage.Internal;
 using System;
@@ -13,7 +15,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace MyCoreMvc.Repositorys
+namespace MyCoreMvc.Initialization
 {
     /// <summary>
     /// 初始化工厂
@@ -51,31 +53,9 @@ namespace MyCoreMvc.Repositorys
                     throw new Exception("未找到数据库配置");
             }
 
-            //依赖注入仓储  
-            //参考 文档https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1
-            switch (DIMethod)
-            {
-                case "AddScoped":
-                    // AddScoped 作用域 方法使用范围内生存期（单个请求的生存期）注册服务。作用域生存期服务 (AddScoped) 以每个客户端请求（连接）一次的方式创建。
-                    services.AddScoped(typeof(IRepository<,>), typeof(SqlServerRepository<,>));
-                    services.AddScoped(typeof(IRepository<>), typeof(SqlServerRepository<>));
-                    break;
-
-                case "AddTransient":
-                    //暂时/瞬态 暂时生存期服务 (AddTransient) 是每次从服务容器进行请求时创建的。 这种生存期适合轻量级、 无状态的服务。
-                    services.AddTransient(typeof(IRepository<,>), typeof(SqlServerRepository<,>));
-                    services.AddTransient(typeof(IRepository<>), typeof(SqlServerRepository<>));
-                    break;
-                case "AddSingleton":
-                    //单例 在首次请求它们时进行创建；或者在向容器直接提供实现实例时由开发人员进行创建。 很少用到此方法
-                    services.AddSingleton(typeof(IRepository<,>), typeof(SqlServerRepository<,>));
-                    services.AddSingleton(typeof(IRepository<>), typeof(SqlServerRepository<>));
-                    break;
-                default:
-                    services.AddScoped(typeof(IRepository<,>), typeof(SqlServerRepository<,>));
-                    services.AddScoped(typeof(IRepository<>), typeof(SqlServerRepository<>));
-                    break;
-            }
+            
+            InjectionRepositorys(services, DIMethod);
+            InjectionServices.Injection(services, "MyCoreMVC.Applications", (ServiceLifetime)Enum.Parse(typeof(ServiceLifetime), DIMethod));
             try
             {
                 //检查是否连接到数据库
@@ -89,19 +69,41 @@ namespace MyCoreMvc.Repositorys
                 throw new Exception("数据库配置连接字符串错误请检查："+ex.ToString());
             }
 
-            #region 批量注入Services
-            //加载程序集MyApplication
-            var serviceAsm = Assembly.Load(new AssemblyName("MyApplication"));
-            foreach (Type serviceType in serviceAsm.GetTypes().Where(t => typeof(IBaseService).IsAssignableFrom(t) && !t.GetTypeInfo().IsAbstract))
-            {
-                var interfaceTypes = serviceType.GetInterfaces();
-                foreach (var interfaceType in interfaceTypes)
-                {
-                    services.AddScoped(interfaceType, serviceType);
-                }
-            }
+           
+        }
 
-            #endregion
+
+        /// <summary>
+        /// 依赖注入仓储  
+        /// 参考 文档https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="DIMethod"></param>
+        public static void InjectionRepositorys(IServiceCollection services,string DIMethod)
+        {
+            switch (DIMethod)
+            {
+                case "Scoped":
+                    // AddScoped 作用域 方法使用范围内生存期（单个请求的生存期）注册服务。作用域生存期服务 (AddScoped) 以每个客户端请求（连接）一次的方式创建。
+                    services.AddScoped(typeof(IRepository<,>), typeof(SqlServerRepository<,>));
+                    services.AddScoped(typeof(IRepository<>), typeof(SqlServerRepository<>));
+                    break;
+
+                case "Transient":
+                    //暂时/瞬态 暂时生存期服务 (AddTransient) 是每次从服务容器进行请求时创建的。 这种生存期适合轻量级、 无状态的服务。
+                    services.AddTransient(typeof(IRepository<,>), typeof(SqlServerRepository<,>));
+                    services.AddTransient(typeof(IRepository<>), typeof(SqlServerRepository<>));
+                    break;
+                case "Singleton":
+                    //单例 在首次请求它们时进行创建；或者在向容器直接提供实现实例时由开发人员进行创建。 很少用到此方法
+                    services.AddSingleton(typeof(IRepository<,>), typeof(SqlServerRepository<,>));
+                    services.AddSingleton(typeof(IRepository<>), typeof(SqlServerRepository<>));
+                    break;
+                default:
+                    services.AddScoped(typeof(IRepository<,>), typeof(SqlServerRepository<,>));
+                    services.AddScoped(typeof(IRepository<>), typeof(SqlServerRepository<>));
+                    break;
+            }
         }
     }
 }

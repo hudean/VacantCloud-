@@ -34,6 +34,6 @@ namespace MyCoreMvc.Entitys
 
         public virtual ICollection<UserRoles> UserRoles { get; set; } = new List<UserRoles>();
 
-        //public virtual ICollection <Role> Roles { get; set; } = new List<Role>();
+        public virtual ICollection <Role> Roles { get; set; } = new List<Role>();
     }
 }

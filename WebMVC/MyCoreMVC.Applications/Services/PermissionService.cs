@@ -21,6 +21,11 @@ namespace MyCoreMVC.Applications.Services
             return _permissionRepository.Insert(permission);
         }
 
+        public void AddPermIds(long roleId, long[] permIds)
+        {
+            throw new NotImplementedException();
+        }
+
         public int Delete(int id)
         {
             throw new NotImplementedException();
@@ -44,6 +49,16 @@ namespace MyCoreMVC.Applications.Services
         public IQueryable<Permission> GetAll()
         {
             return _permissionRepository.GetAll();
+        }
+
+        public PermissionDTO[] GetByRoleId(long roleId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdatePermIds(long roleId, long[] permIds)
+        {
+            throw new NotImplementedException();
         }
     }
 }
