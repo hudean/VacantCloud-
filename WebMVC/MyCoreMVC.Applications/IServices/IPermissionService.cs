@@ -1,4 +1,5 @@
 ﻿using MyCoreMvc.Entitys;
+using MyCoreMVC.Applications.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

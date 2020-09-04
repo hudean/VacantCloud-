@@ -16,10 +16,7 @@ E:\我的code\WebMVC\WebApi\obj\Debug\netcoreapp3.1\staticwebassets\WebApi.Stati
 E:\我的code\WebMVC\WebApi\obj\Debug\netcoreapp3.1\WebApi.dll
 E:\我的code\WebMVC\WebApi\obj\Debug\netcoreapp3.1\WebApi.pdb
 E:\我的code\WebMVC\WebApi\obj\Debug\netcoreapp3.1\WebApi.genruntimeconfig.cache
-E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
-E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 E:\我的code\WebMVC\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.CopyComplete
 E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\ServiceStack.dll
 E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\ServiceStack.Client.dll
@@ -29,5 +26,6 @@ E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\ServiceStack.Text.dll
 E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\System.Private.ServiceModel.dll
 E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\System.ServiceModel.Primitives.dll
 E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\System.ServiceModel.dll
-E:\我的code\WebMVC\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.CoreCompileInputs.cache
-E:\我的code\WebMVC\WebApi\obj\Debug\netcoreapp3.1\WebApi.MvcApplicationPartsAssemblyInfo.cache
+E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+E:\我的code\WebMVC\WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

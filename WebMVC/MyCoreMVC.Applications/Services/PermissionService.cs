@@ -1,5 +1,6 @@
 ﻿using MyCoreMvc.Entitys;
 using MyCoreMvc.Repositorys;
+using MyCoreMVC.Applications.Dtos;
 using MyCoreMVC.Applications.IServices;
 using System;
 using System.Collections.Generic;

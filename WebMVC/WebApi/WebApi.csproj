@@ -1,12 +1,28 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>E:\我的code\WebMVC\WebApi\WebApi.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
     <PackageReference Include="ServiceStack" Version="5.9.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyCoreMVC.Applications\MyCoreMVC.Applications.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.Common\MyCoreMvc.Common.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.Dapper\MyCoreMvc.Dapper.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.Data\MyCoreMvc.Data.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.EFCore\MyCoreMvc.EFCore.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.Entitys\MyCoreMvc.Entitys.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.Initialization\MyCoreMvc.Initialization.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.Repositorys\MyCoreMvc.Repositorys.csproj" />
   </ItemGroup>
 
 

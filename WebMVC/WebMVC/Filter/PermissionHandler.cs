@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace WebMVC.Filter
 {
     /// <summary>
-    /// 权限判断 使用AuthorizationHandler形式进行过滤
+    /// 基于授权策略对请求的资源授权限制 使用AuthorizationHandler形式进行过滤
     /// </summary>
     public class PermissionHandler : AuthorizationHandler<PermissionRequirement>
     {

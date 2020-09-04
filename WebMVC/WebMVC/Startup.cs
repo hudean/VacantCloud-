@@ -62,10 +62,11 @@ namespace WebMVC
             services.AddSession();
 
             #region 第一种权限过滤
-            //services.AddMvc(options =>
-            //{
-            //    options.Filters.Add<Filter.MyExceptionFilter>();
-            //});
+            services.AddMvc(options =>
+            {
+                options.Filters.Add<Filter.CheckLoginAuthorizeFilter>();
+                options.Filters.Add<Filter.MyExceptionFilter>();
+            });
             #endregion
 
 

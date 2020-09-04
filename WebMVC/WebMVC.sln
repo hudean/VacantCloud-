@@ -35,9 +35,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCoreMvc.Dapper", "MyCoreM
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 EF数据库迁移辅助工具", "06 EF数据库迁移辅助工具", "{E2C7F108-7AAE-42A7-8037-2CC94A6E34EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFHelper", "EFHelper\EFHelper.csproj", "{AB0918F1-B037-4F6C-84C5-6E69C67CCC96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFHelper", "EFHelper\EFHelper.csproj", "{AB0918F1-B037-4F6C-84C5-6E69C67CCC96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoreMvc.Initialization", "MyCoreMvc.Initialization\MyCoreMvc.Initialization.csproj", "{792FDEA8-04B0-4C63-9517-41F233C4CB74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCoreMvc.Initialization", "MyCoreMvc.Initialization\MyCoreMvc.Initialization.csproj", "{792FDEA8-04B0-4C63-9517-41F233C4CB74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Dos", "_Dos", "{9C97B0DA-B268-4ABE-B702-628E3508786D}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\Administrator\Desktop\数据库表.docx = C:\Users\Administrator\Desktop\数据库表.docx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,6 +115,7 @@ Global
 		{87B37BE8-6AC7-4E46-87F8-D8A6159F711F} = {BDE89092-2927-4461-A54D-9A1C5D1113ED}
 		{AB0918F1-B037-4F6C-84C5-6E69C67CCC96} = {E2C7F108-7AAE-42A7-8037-2CC94A6E34EC}
 		{792FDEA8-04B0-4C63-9517-41F233C4CB74} = {81444F93-EE80-476E-A68C-B44BDBD68BB5}
+		{9C97B0DA-B268-4ABE-B702-628E3508786D} = {E2C7F108-7AAE-42A7-8037-2CC94A6E34EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {00258917-1991-4183-ACC9-D9FD01D9F12C}

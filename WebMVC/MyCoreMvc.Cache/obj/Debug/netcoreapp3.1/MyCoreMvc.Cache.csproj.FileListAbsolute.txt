@@ -1,0 +1,6 @@
+E:\我的code\WebMVC\MyCoreMvc.Cache\bin\Debug\netcoreapp3.1\MyCoreMvc.Cache.deps.json
+E:\我的code\WebMVC\MyCoreMvc.Cache\bin\Debug\netcoreapp3.1\MyCoreMvc.Cache.dll
+E:\我的code\WebMVC\MyCoreMvc.Cache\obj\Debug\netcoreapp3.1\MyCoreMvc.Cache.AssemblyInfoInputs.cache
+E:\我的code\WebMVC\MyCoreMvc.Cache\obj\Debug\netcoreapp3.1\MyCoreMvc.Cache.AssemblyInfo.cs
+E:\我的code\WebMVC\MyCoreMvc.Cache\obj\Debug\netcoreapp3.1\MyCoreMvc.Cache.csprojAssemblyReference.cache
+E:\我的code\WebMVC\MyCoreMvc.Cache\obj\Debug\netcoreapp3.1\MyCoreMvc.Cache.csproj.CoreCompileInputs.cache

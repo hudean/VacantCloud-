@@ -13,7 +13,7 @@ namespace WebMVC.Filter
     /// <summary>
     /// 登录校验权限过滤器
     /// </summary>
-    public class CheckLoginAuthorizeFilter : Attribute,IAuthorizationFilter
+    public class CheckLoginAuthorizeFilter : Attribute, IAuthorizationFilter
     {
         //参考文章 https://www.cnblogs.com/yaopengfei/p/11232921.html
 
@@ -23,27 +23,10 @@ namespace WebMVC.Filter
         /// <param name="context"></param>
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-
-            string allowAttrName = typeof(AllowAnonymousAttribute).ToString();
-            string attrName = typeof(CheckPermissionAttribute).ToString();
-            //所有目标对象上所有特性
-            var data = context.ActionDescriptor.EndpointMetadata.ToList();
-            bool isHasAttr=false;
-            //循环比对是否含有skip特性
-            //如果action带有允许匿名访问的特性，则直接返回，不再进行安全认证
-            if (data.Any(r => r.ToString().Equals(allowAttrName, StringComparison.OrdinalIgnoreCase)))
-            {
+            //匿名标识 无需验证
+            if (context.Filters.Any(e => (e as AllowAnonymous) != null))
                 return;
-            }
 
-            data.ForEach(i => i.ToString().Equals(attrName, StringComparison.OrdinalIgnoreCase));
-            foreach (var item in data)
-            {
-                if (data.ToString().Equals(attrName))
-                {
-                    isHasAttr = true;
-                }
-            }
             string userId = context.HttpContext.Session.GetString("LoginUserId");
 
             if (string.IsNullOrEmpty(userId))
@@ -59,6 +42,63 @@ namespace WebMVC.Filter
                     context.Result = result;
                 }
                 return;
+            }
+
+            //对应action方法或者Controller上若存在NonePermissionAttribute标识，即表示为管理员的默认权限,只要登录就有权限
+            var isNone = context.Filters.Any(e => (e as NonePermissionAttribute) != null);
+            if (isNone)
+                return;
+
+            //获取请求的区域，控制器，action名称
+            var area = context.RouteData.DataTokens["area"]?.ToString();
+            var controller = context.RouteData.Values["controller"]?.ToString();
+            var action = context.RouteData.Values["action"]?.ToString();
+            var isPermit = false;
+            //校验权限
+            //isPermit = ServiceFactory.CheckAdminPermit(adminInfo.Id, area, controller, action);
+            if (isPermit)
+                return;
+
+            //此action方法的父辈权限判断，只要有此action对应的父辈权限，皆有权限访问
+            var pAttrs = context.Filters.Where(e => (e as ParentPermissionAttribute) != null).ToList();
+            if (pAttrs.Count > 0)
+            {
+                foreach (ParentPermissionAttribute pattr in pAttrs)
+                {
+                    if (!string.IsNullOrEmpty(pattr.Area))
+                        area = pattr.Area;
+                    //isPermit = ServiceFactory.CheckAdminPermit(adminInfo.Id, area, pattr.Controller, pattr.Action);
+                    if (isPermit)
+                        return;
+                }
+            }
+            if (!isPermit)
+            {
+                context.Result = new ContentResult() { Content = "无权限访问" };
+                return;
+            }
+
+            /**********************************************/
+
+            string allowAttrName = typeof(AllowAnonymousAttribute).ToString();
+            string attrName = typeof(CheckPermissionAttribute).ToString();
+            //所有目标对象上所有特性
+            var data = context.ActionDescriptor.EndpointMetadata.ToList();
+            bool isHasAttr = false;
+            //循环比对是否含有skip特性
+            //如果action带有允许匿名访问的特性，则直接返回，不再进行安全认证
+            if (data.Any(r => r.ToString().Equals(allowAttrName, StringComparison.OrdinalIgnoreCase)))
+            {
+                return;
+            }
+
+            data.ForEach(i => i.ToString().Equals(attrName, StringComparison.OrdinalIgnoreCase));
+            foreach (var item in data)
+            {
+                if (data.ToString().Equals(attrName))
+                {
+                    isHasAttr = true;
+                }
             }
 
 
@@ -98,17 +138,17 @@ namespace WebMVC.Filter
             //方法2
             //context.RouteData.Values["controller"].ToString();
             //context.RouteData.Values["action"].ToString();
-            string actionName = context.RouteData.Values["action"].ToString();
-            if (context.HttpContext.User.Identity.Name != "admin")
-            {
-                //未通过验证则跳转到无权限提示页
-                RedirectToActionResult content = new RedirectToActionResult("NoAuth", "Exception", null);
-                context.Result = content;
-            }
+            //string actionName = context.RouteData.Values["action"].ToString();
+            //if (context.HttpContext.User.Identity.Name != "admin")
+            //{
+            //    //未通过验证则跳转到无权限提示页
+            //    RedirectToActionResult content = new RedirectToActionResult("NoAuth", "Exception", null);
+            //    context.Result = content;
+            //}
 
-           
-           
-          
+
+
+
             throw new NotImplementedException();
 
 
@@ -185,6 +225,51 @@ namespace WebMVC.Filter
         {
             string header = request.Headers["X-Requested-With"];
             return "XMLHttpRequest".Equals(header);
+        }
+    }
+
+
+
+    /// <summary>
+    /// 管理员的默认权限
+    /// </summary>
+    public class NonePermissionAttribute : Attribute, IFilterMetadata { }
+
+    /// <summary>
+    /// 匿名验证
+    /// </summary>
+    public class AllowAnonymous : Attribute, IFilterMetadata { }
+
+    /// <summary>
+    /// 长辈权限
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
+    public class ParentPermissionAttribute : Attribute, IFilterMetadata
+    {
+        /// <summary>
+        /// 区域
+        /// </summary>
+        public string Area { get; set; }
+        /// <summary>
+        /// 控制器
+        /// </summary>
+        public string Controller { get; set; }
+        /// <summary>
+        /// Action名称
+        /// </summary>
+        public string Action { get; set; }
+
+        public ParentPermissionAttribute(string area, string controller, string action)
+        {
+            this.Area = area;
+            this.Controller = controller;
+            this.Action = action;
+        }
+
+        public ParentPermissionAttribute(string controller, string action)
+        {
+            this.Controller = controller;
+            this.Action = action;
         }
     }
 }
