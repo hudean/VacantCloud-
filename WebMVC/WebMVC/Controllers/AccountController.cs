@@ -53,9 +53,9 @@ namespace WebMVC.Controllers
             {
                 return View();
             }
-            bool result = _userService.CheckLogin(model.UserName, model.Password);
-            var list = _userService.GerAll().ToList();
-            long userId = _userService.GerAll().ToList().FirstOrDefault(r => r.Name == model.UserName && r.Password == model.Password).Id;
+            bool result = false; //_userService.CheckLogin(model.UserName, model.Password);
+            var list = _userService.GetAll().ToList();
+            long userId = _userService.GetAll().ToList().FirstOrDefault(r => r.UserName == model.UserName && r.Password == model.Password).Id;
             if (result)
             {
                 HttpContext.Session.SetString("LoginUserId", userId.ToString());

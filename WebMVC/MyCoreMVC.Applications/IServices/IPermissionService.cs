@@ -9,23 +9,51 @@ namespace MyCoreMVC.Applications.IServices
 {
     public interface IPermissionService : IBaseService
     {
-        public IQueryable<Permission> GetAll();
-        public Permission Get(int id);
+        /// <summary>
+        /// 获取所有角色
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        public IQueryable<PermissionDto> GetAll(PermissionInputDto dto);
 
-        public Permission Add(Permission permission);
+        /// <summary>
+        /// 获取所有角色
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<PermissionDto> GetAll();
 
-        public Permission Edit(Permission permission);
+        /// <summary>
+        /// 分页获取权限列表
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        public IQueryable<PermissionDto> GetPageList(PermissionInputDto dto);
 
-        public int Delete(int id);
-        public int Delete(Permission permission);
+        /// <summary>
+        /// 根据id获取权限
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public PermissionDto Get(long id);
 
-        //获取角色的权限
-        PermissionDTO[] GetByRoleId(long roleId);
+        /// <summary>
+        /// 添加权限
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        public PermissionDto Add(PermissionDto dto);
+        /// <summary>
+        /// 根据id删除权限
+        /// </summary>
+        /// <param name="id"></param>
+        public void Delete(long id);
 
-        //给角色roleId增加权限项id permIds
-        void AddPermIds(long roleId, long[] permIds);
 
-        //更新角色role的权限项：先删除再添加
-        void UpdatePermIds(long roleId, long[] permIds);
+        /// <summary>
+        /// 修改权限
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public PermissionDto Update(PermissionDto dto);
     }
 }

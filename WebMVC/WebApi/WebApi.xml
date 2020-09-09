@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:WebApi.Filter.AuthorizationFilter">
+            <summary>
+            基于http basic认证   
+            </summary>
+        </member>
+        <member name="M:WebApi.Filter.BaseActionFilterAsync.JsonContent(System.String)">
+            <summary>
+            返回JSON
+            </summary>
+            <param name="json">json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Filter.BaseActionFilterAsync.Success">
+            <summary>
+            返回成功
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Filter.BaseActionFilterAsync.Success(System.String)">
+            <summary>
+            返回成功
+            </summary>
+            <param name="msg">消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Filter.BaseActionFilterAsync.Success``1(``0)">
+            <summary>
+            返回成功
+            </summary>
+            <param name="data">返回的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Filter.BaseActionFilterAsync.Error">
+            <summary>
+            返回错误
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Filter.BaseActionFilterAsync.Error(System.String)">
+            <summary>
+            返回错误
+            </summary>
+            <param name="msg">错误提示</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Filter.BaseActionFilterAsync.Error(System.String,System.Int32)">
+            <summary>
+            返回错误
+            </summary>
+            <param name="msg">错误提示</param>
+            <param name="errorCode">错误代码</param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Filter.AjaxResult">
+            <summary>
+            Ajax请求结果
+            </summary>
+        </member>
+        <member name="P:WebApi.Filter.AjaxResult.Success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:WebApi.Filter.AjaxResult.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="P:WebApi.Filter.AjaxResult.Msg">
+            <summary>
+            返回消息
+            </summary>
+        </member>
+        <member name="T:WebApi.Filter.AjaxResult`1">
+            <summary>
+            Ajax请求结果
+            </summary>
+        </member>
+        <member name="P:WebApi.Filter.AjaxResult`1.Data">
+            <summary>
+            返回数据
+            </summary>
+        </member>
+        <member name="T:WebApi.Filter.JWT校验.CheckJWTAttribute">
+            <summary>
+            JWT校验
+            </summary>
+        </member>
+        <member name="T:WebApi.Filter.JWT校验.Extention">
+            <summary>
+            拓展类
+            </summary>
+        </member>
+        <member name="M:WebApi.Filter.JWT校验.Extention.ContainsFilter``1(Microsoft.AspNetCore.Mvc.Filters.FilterContext)">
+            <summary>
+            是否拥有某过滤器
+            </summary>
+            <typeparam name="T">过滤器类型</typeparam>
+            <param name="actionExecutingContext">上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Filter.JWT校验.Extention.GetToken(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            获取Token
+            </summary>
+            <param name="req">请求</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Filter.JWT校验.Extention.IsNullOrEmpty(System.Object)">
+            <summary>
+            判断是否为Null或者空
+            </summary>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Filter.JWT校验.NoCheckJWTAttribute">
+            <summary>
+            忽略JWT校验
+            </summary>
+        </member>
+        <member name="T:WebApi._01Middleware.CorsMiddleware">
+            <summary>
+            跨域中间件
+            </summary>
+        </member>
+        <member name="M:WebApi._01Middleware.CorsMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            管道执行到该中间件时候下一个中间件的RequestDelegate请求委托，如果有其它参数，也同样通过注入的方式获得
+            </summary>
+            <param name="next">下一个处理者</param>
+        </member>
+        <member name="M:WebApi._01Middleware.CorsMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            自定义中间件要执行的逻辑
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

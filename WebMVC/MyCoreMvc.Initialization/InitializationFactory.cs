@@ -66,7 +66,7 @@ namespace MyCoreMvc.Initialization
             }
             catch (Exception ex)
             {
-                throw new Exception("数据库配置连接字符串错误请检查："+ex.ToString());
+               // throw new Exception("数据库配置连接字符串错误请检查："+ex.ToString());
             }
 
            

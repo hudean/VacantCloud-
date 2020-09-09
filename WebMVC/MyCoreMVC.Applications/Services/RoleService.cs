@@ -18,72 +18,119 @@ namespace MyCoreMVC.Applications.Services
     {
         private readonly IRepository<Role> _roleRepository;
         private readonly IRepository<User> _userRepository;
+        private readonly IRepository<UserRole,int> _userRoleRepository;
         public RoleService(IRepository<Role> roleRepository, IRepository<User> userRepository)
         {
             _roleRepository = roleRepository;
             _userRepository = userRepository;
         }
-        public Role Add(Role role)
+        /// <summary>
+        /// 获取所有角色
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        public IQueryable<RoleDto> GetAll(RoleInputDto dto)
         {
-            return _roleRepository.Insert(role);
+            var query = _roleRepository.GetAll(); 
+            if (string.IsNullOrEmpty(dto?.SearchRoleName))
+            {
+                query = query.Where(u => u.RoleName.Contains(dto.SearchRoleName));
+            }
+            return AutoMapperExtension.MapTo<Role, RoleDto>(query).AsQueryable();
         }
 
         /// <summary>
-        /// 为管理用户添加角色
+        /// 获取所有角色
         /// </summary>
-        /// <param name="adminUserId">管理用户ID</param>
-        /// <param name="roleIds">角色ID集合</param>
-        public void AddRoleIds(long adminUserId, long[] roleIds)
+        /// <returns></returns>
+        public IQueryable<RoleDto> GetAll()
         {
-            var adminUser = _userRepository.Get(adminUserId);
-            if (adminUser == null)
-            {
-                throw new ArgumentException();
-            }
-            var roles = _roleRepository.GetAll().AsNoTracking().Where(r => roleIds.Contains(r.Id)).ToList();
-            roles.ForEach(r => { adminUser.Roles.Add(r); });
-
+            var query = _roleRepository.GetAll();
+            return AutoMapperExtension.MapTo<Role, RoleDto>(query).AsQueryable();
         }
 
-        public void Delete(int id)
+        /// <summary>
+        /// 分页获取角色列表
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        public IQueryable<RoleDto> GetPageList(RoleInputDto dto)
+        {
+            var query = _roleRepository.GetAll();
+            int count = query.Count();
+            if (string.IsNullOrEmpty(dto?.SearchRoleName))
+            {
+                query = query.Where(u => u.RoleName.Contains(dto.SearchRoleName));
+            }
+            query = query.Skip((dto.PageIndex - 1) * dto.PageSize).Take(dto.PageSize);
+            return AutoMapperExtension.MapTo<Role, RoleDto>(query).AsQueryable();
+        }
+
+        /// <summary>
+        /// 根据id获取角色
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public RoleDto Get(long id)
+        {
+            var role = _roleRepository.Get(id);
+            if (role != null)
+            {
+                return AutoMapperExtension.MapTo<Role, RoleDto>(role);
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 添加角色
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        public RoleDto Add(RoleDto dto)
+        {
+            var query = _roleRepository.GetAll().Where(r => r.RoleName.Contains(dto.RoleName)).FirstOrDefault();
+            if (query != null)
+            {
+                throw new AggregateException("添加失败，角色名称已存在！");
+            }
+            var role = AutoMapperExtension.MapTo<RoleDto, Role>(dto);
+            var result = _roleRepository.Insert(role);
+            if (result != null)
+            {
+                return AutoMapperExtension.MapTo<Role, RoleDto>(result);
+            }
+            return null;
+        }
+        /// <summary>
+        /// 根据id删除角色
+        /// </summary>
+        /// <param name="id"></param>
+        public void Delete(long id)
         {
             _roleRepository.Delete(id);
         }
 
-        public IQueryable<Role> GerAll()
-        {
-            return _roleRepository.GetAll();
-        }
 
-        public Role Get(int id)
+        /// <summary>
+        /// 修改角色
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public RoleDto Update(RoleDto dto)
         {
-            return _roleRepository.Get(id);
-        }
-
-        public RoleDTO[] GetByAdminUserId(long adminUserId)
-        {
-            var adminUser = _userRepository.Get(adminUserId);
-            if (adminUser == null)
+            var query = _roleRepository.GetAll().Where(r => r.RoleName.Contains(dto.RoleName)&&r.Id!=dto.Id).FirstOrDefault();
+            if (query != null)
             {
-                throw new ArgumentException("不存在的管理员" + adminUserId);
+                throw new AggregateException("修改失败，角色名称已存在！");
             }
-           var roles= adminUser.Roles.ToList();
-            return AutoMapperExtension.MapTo<Role, RoleDTO>(roles).ToArray();
+            var role = AutoMapperExtension.MapTo<RoleDto, Role>(dto);
+            var result = _roleRepository.Update(role);
+            if (result != null)
+            {
+                return AutoMapperExtension.MapTo<Role, RoleDto>(result);
+            }
+            return null;
         }
 
-        public void MarkDeleted(long roleId)
-        {
-            _roleRepository.Delete(roleId);
-        }
-
-        public Role Update(Role user)
-        {
-           return _roleRepository.Update(user);
-        }
-
-        public void UpdateRoleIds(long adminUserId, long[] roleIds)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

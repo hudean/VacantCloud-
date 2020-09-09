@@ -7,8 +7,8 @@ namespace MyCoreMVC.Applications.Dtos
     /// <summary>
     /// 角色
     /// </summary>
-    public class RoleDTO : BaseDTO
+    public class RoleDto : BaseDto
     {
-        public String Name { get; set; }
+        public string RoleName { get; set; }
     }
 }

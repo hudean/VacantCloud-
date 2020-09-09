@@ -62,31 +62,31 @@ namespace WebMVC
             services.AddSession();
 
             #region 第一种权限过滤
-            services.AddMvc(options =>
-            {
-                options.Filters.Add<Filter.CheckLoginAuthorizeFilter>();
-                options.Filters.Add<Filter.MyExceptionFilter>();
-            });
+            //services.AddMvc(options =>
+            //{
+            //    options.Filters.Add<Filter.CheckLoginAuthorizeFilter>();
+            //    options.Filters.Add<Filter.MyExceptionFilter>();
+            //});
             #endregion
 
 
 
 
             #region 第二种权限过滤
-            //权限要求参数
-            var permissionRequirement = new PermissionRequirement(
-                "/Home/visitDeny",// 拒绝授权的跳转地址
-                ClaimTypes.Name,//基于用户名的授权
-                expiration: TimeSpan.FromSeconds(60 * 5)//接口的过期时间
-                );
+            ////权限要求参数
+            //var permissionRequirement = new PermissionRequirement(
+            //    "/Home/visitDeny",// 拒绝授权的跳转地址
+            //    ClaimTypes.Name,//基于用户名的授权
+            //    expiration: TimeSpan.FromSeconds(60 * 5)//接口的过期时间
+            //    );
 
-            //【授权】
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("Permission", policy => policy.Requirements.Add(permissionRequirement));
-            });
-            // 注入权限处理器
-            services.AddTransient<IAuthorizationHandler, PermissionHandler>();
+            ////【授权】
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("Permission", policy => policy.Requirements.Add(permissionRequirement));
+            //});
+            //// 注入权限处理器
+            //services.AddTransient<IAuthorizationHandler, PermissionHandler>();
             #endregion
         }
 
@@ -114,7 +114,8 @@ namespace WebMVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                     //pattern: "{controller=Home}/{action=Index}/{id?}");
+                     pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

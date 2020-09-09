@@ -1,0 +1,34 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyCoreMvc.Repositorys
+{
+    public class UnitOfWork : IUnitOfWork
+    {
+        private readonly DbContext _dbContext;
+
+        public UnitOfWork(DbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+
+       public DbContext GetDbContext()
+        {
+            return _dbContext;
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _dbContext.SaveChangesAsync();
+        }
+
+        public int SaveChanges()
+        {
+            return _dbContext.SaveChanges();
+        }
+    }
+}

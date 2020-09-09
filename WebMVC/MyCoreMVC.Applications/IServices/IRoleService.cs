@@ -12,34 +12,51 @@ namespace MyCoreMVC.Applications.IServices
     /// </summary>
     public interface IRoleService : IBaseService
     {
-        IQueryable<Role> GerAll();
-
-        Role Get(int roleId);
-
-        Role Add(Role rore);
-
-        Role Update(Role rore);
-
-        void MarkDeleted(long roleId);
         /// <summary>
-        /// 给用户adminuserId增加权限roleIds
+        /// 获取所有角色
         /// </summary>
-        /// <param name="adminUserId"></param>
-        /// <param name="roleIds"></param>
-        void AddRoleIds(long adminUserId, long[] roleIds);
-
-        /// <summary>
-        /// 更新权限，先删再加
-        /// </summary>
-        /// <param name="adminUserId"></param>
-        /// <param name="roleIds"></param>
-        void UpdateRoleIds(long adminUserId, long[] roleIds);
-
-        /// <summary>
-        /// 获取用户的角色
-        /// </summary>
-        /// <param name="adminUserId"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        RoleDTO[] GetByAdminUserId(long adminUserId);
+        public IQueryable<RoleDto> GetAll(RoleInputDto dto);
+
+        /// <summary>
+        /// 获取所有角色
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<RoleDto> GetAll();
+
+        /// <summary>
+        /// 分页获取角色列表
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        public IQueryable<RoleDto> GetPageList(RoleInputDto dto);
+
+        /// <summary>
+        /// 根据id获取角色
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public RoleDto Get(long id);
+
+        /// <summary>
+        /// 添加角色
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        public RoleDto Add(RoleDto dto);
+        /// <summary>
+        /// 根据id删除角色
+        /// </summary>
+        /// <param name="id"></param>
+        public void Delete(long id);
+
+
+        /// <summary>
+        /// 修改角色
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public RoleDto Update(RoleDto dto);
     }
 }

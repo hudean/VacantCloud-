@@ -7,9 +7,14 @@ namespace MyCoreMVC.Applications.Dtos
     /// <summary>
     /// 权限
     /// </summary>
-    public class PermissionDTO : BaseDTO
+    public class PermissionDto : BaseDto
     {
-        public String Name { get; set; }
-        public String Description { get; set; }
+        public string Description { get; set; }
+        public string PermissionName { get; set; }
+
+        /// <summary>
+        /// 权限值
+        /// </summary>
+        public string Value { get; set; }
     }
 }
