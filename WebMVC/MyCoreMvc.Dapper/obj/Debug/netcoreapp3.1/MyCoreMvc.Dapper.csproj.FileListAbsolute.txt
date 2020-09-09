@@ -6,3 +6,4 @@ E:\我的code\WebMVC\MyCoreMvc.Dapper\obj\Debug\netcoreapp3.1\MyCoreMvc.Dapper.A
 E:\我的code\WebMVC\MyCoreMvc.Dapper\obj\Debug\netcoreapp3.1\MyCoreMvc.Dapper.csproj.CoreCompileInputs.cache
 E:\我的code\WebMVC\MyCoreMvc.Dapper\obj\Debug\netcoreapp3.1\MyCoreMvc.Dapper.dll
 E:\我的code\WebMVC\MyCoreMvc.Dapper\obj\Debug\netcoreapp3.1\MyCoreMvc.Dapper.pdb
+E:\我的code\WebMVC\MyCoreMvc.Dapper\obj\Debug\netcoreapp3.1\MyCoreMvc.Dapper.csprojAssemblyReference.cache
