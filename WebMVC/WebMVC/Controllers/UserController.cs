@@ -50,7 +50,7 @@ namespace WebMVC.Controllers
         {
             if (userId > 0)
             {
-                var model = _userService.Get(userId);
+                var model =await _userService.GetAsync(userId);
                 return View(model);
             }
             return View();
@@ -77,11 +77,11 @@ namespace WebMVC.Controllers
             {
                 //修改
               
-                _userService.Update(dto);
+               await _userService.UpdateAsync(dto);
             }
             else
             {
-                _userService.Add(dto);
+                await _userService.AddAsync(dto);
             }
             return View();
         }
@@ -100,7 +100,7 @@ namespace WebMVC.Controllers
             {
                 return View("error");
             }
-            _userService.Delete(userId);
+           await _userService.DeleteAsync(userId);
 
             return RedirectToAction("Index");
         }

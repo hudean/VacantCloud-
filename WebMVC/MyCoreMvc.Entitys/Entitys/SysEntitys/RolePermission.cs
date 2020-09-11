@@ -9,16 +9,16 @@ namespace MyCoreMvc.Entitys
     /// 角色权限表
     /// </summary>
     [Table("RolePermissions")]
-    public class RolePermission: BaseEntity
+    public class RolePermission: Entity
     {
         /// <summary>
         /// 角色ID
         /// </summary>
-        public int RoleId { get; set; }
+        public long RoleId { get; set; }
         /// <summary>
         /// 权限id
         /// </summary>
-        public int PermissionId { get; set; }
+        public long PermissionId { get; set; }
 
         public virtual Role Role { get; set; }
 

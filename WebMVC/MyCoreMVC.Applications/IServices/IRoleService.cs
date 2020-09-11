@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MyCoreMVC.Applications.IServices
 {
@@ -23,7 +24,7 @@ namespace MyCoreMVC.Applications.IServices
         /// 获取所有角色
         /// </summary>
         /// <returns></returns>
-        public IQueryable<RoleDto> GetAll();
+        public IQueryable<Role> GetAll();
 
         /// <summary>
         /// 分页获取角色列表
@@ -44,12 +45,12 @@ namespace MyCoreMVC.Applications.IServices
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public RoleDto Add(RoleDto dto);
+        public Task<RoleDto> AddAsync(RoleDto dto);
         /// <summary>
         /// 根据id删除角色
         /// </summary>
         /// <param name="id"></param>
-        public void Delete(long id);
+        public Task DeleteAsync(long id);
 
 
         /// <summary>
@@ -57,6 +58,6 @@ namespace MyCoreMVC.Applications.IServices
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public RoleDto Update(RoleDto dto);
+        public Task<RoleDto> UpdateAsync(RoleDto dto);
     }
 }

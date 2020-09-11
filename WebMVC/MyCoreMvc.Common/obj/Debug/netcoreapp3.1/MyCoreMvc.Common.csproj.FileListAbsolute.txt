@@ -6,4 +6,3 @@ E:\我的code\WebMVC\MyCoreMvc.Common\obj\Debug\netcoreapp3.1\MyCoreMvc.Common.A
 E:\我的code\WebMVC\MyCoreMvc.Common\obj\Debug\netcoreapp3.1\MyCoreMvc.Common.csproj.CoreCompileInputs.cache
 E:\我的code\WebMVC\MyCoreMvc.Common\obj\Debug\netcoreapp3.1\MyCoreMvc.Common.dll
 E:\我的code\WebMVC\MyCoreMvc.Common\obj\Debug\netcoreapp3.1\MyCoreMvc.Common.pdb
-E:\我的code\WebMVC\MyCoreMvc.Common\obj\Debug\netcoreapp3.1\MyCoreMvc.Common.csprojAssemblyReference.cache

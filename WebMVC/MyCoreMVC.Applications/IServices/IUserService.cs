@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MyCoreMVC.Applications.IServices
 {
@@ -16,7 +17,7 @@ namespace MyCoreMVC.Applications.IServices
         /// <returns></returns>
         public IQueryable<UserDto> GetAll(UserInputDto dto);
 
-        public IQueryable<UserDto> GetAll();
+        public IQueryable<User> GetAll();
         /// <summary>
         /// 分页获取用户列表
         /// </summary>
@@ -29,14 +30,14 @@ namespace MyCoreMVC.Applications.IServices
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public UserDto Get(long id);
+        public Task<UserDto> GetAsync(long id);
 
-        public UserDto Add(UserDto dto);
+        public Task<UserDto> AddAsync(UserDto dto);
         /// <summary>
         /// 根据id删除用户
         /// </summary>
         /// <param name="id"></param>
-        public void Delete(long id);
+        public Task DeleteAsync(long id);
 
 
         /// <summary>
@@ -44,7 +45,7 @@ namespace MyCoreMVC.Applications.IServices
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public UserDto Update(UserDto dto);
+        public Task<UserDto> UpdateAsync(UserDto dto);
 
         ////检查用户名密码是否正确
         //bool CheckLogin(string loginName, string password);

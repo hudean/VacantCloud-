@@ -9,6 +9,9 @@ using VaCant.WebMvc.Models;
 
 namespace VaCant.WebMvc.Controllers
 {
+    /// <summary>
+    /// 控制器
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,6 +21,10 @@ namespace VaCant.WebMvc.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// 首页
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
@@ -28,6 +35,10 @@ namespace VaCant.WebMvc.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 统一跳转错误页
+        /// </summary>
+        /// <returns></returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -9,7 +9,7 @@ namespace MyCoreMvc.Entitys
     /// 用户角色表
     /// </summary>
     [Table("UserRoles")]
-    public  class UserRole: BaseEntity
+    public  class UserRole: Entity<long>
     {
         /// <summary>
         /// 用户Id

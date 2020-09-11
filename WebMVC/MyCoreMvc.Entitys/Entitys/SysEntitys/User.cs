@@ -10,7 +10,7 @@ namespace MyCoreMvc.Entitys
     /// 后台用户表
     /// </summary>
     [Table("Users")]
-    public class User: Entity
+    public class User: BaseEntity<long>
     {
         /// <summary>
         /// 用户名称

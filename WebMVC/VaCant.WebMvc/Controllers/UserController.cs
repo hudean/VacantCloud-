@@ -12,9 +12,11 @@ namespace VaCant.WebMvc.Controllers
     public class UserController: Controller
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IRoleService _roleService;
+        public UserController(IUserService userService, IRoleService roleService)
         {
             _userService = userService;
+            _roleService = roleService;
         }
 
 
@@ -25,7 +27,7 @@ namespace VaCant.WebMvc.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var list = _userService.GetAll(null);
+           // var list = _userService.GetAll();
             return View();
         }
 
@@ -50,7 +52,8 @@ namespace VaCant.WebMvc.Controllers
         {
             if (userId > 0)
             {
-                var model = _userService.Get(userId);
+                var model = await _userService.GetAsync(userId);
+                var roles = _roleService.GetAll();
                 return View(model);
             }
             return View();
@@ -77,11 +80,11 @@ namespace VaCant.WebMvc.Controllers
             {
                 //修改
               
-                _userService.Update(dto);
+               await _userService.UpdateAsync(dto);
             }
             else
             {
-                _userService.Add(dto);
+               await  _userService.AddAsync(dto);
             }
             return View();
         }
@@ -100,7 +103,7 @@ namespace VaCant.WebMvc.Controllers
             {
                 return View("error");
             }
-            _userService.Delete(userId);
+          await  _userService.DeleteAsync(userId);
 
             return RedirectToAction("Index");
         }

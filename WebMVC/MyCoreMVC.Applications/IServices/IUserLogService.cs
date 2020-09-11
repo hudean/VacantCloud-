@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MyCoreMVC.Applications.IServices
 {
-    public interface IUserLogService
+    public interface IUserLogService : IBaseService
     {
         IQueryable<UserLog> GetAll();
         IQueryable<UserLog> GetPageList(UserLogInputDto input);

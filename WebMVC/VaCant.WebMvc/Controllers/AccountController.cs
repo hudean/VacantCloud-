@@ -13,6 +13,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace VaCant.WebMvc.Controllers
 {
+    /// <summary>
+    /// 注册登录控制器
+    /// </summary>
     public class AccountController : Controller
     {
 
@@ -20,15 +23,6 @@ namespace VaCant.WebMvc.Controllers
         public AccountController(IUserService userService)
         {
             _userService = userService;
-        }
-
-        /// <summary>
-        /// 首页
-        /// </summary>
-        /// <returns></returns>
-        public IActionResult Index()
-        {
-            return View();
         }
 
         /// <summary>

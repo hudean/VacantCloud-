@@ -1,3 +1,10 @@
+E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.csprojAssemblyReference.cache
+E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.AssemblyInfoInputs.cache
+E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.AssemblyInfo.cs
+E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.csproj.CoreCompileInputs.cache
+E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.MvcApplicationPartsAssemblyInfo.cache
+E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.RazorAssemblyInfo.cache
+E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.RazorAssemblyInfo.cs
 E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\log4net.config
 E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\appsettings.json
@@ -139,13 +146,6 @@ E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\MyCoreMvc.Initialization.pdb
 E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\MyCoreMvc.Repositorys.pdb
 E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\MyCoreMVC.Applications.pdb
 E:\我的code\WebMVC\WebMVC\bin\Debug\netcoreapp3.1\MyCoreMvc.Common.pdb
-E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.csprojAssemblyReference.cache
-E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.AssemblyInfoInputs.cache
-E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.AssemblyInfo.cs
-E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.csproj.CoreCompileInputs.cache
-E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.MvcApplicationPartsAssemblyInfo.cache
-E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.RazorAssemblyInfo.cache
-E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.RazorAssemblyInfo.cs
 E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.TagHelpers.input.cache
 E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.TagHelpers.output.cache
 E:\我的code\WebMVC\WebMVC\obj\Debug\netcoreapp3.1\WebMVC.RazorCoreGenerate.cache

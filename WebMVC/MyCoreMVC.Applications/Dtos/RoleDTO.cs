@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace MyCoreMVC.Applications.Dtos
@@ -10,5 +11,10 @@ namespace MyCoreMVC.Applications.Dtos
     public class RoleDto : BaseDto
     {
         public string RoleName { get; set; }
+
+        public List<string> PermissionNames { get; set; }
+
+        public List<long> PermissionIds { get; set; }
+
     }
 }

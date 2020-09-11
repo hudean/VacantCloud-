@@ -66,7 +66,7 @@ namespace WebMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int roleId)
         {
-            _roleService.Delete(roleId);
+           await  _roleService.DeleteAsync(roleId);
             return RedirectToAction("Index");
         }
 

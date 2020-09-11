@@ -8,18 +8,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MyCoreMVC.Applications.Services
 {
     public class UserService : IUserService
     {
-        public readonly IRepository<User, long> _userRepository;
-        public UserService(IRepository<User, long> userRepository)
+        public readonly IRepository<User> _userRepository;
+        public readonly IRepository<UserRole> _userRoleRepository;
+        public readonly IRepository<Role> _roleRepository;
+        public UserService(IRepository<User> userRepository, IRepository<UserRole> userRoleRepository, IRepository<Role> roleRepository)
         {
             _userRepository = userRepository;
+            _userRoleRepository = userRoleRepository;
+            _roleRepository = roleRepository;
         }
 
-       
+
         /// <summary>
         /// 获取所有用户列表
         /// </summary>
@@ -32,13 +37,32 @@ namespace MyCoreMVC.Applications.Services
             {
                 query = query.Where(u => u.Email == dto.SearchInputStr || u.PhoneNum == dto.SearchInputStr || u.UserName == dto.SearchInputStr);
             }
-            return AutoMapperExtension.MapTo<User, UserDto>(query).AsQueryable();
+            query = query.Include(r => r.UserRoles);
+            var model = query.Select(r =>
+                new UserDto
+                {
+                    Address = r.Address,
+                    CreationTime = r.CreationTime,
+                    CreatorUserId = r.CreatorUserId,
+                    Email = r.Email,
+                    Id = r.Id,
+                    IsDelete = r.IsDelete,
+                    LastLoginErrorDateTime = r.LastLoginErrorDateTime,
+                    LoginErrorTimes = r.LoginErrorTimes,
+                    Password = r.Password,
+                    PasswordSalt = r.PasswordSalt,
+                    PhoneNum = r.PhoneNum,
+                    UserName = r.UserName,
+                    RoleIds = r.UserRoles.Select(t => t.RoleId).ToList(),
+                    RoleNames = r.UserRoles.Select(t => t.Role.RoleName).ToList()
+                });
+            return model;//AutoMapperExtension.MapTo<User, UserDto>(query).AsQueryable();
         }
 
-        public IQueryable<UserDto> GetAll()
+        public IQueryable<User> GetAll()
         {
             var query = _userRepository.GetAll();
-            return AutoMapperExtension.MapTo<User, UserDto>(query).AsQueryable();
+            return query;
         }
 
         /// <summary>
@@ -54,7 +78,7 @@ namespace MyCoreMVC.Applications.Services
             {
                 query = query.Where(u => u.Email == dto.SearchInputStr || u.PhoneNum == dto.SearchInputStr || u.UserName == dto.SearchInputStr);
             }
-           query = query.Skip((dto.PageIndex - 1) * dto.PageSize).Take(dto.PageSize);
+            query = query.Skip((dto.PageIndex - 1) * dto.PageSize).Take(dto.PageSize);
             return AutoMapperExtension.MapTo<User, UserDto>(query).AsQueryable();
         }
 
@@ -63,28 +87,45 @@ namespace MyCoreMVC.Applications.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public UserDto Get(long id)
+        public async Task<UserDto> GetAsync(long id)
         {
-            var user = _userRepository.Get(id);
+            var user = await _userRepository.GetAsync(id);
+
             if (user != null)
             {
-                return AutoMapperExtension.MapTo<User, UserDto>(user);
+                UserDto userDto = AutoMapperExtension.MapTo<User, UserDto>(user);
+                await _userRoleRepository.GetAll().Where(r => r.UserId == id).Include(r => r.UserId == id).ForEachAsync(r =>
+                {
+                    userDto.RoleIds.Add(r.RoleId);
+                    userDto.RoleNames.Add(r.Role.RoleName);
+                });
+                return userDto;
             }
             return null;
         }
 
-        public UserDto Add(UserDto dto)
+        public async Task<UserDto> AddAsync(UserDto inputDto)
         {
-           var query= _userRepository.GetAll().Where(r => r.UserName == dto.UserName || r.Email == dto.Email || r.PhoneNum == dto.PhoneNum).FirstOrDefault();
+            var query = _userRepository.GetAll().Where(r => r.UserName == inputDto.UserName || r.Email == inputDto.Email || r.PhoneNum == inputDto.PhoneNum).FirstOrDefault();
             if (query != null)
             {
                 throw new AggregateException("添加失败，用户名或邮箱或电话已存在！");
             }
-            var user= AutoMapperExtension.MapTo<UserDto, User>(dto);
-            var result= _userRepository.Insert(user);
+            var user = AutoMapperExtension.MapTo<UserDto, User>(inputDto);
+            var roIds = inputDto.RoleIds;
+            var result= await _userRepository.InsertAsync(user);
+           
             if (result != null)
             {
-                return AutoMapperExtension.MapTo<User, UserDto>(result);
+                roIds.ForEach(async r => {
+                    await _userRoleRepository.InsertAsync(new UserRole()
+                    {
+                        RoleId = r,
+                        UserId = result.Id
+                    });
+
+                });
+                return inputDto;
             }
             return null;
         }
@@ -92,29 +133,52 @@ namespace MyCoreMVC.Applications.Services
         /// 根据id删除用户
         /// </summary>
         /// <param name="id"></param>
-        public void Delete(long id)
+        public async Task DeleteAsync(long id)
         {
-            _userRepository.Delete(id);
+            await _userRepository.DeleteAsync(id);
         }
-        
+
 
         /// <summary>
         /// 修改用户
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public UserDto Update(UserDto dto)
+        public async Task<UserDto> UpdateAsync(UserDto inputDto)
         {
-            var query = _userRepository.GetAll().Where(r => r.UserName == dto.UserName || r.Email == dto.Email || r.PhoneNum == dto.PhoneNum).FirstOrDefault();
+            var query = _userRepository.GetAll().Where(r => r.UserName == inputDto.UserName || r.Email == inputDto.Email || r.PhoneNum == inputDto.PhoneNum).FirstOrDefault();
             if (query != null)
             {
                 throw new AggregateException("修改失败，用户名或邮箱或电话已存在！");
             }
-            var user = AutoMapperExtension.MapTo<UserDto, User>(dto);
-            var result = _userRepository.Update(user);
+            var user = AutoMapperExtension.MapTo<UserDto, User>(inputDto);
+            var roIds = inputDto.RoleIds;
+            var userRoles = await _userRoleRepository.GetAllListAsync(t => t.UserId == inputDto.Id);
+            userRoles.ForEach(async t =>
+            {
+                if (!inputDto.RoleIds.Contains(t.RoleId))
+                {
+                    await _userRoleRepository.DeleteAsync(t);
+                }
+                else
+                {
+                    roIds.Remove(t.RoleId);
+                }
+
+
+            });
+            roIds.ForEach(async r => {
+                await _userRoleRepository.InsertAsync(new UserRole()
+                {
+                    RoleId = r,
+                    UserId = inputDto.Id
+                });
+
+            });
+            var result = await _userRepository.UpdateAsync(user);
             if (result != null)
             {
-                return AutoMapperExtension.MapTo<User, UserDto>(result);
+                return inputDto;
             }
             return null;
         }

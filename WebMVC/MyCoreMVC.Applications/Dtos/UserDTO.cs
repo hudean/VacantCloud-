@@ -42,5 +42,13 @@ namespace MyCoreMVC.Applications.Dtos
         /// 最后登入错误时间
         /// </summary>
         public DateTime? LastLoginErrorDateTime { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<int> RoleIds { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<string> RoleNames { get; set; }
     }
 }
