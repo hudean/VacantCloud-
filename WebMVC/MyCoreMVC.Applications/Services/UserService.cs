@@ -1,16 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyCoreMvc.Common;
-using MyCoreMvc.Entitys;
-using MyCoreMvc.Repositorys;
-using MyCoreMVC.Applications.Dtos;
-using MyCoreMVC.Applications.IServices;
+using VaCant.Common;
+using VaCant.Entitys;
+using VaCant.Repositorys;
+using VaCant.Applications.Dtos;
+using VaCant.Applications.IServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyCoreMVC.Applications.Services
+namespace VaCant.Applications.Services
 {
     public class UserService : IUserService
     {
@@ -94,7 +94,10 @@ namespace MyCoreMVC.Applications.Services
             if (user != null)
             {
                 UserDto userDto = AutoMapperExtension.MapTo<User, UserDto>(user);
-                await _userRoleRepository.GetAll().Where(r => r.UserId == id).Include(r => r.UserId == id).ForEachAsync(r =>
+                var list =await _userRoleRepository.GetAll().Include(r => r.User).Include(r=>r.Role).Where(r => r.UserId == id).ToListAsync();  //await _userRoleRepository.GetAllListAsync(r => r.UserId == id);
+                userDto.RoleIds = new List<long>();
+                userDto.RoleNames = new List<string>();
+                list.ForEach(r =>
                 {
                     userDto.RoleIds.Add(r.RoleId);
                     userDto.RoleNames.Add(r.Role.RoleName);

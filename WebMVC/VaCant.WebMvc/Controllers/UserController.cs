@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyCoreMVC.Applications.Dtos;
-using MyCoreMVC.Applications.IServices;
+using VaCant.Applications.Dtos;
+using VaCant.Applications.IServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VaCant.WebMvc.Models.InputModel;
+using Microsoft.EntityFrameworkCore;
+using VaCant.WebMvc.Models.ViewModel;
+using System.Collections.Immutable;
 
 namespace VaCant.WebMvc.Controllers
 {
@@ -19,7 +22,6 @@ namespace VaCant.WebMvc.Controllers
             _roleService = roleService;
         }
 
-
         /// <summary>
         /// 用户列表
         /// </summary>
@@ -27,33 +29,31 @@ namespace VaCant.WebMvc.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-           // var list = _userService.GetAll();
-            return View();
+            var list =await _userService.GetAll().Take(50).ToListAsync();
+            //var list = _userService.GetPageList();
+            return View(list);
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(UserInputModel model)
         {
-            var list = _userService.GetAll();
-            return View();
+            var list = await _userService.GetAll().Take(50).ToListAsync();
+            return View(list);
         }
 
-
-
-
-
         /// <summary>
-        /// 添加或修改权限
+        /// 添加或修改用户
         /// </summary>
         /// <param name="roleId"></param>
         /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> CreatOrEdit(int userId)
         {
+            EditUserModalViewModel model =new EditUserModalViewModel();
             if (userId > 0)
             {
-                var model = await _userService.GetAsync(userId);
-                var roles = _roleService.GetAll();
+                model.User = await _userService.GetAsync(userId);
+                model.Roles = (IReadOnlyList<RoleDto>)(_roleService.GetAll().ToList());
                 return View(model);
             }
             return View();
@@ -61,22 +61,30 @@ namespace VaCant.WebMvc.Controllers
 
         public async Task<IActionResult> CreatOrEdit(UserCreatOrEditInputModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (model.Password != model.TruePassword)
+            {
+                return View();
+            }
             UserDto dto = new UserDto()
             {
-                Address = "",
+                Address = model.Address,
                 CreatorUserId=0,
                 IsDelete=false,
                 CreationTime = DateTime.Now,
-                Email = "",
-                Id = 0,
-                UserName = "",
-                PhoneNum = "",
+                Email = model.Email,
+                Id = model.Id,
+                UserName = model.Email,
+                PhoneNum = model.PhoneNum,
                 PasswordSalt = "",
-                Password = "",
+                Password = model.Password,
                 LoginErrorTimes = 0,
                 LastLoginErrorDateTime = null
             };
-            if (model.id > 0)
+            if (model.Id > 0)
             {
                 //修改
               
@@ -90,9 +98,16 @@ namespace VaCant.WebMvc.Controllers
         }
 
 
+        public async Task<IActionResult> Detail(int userid)
+        {
+           var model= await _userService.GetAsync(userid);
+            return View(model);
+        }
+
+
 
         /// <summary>
-        /// 根据id删除权限
+        /// 根据id删除用户
         /// </summary>
         /// <param name="roleId"></param>
         /// <returns></returns>

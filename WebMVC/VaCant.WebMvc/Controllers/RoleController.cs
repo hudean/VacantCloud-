@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyCoreMVC.Applications.IServices;
+using VaCant.Applications.IServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +34,7 @@ namespace VaCant.WebMvc.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(RoleInputModel model)
         {
+            var list = _roleService.GetAll();
             return View();
         }
 

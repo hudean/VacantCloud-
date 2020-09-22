@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyCoreMVC.Applications.Dtos
+namespace VaCant.Applications.Dtos
 {
     public  class RoleInputDto: BaseInputDto
     {

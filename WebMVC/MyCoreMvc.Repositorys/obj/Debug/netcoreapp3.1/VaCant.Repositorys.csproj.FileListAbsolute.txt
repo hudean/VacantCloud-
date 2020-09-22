@@ -1,0 +1,16 @@
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\bin\Debug\netcoreapp3.1\VaCant.Repositorys.deps.json
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\bin\Debug\netcoreapp3.1\VaCant.Repositorys.dll
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\bin\Debug\netcoreapp3.1\VaCant.Repositorys.pdb
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\bin\Debug\netcoreapp3.1\VaCant.Common.dll
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\bin\Debug\netcoreapp3.1\VaCant.EFCore.dll
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\bin\Debug\netcoreapp3.1\VaCant.Entitys.dll
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\bin\Debug\netcoreapp3.1\VaCant.EFCore.pdb
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\bin\Debug\netcoreapp3.1\VaCant.Entitys.pdb
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\bin\Debug\netcoreapp3.1\VaCant.Common.pdb
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\obj\Debug\netcoreapp3.1\VaCant.Repositorys.csprojAssemblyReference.cache
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\obj\Debug\netcoreapp3.1\VaCant.Repositorys.AssemblyInfoInputs.cache
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\obj\Debug\netcoreapp3.1\VaCant.Repositorys.AssemblyInfo.cs
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\obj\Debug\netcoreapp3.1\VaCant.Repositorys.csproj.CoreCompileInputs.cache
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\obj\Debug\netcoreapp3.1\VaCant.Repositorys.csproj.CopyComplete
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\obj\Debug\netcoreapp3.1\VaCant.Repositorys.dll
+E:\我的code\WebMVC\MyCoreMvc.Repositorys\obj\Debug\netcoreapp3.1\VaCant.Repositorys.pdb

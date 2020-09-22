@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace MyCoreMVC.Applications.Dtos
+namespace VaCant.Applications.Dtos
 {
     public class UserDto : BaseDto
     {
@@ -16,6 +16,12 @@ namespace MyCoreMVC.Applications.Dtos
         /// 用户邮箱
         /// </summary>
         public string Email { get; set; }
+
+        /// <summary>
+        /// 是否启用
+        /// </summary>
+        public bool IsActive { get; set; } = true;
+
         /// <summary>
         /// 用户电话
         /// </summary>
@@ -45,7 +51,7 @@ namespace MyCoreMVC.Applications.Dtos
         /// <summary>
         /// 
         /// </summary>
-        public List<int> RoleIds { get; set; }
+        public List<long> RoleIds { get; set; }
         /// <summary>
         /// 
         /// </summary>

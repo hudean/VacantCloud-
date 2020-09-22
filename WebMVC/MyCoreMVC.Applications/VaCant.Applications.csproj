@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyCoreMvc.Common\VaCant.Common.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.Entitys\VaCant.Entitys.csproj" />
+    <ProjectReference Include="..\MyCoreMvc.Repositorys\VaCant.Repositorys.csproj" />
+  </ItemGroup>
+
+</Project>

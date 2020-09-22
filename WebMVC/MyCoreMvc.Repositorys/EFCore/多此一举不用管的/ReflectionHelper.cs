@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace MyCoreMvc.Repositorys.EFCore
+namespace VaCant.Repositorys.EFCore
 {
     /// <summary>
     /// Defines helper methods for reflection.

@@ -1,12 +1,12 @@
-﻿using MyCoreMvc.Entitys;
-using MyCoreMVC.Applications.Dtos;
+﻿using VaCant.Entitys;
+using VaCant.Applications.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyCoreMVC.Applications.IServices
+namespace VaCant.Applications.IServices
 {
     /// <summary>
     /// 角色业务

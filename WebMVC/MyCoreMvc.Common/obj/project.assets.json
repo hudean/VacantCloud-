@@ -616,9 +616,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj",
-      "projectName": "MyCoreMvc.Common",
-      "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj",
+      "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj",
+      "projectName": "VaCant.Common",
+      "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
       "outputPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\obj\\",
       "projectStyle": "PackageReference",

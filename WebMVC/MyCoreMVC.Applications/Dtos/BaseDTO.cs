@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyCoreMVC.Applications.Dtos
+namespace VaCant.Applications.Dtos
 {
     [Serializable]
     public abstract class BaseDto: BaseDto<long>
@@ -20,7 +20,7 @@ namespace MyCoreMVC.Applications.Dtos
         /// <summary>
         /// 创建人id
         /// </summary>
-        public long CreatorUserId { get; set; }
+        public long? CreatorUserId { get; set; }
         /// <summary>
         /// 是否删除
         /// </summary>

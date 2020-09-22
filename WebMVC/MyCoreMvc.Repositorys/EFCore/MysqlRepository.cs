@@ -1,59 +1,76 @@
-﻿using MyCoreMvc.EFCore;
-using MyCoreMvc.Entitys;
+﻿using VaCant.EFCore;
+using VaCant.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MyCoreMvc.Repositorys
+namespace VaCant.Repositorys
 {
-    public class MysqlRepository<TEntity> : MysqlRepository<TEntity, long>, IRepository<TEntity> where TEntity : class, IEntity<long>
-    {
-        public MysqlRepository(MySqlDbContext dbContext) : base(dbContext)
-        {
+    //public class MysqlRepository<TEntity> : MysqlRepository<TEntity, long>, IRepository<TEntity> where TEntity : class, IEntity<long>
+    //{
+    //    public MysqlRepository(MySqlDbContext dbContext) : base(dbContext)
+    //    {
 
-        }
-    }
+    //    }
+    //}
 
 
-    public class MysqlRepository<TEntity, TPrimaryKey> : RepositoryBase<TEntity, TPrimaryKey> where TEntity : class, IEntity<TPrimaryKey>
-    {
-        public readonly MySqlDbContext _dbContext;
+    //public class MysqlRepository<TEntity, TPrimaryKey> : RepositoryBase<TEntity, TPrimaryKey> where TEntity : class, IEntity<TPrimaryKey>
+    //{
+    //    public readonly MySqlDbContext _dbContext;
 
-        public MysqlRepository(MySqlDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-        public override void Delete(TEntity entity)
-        {
-            _dbContext.Set<TEntity>().Remove(entity);
-            _dbContext.SaveChanges();
-        }
+    //    public MysqlRepository(MySqlDbContext dbContext)
+    //    {
+    //        _dbContext = dbContext;
+    //    }
+    //    public override void Delete(TEntity entity)
+    //    {
+    //        _dbContext.Set<TEntity>().Remove(entity);
+    //        _dbContext.SaveChanges();
+    //    }
 
-        public override void Delete(TPrimaryKey id)
-        {
-            var entity = _dbContext.Set<TEntity>().SingleOrDefault(t => t.Id.Equals(id));
-            Delete(entity);
+    //    public override void Delete(TPrimaryKey id)
+    //    {
+    //        var entity = _dbContext.Set<TEntity>().SingleOrDefault(t => t.Id.Equals(id));
+    //        Delete(entity);
 
-        }
+    //    }
 
-        public override IQueryable<TEntity> GetAll()
-        {
-            return _dbContext.Set<TEntity>().AsQueryable();
-        }
+    //    public override IQueryable<TEntity> GetAll()
+    //    {
+    //        return _dbContext.Set<TEntity>().AsQueryable();
+    //    }
 
-        public override TEntity Insert(TEntity entity)
-        {
-            _dbContext.Set<TEntity>().Add(entity);
-            _dbContext.SaveChanges();
-            return entity;
-        }
+    //    public override TEntity Insert(TEntity entity)
+    //    {
+    //        _dbContext.Set<TEntity>().Add(entity);
+    //        _dbContext.SaveChanges();
+    //        return entity;
+    //    }
 
-        public override TEntity Update(TEntity entity)
-        {
-            _dbContext.Set<TEntity>().Update(entity);
-            _dbContext.SaveChanges();
-            return entity;
-        }
-    }
+    //    public override TEntity Update(TEntity entity)
+    //    {
+    //        _dbContext.Set<TEntity>().Update(entity);
+    //        _dbContext.SaveChanges();
+    //        return entity;
+    //    }
+
+
+    //    public override void BatchDelete(IEnumerable<TEntity> entities)
+    //    {
+    //        _dbContext.Set<TEntity>().RemoveRange(entities);
+    //    }
+
+
+    //    public override void BatchInsert(IEnumerable<TEntity> entities)
+    //    {
+    //        _dbContext.Set<TEntity>().AddRange(entities);
+    //    }
+
+    //    public  void BatchUpdate(IEnumerable<TEntity> entities)
+    //    {
+    //        _dbContext.Set<TEntity>().UpdateRange(entities);
+    //    }
+    //}
 }

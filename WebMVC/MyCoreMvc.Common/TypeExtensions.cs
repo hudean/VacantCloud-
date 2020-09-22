@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 
-namespace MyCoreMvc.Common
+namespace VaCant.Common
 {
     public static class TypeExtensions
     {

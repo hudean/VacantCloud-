@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyCoreMvc.Repositorys.EFCore
+namespace VaCant.Repositorys.EFCore
 {
     /// <summary>
     /// Extension methods for Collections.

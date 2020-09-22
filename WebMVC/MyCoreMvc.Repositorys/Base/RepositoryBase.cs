@@ -1,4 +1,4 @@
-﻿using MyCoreMvc.Entitys;
+﻿using VaCant.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyCoreMvc.Repositorys
+namespace VaCant.Repositorys
 {
     //public abstract class RepositoryBase<TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey> where TEntity : class, IEntity<TPrimaryKey>
     public abstract class RepositoryBase<TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey> where TEntity : class, IEntity<TPrimaryKey>
@@ -107,6 +107,14 @@ namespace MyCoreMvc.Repositorys
             return Task.FromResult(Insert(entity));
         }
 
+        public abstract void BatchInsert(IEnumerable<TEntity> list);
+
+        public virtual Task BatchInsertAsync(IEnumerable<TEntity> list)
+        {
+            BatchInsert(list);
+            return Task.CompletedTask;
+        }
+
         public virtual TPrimaryKey InsertAndGetId(TEntity entity)
         {
             return Insert(entity).Id;
@@ -169,6 +177,14 @@ namespace MyCoreMvc.Repositorys
         public virtual Task DeleteAsync(TEntity entity)
         {
             Delete(entity);
+            return Task.CompletedTask;
+        }
+
+        public abstract void BatchDelete(IEnumerable<TEntity> entities);
+
+        public virtual Task BatchDeleteAsync(IEnumerable<TEntity> entities)
+        {
+            BatchDelete(entities);
             return Task.CompletedTask;
         }
 

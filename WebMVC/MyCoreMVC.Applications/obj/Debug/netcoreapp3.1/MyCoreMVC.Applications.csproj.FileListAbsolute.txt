@@ -1,3 +1,7 @@
+E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.csprojAssemblyReference.cache
+E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.AssemblyInfoInputs.cache
+E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.AssemblyInfo.cs
+E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.csproj.CoreCompileInputs.cache
 E:\我的code\WebMVC\MyCoreMVC.Applications\bin\Debug\netcoreapp3.1\MyCoreMVC.Applications.deps.json
 E:\我的code\WebMVC\MyCoreMVC.Applications\bin\Debug\netcoreapp3.1\MyCoreMVC.Applications.dll
 E:\我的code\WebMVC\MyCoreMVC.Applications\bin\Debug\netcoreapp3.1\MyCoreMVC.Applications.pdb
@@ -9,10 +13,6 @@ E:\我的code\WebMVC\MyCoreMVC.Applications\bin\Debug\netcoreapp3.1\MyCoreMvc.Co
 E:\我的code\WebMVC\MyCoreMVC.Applications\bin\Debug\netcoreapp3.1\MyCoreMvc.Entitys.pdb
 E:\我的code\WebMVC\MyCoreMVC.Applications\bin\Debug\netcoreapp3.1\MyCoreMvc.Repositorys.pdb
 E:\我的code\WebMVC\MyCoreMVC.Applications\bin\Debug\netcoreapp3.1\MyCoreMvc.EFCore.pdb
-E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.csprojAssemblyReference.cache
-E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.AssemblyInfoInputs.cache
-E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.AssemblyInfo.cs
-E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.csproj.CoreCompileInputs.cache
 E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.csproj.CopyComplete
 E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.dll
 E:\我的code\WebMVC\MyCoreMVC.Applications\obj\Debug\netcoreapp3.1\MyCoreMVC.Applications.pdb

@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MyCoreMvc.Initialization;
+using VaCant.EFCore;
+using VaCant.Initialization;
+using VaCant.WebMvc.Filter;
 
 namespace VaCant.WebMvc
 {
@@ -30,7 +33,7 @@ namespace VaCant.WebMvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation(); ;
             #region 已注释
             //注册服务连接数据库
             //services.AddDbContext<SqlServerDbContext>(options =>
@@ -48,17 +51,18 @@ namespace VaCant.WebMvc
 
             //调用工厂模式进行依赖注入
             InitializationFactory.Injection(services, Configuration);
-
             //基于内存存储Session
-            services.AddDistributedMemoryCache();
+            //services.AddDistributedMemoryCache();
             services.AddSession();
 
             #region 第一种权限过滤
-            //services.AddMvc(options =>
-            //{
-            //    options.Filters.Add<Filter.CheckLoginAuthorizeFilter>();
-            //    options.Filters.Add<Filter.MyExceptionFilter>();
-            //});
+            services.AddMvc(options =>
+            {
+                // options.Filters.Add(typeof(Filter.VaCantAuthorizationFilter));
+                // options.Filters.Add<Filter.CheckLoginAuthorizeFilter>();
+                options.Filters.Add<Filter.MyExceptionFilter>();
+            });
+            //services.AddScoped<VaCantAuthorizationFilter>();
             #endregion
 
 
@@ -98,12 +102,12 @@ namespace VaCant.WebMvc
             app.UseSession();
             app.UseRouting();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                     pattern: "{controller=User}/{action=Index}/{id?}");
                      //pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }

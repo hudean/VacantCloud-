@@ -1,4 +1,4 @@
-﻿using MyCoreMvc.Entitys;
+﻿using VaCant.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyCoreMvc.Repositorys
+namespace VaCant.Repositorys
 {
     /// <summary>
     /// This interface is implemented by all repositories to ensure implementation of fixed methods.
@@ -145,6 +145,19 @@ namespace MyCoreMvc.Repositorys
         Task<TEntity> InsertAsync(TEntity entity);
 
         /// <summary>
+        /// 批量插入数据
+        /// </summary>
+        /// <param name="list"></param>
+        void BatchInsert(IEnumerable<TEntity> list);
+
+        /// <summary>
+        /// 异步批量插入数据
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        Task BatchInsertAsync(IEnumerable<TEntity> list);
+
+        /// <summary>
         /// Inserts a new entity and gets it's Id.
         /// It may require to save current unit of work
         /// to be able to retrieve id.
@@ -241,6 +254,19 @@ namespace MyCoreMvc.Repositorys
         /// </summary>
         /// <param name="entity">Entity to be deleted</param>
         Task DeleteAsync(TEntity entity);
+
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="entities"></param>
+        void BatchDelete(IEnumerable<TEntity> entities);
+
+        /// <summary>
+        /// 异步批量删除
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns></returns>
+        Task BatchDeleteAsync(IEnumerable<TEntity> entities);
 
         /// <summary>
         /// Deletes an entity by primary key.

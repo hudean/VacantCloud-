@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using VaCant.Core.Authorization;
+using VaCant.WebMvc.Filter;
 using VaCant.WebMvc.Models;
 
 namespace VaCant.WebMvc.Controllers
@@ -12,6 +14,8 @@ namespace VaCant.WebMvc.Controllers
     /// <summary>
     /// 控制器
     /// </summary>
+    [ServiceFilter(typeof(VaCantAuthorizationFilter))]
+   // [VaCantMvcAuthorize(PermissionNames.Pages_Tenants)]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

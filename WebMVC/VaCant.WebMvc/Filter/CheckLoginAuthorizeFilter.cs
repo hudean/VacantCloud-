@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using MyCoreMvc.Common;
+using VaCant.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +28,8 @@ namespace VaCant.WebMvc.Filter
                 return;
 
             string userId = context.HttpContext.Session.GetString("LoginUserId");
-
+            string userName = context.HttpContext.Session.GetString("LoginUserName");
+           
             if (string.IsNullOrEmpty(userId))
             {
                 if (IsAjaxRequest(context.HttpContext.Request))
@@ -41,6 +42,10 @@ namespace VaCant.WebMvc.Filter
                     var result = new RedirectResult("~/Account/Login");
                     context.Result = result;
                 }
+                return;
+            }
+            if (!string.IsNullOrEmpty(userName) && userName.Equals("admin"))
+            {
                 return;
             }
 
@@ -78,54 +83,53 @@ namespace VaCant.WebMvc.Filter
                 return;
             }
 
-            /**********************************************/
+            #region 另一种校验思路
 
-            string allowAttrName = typeof(AllowAnonymousAttribute).ToString();
-            string attrName = typeof(CheckPermissionAttribute).ToString();
-            //所有目标对象上所有特性
-            var data = context.ActionDescriptor.EndpointMetadata.ToList();
-            bool isHasAttr = false;
-            //循环比对是否含有skip特性
-            //如果action带有允许匿名访问的特性，则直接返回，不再进行安全认证
-            if (data.Any(r => r.ToString().Equals(allowAttrName, StringComparison.OrdinalIgnoreCase)))
-            {
-                return;
-            }
+            //string allowAttrName = typeof(AllowAnonymousAttribute).ToString();
+            //string attrName = typeof(CheckPermissionAttribute).ToString();
+            ////所有目标对象上所有特性
+            //var data = context.ActionDescriptor.EndpointMetadata.ToList();
+            //bool isHasAttr = false;
+            ////循环比对是否含有skip特性
+            ////如果action带有允许匿名访问的特性，则直接返回，不再进行安全认证
+            //if (data.Any(r => r.ToString().Equals(allowAttrName, StringComparison.OrdinalIgnoreCase)))
+            //{
+            //    return;
+            //}
 
-            data.ForEach(i => i.ToString().Equals(attrName, StringComparison.OrdinalIgnoreCase));
-            foreach (var item in data)
-            {
-                if (data.ToString().Equals(attrName))
-                {
-                    isHasAttr = true;
-                }
-            }
+            //data.ForEach(i => i.ToString().Equals(attrName, StringComparison.OrdinalIgnoreCase));
+            //foreach (var item in data)
+            //{
+            //    if (data.ToString().Equals(attrName))
+            //    {
+            //        isHasAttr = true;
+            //    }
+            //}
 
+            ////1. 校验是否标记跨过登录验证
+            //if (isHasAttr)
+            //{
+            //    //表示该方法或控制器跨过登录验证
+            //    //继续走控制器中的业务即可
+            //}
+            //else
+            //{
+            //    //2.判断是什么请求，进行响应的页面跳转
+            //    //PS：根据request.Headers["X-Requested-With"]是否包含XMLHttpRequest来判断是不是ajax请求。
+            //    if (IsAjaxRequest(context.HttpContext.Request))
+            //    {
+            //        //是ajax请求
+            //        context.Result = new JsonResult(new { status = "error", message = "你没有权限" });
+            //    }
+            //    else
+            //    {
+            //        var result = new ViewResult { ViewName = "~/Views/Shared/Error.cshtml" };
+            //        context.Result = result;
+            //    }
 
+            //}
 
-
-            //1. 校验是否标记跨过登录验证
-            if (isHasAttr)
-            {
-                //表示该方法或控制器跨过登录验证
-                //继续走控制器中的业务即可
-            }
-            else
-            {
-                //2.判断是什么请求，进行响应的页面跳转
-                //PS：根据request.Headers["X-Requested-With"]是否包含XMLHttpRequest来判断是不是ajax请求。
-                if (IsAjaxRequest(context.HttpContext.Request))
-                {
-                    //是ajax请求
-                    context.Result = new JsonResult(new { status = "error", message = "你没有权限" });
-                }
-                else
-                {
-                    var result = new ViewResult { ViewName = "~/Views/Shared/Error.cshtml" };
-                    context.Result = result;
-                }
-
-            }
+            #endregion
 
 
 
@@ -145,12 +149,6 @@ namespace VaCant.WebMvc.Filter
             //    RedirectToActionResult content = new RedirectToActionResult("NoAuth", "Exception", null);
             //    context.Result = content;
             //}
-
-
-
-
-            throw new NotImplementedException();
-
 
             #region .net fraemwork 版本
             ////获得当前要执行的Action上标注的CheckPermissionAttribute实例对象

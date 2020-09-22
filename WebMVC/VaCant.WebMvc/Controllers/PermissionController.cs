@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MyCoreMVC.Applications.IServices;
+using VaCant.Applications.IServices;
 using VaCant.WebMvc.Models.InputModel;
 
 namespace VaCant.WebMvc.Controllers

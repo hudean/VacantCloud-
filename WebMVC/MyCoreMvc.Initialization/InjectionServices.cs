@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
-using MyCoreMVC.Applications.IServices;
+using VaCant.Applications.IServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Runtime.Loader;
 using System.Text;
 
-namespace MyCoreMvc.Initialization
+namespace VaCant.Initialization
 {
     /// <summary>
     /// 注入所有Service服务

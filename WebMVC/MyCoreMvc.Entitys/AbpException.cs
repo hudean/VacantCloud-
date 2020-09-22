@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace MyCoreMvc.Entitys
+namespace VaCant.Entitys
 {
     /// <summary>
     /// Base exception type for those are thrown by Abp system for Abp specific exceptions.

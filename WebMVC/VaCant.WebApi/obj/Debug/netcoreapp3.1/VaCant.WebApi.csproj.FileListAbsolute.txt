@@ -26,7 +26,6 @@ E:\我的code\WebMVC\VaCant.WebApi\bin\Debug\netcoreapp3.1\System.ServiceModel.d
 E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.AssemblyInfoInputs.cache
 E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.AssemblyInfo.cs
 E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.csproj.CoreCompileInputs.cache
-E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.MvcApplicationPartsAssemblyInfo.cs
 E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.MvcApplicationPartsAssemblyInfo.cache
 E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.RazorTargetAssemblyInfo.cache
 E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.csproj.CopyComplete
@@ -35,4 +34,5 @@ E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\staticwebassets\VaCan
 E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.dll
 E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.pdb
 E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.genruntimeconfig.cache
+E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.MvcApplicationPartsAssemblyInfo.cs
 E:\我的code\WebMVC\VaCant.WebApi\obj\Debug\netcoreapp3.1\VaCant.WebApi.csprojAssemblyReference.cache

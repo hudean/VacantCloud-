@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore;
 using VaCant.WebMvc.Models.InputModel;
-using MyCoreMvc.Common;
+using VaCant.Common;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using MyCoreMVC.Applications.IServices;
+using VaCant.Applications.IServices;
 using Microsoft.AspNetCore.Http;
 
 namespace VaCant.WebMvc.Controllers

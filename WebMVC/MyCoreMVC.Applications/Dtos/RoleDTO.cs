@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
-namespace MyCoreMVC.Applications.Dtos
+namespace VaCant.Applications.Dtos
 {
     /// <summary>
     /// 角色

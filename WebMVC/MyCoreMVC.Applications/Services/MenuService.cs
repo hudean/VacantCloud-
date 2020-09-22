@@ -1,16 +1,18 @@
-﻿using MyCoreMvc.Common;
-using MyCoreMvc.Entitys;
-using MyCoreMvc.Repositorys;
-using MyCoreMVC.Applications.Dtos;
-using MyCoreMVC.Applications.IServices;
+﻿using VaCant.Common;
+using VaCant.Entitys;
+using VaCant.Repositorys;
+using VaCant.Applications.Dtos;
+using VaCant.Applications.IServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MyCoreMVC.Applications.Services
+namespace VaCant.Applications.Services
 {
-
+    /// <summary>
+    /// 菜单
+    /// </summary>
     public class MenuService: IMenuService
     {
         private readonly IRepository<Menu,int> _menuRepository;
@@ -20,7 +22,7 @@ namespace MyCoreMVC.Applications.Services
         }
 
         /// <summary>
-        /// 获取所有权限
+        /// 获取所有菜单
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -38,10 +40,10 @@ namespace MyCoreMVC.Applications.Services
         /// 获取所有权限
         /// </summary>
         /// <returns></returns>
-        public IQueryable<MenuDto> GetAll()
+        public IQueryable<Menu> GetAll()
         {
             var query = _menuRepository.GetAll();
-            return AutoMapperExtension.MapTo<Menu, MenuDto>(query).AsQueryable();
+            return query;
         }
 
         /// <summary>

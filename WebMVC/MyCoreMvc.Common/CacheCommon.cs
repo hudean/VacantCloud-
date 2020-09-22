@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace MyCoreMvc.Common
+namespace VaCant.Common
 {
     /// <summary>
     /// 缓存帮助类

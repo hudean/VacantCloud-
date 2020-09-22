@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace MyCoreMvc.Common
+namespace VaCant.Common
 {
     /// <summary>
     /// 反射帮助类

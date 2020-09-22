@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MyCoreMVC.Applications.IServices;
+using VaCant.Applications.IServices;
 
 namespace VaCant.WebMvc.Controllers
 {
@@ -21,7 +21,8 @@ namespace VaCant.WebMvc.Controllers
 
         public IActionResult GetLogList()
         {
-            return View();
+            var list= _logService.GetAll().ToList();
+            return View(list);
         }
 
         public IActionResult GetLogLevelList()

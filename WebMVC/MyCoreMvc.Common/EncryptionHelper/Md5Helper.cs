@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace MyCoreMvc.Common.EncryptionHelper
+namespace VaCant.Common.EncryptionHelper
 {
     /// <summary>
     /// 提供Md5的操作方法

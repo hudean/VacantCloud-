@@ -4,7 +4,7 @@ using System.Text;
 using System.Security.Cryptography;
 using System.IO;
 
-namespace MyCoreMvc.Common.EncryptionHelper
+namespace VaCant.Common.EncryptionHelper
 {
     /// <summary>
     /// des加解密

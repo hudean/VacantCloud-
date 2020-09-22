@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyCoreMvc.Entitys
+namespace VaCant.Entitys
 {
     /// <summary>
     /// Defines interface for base entity type. All entities in the system must implement this interface.

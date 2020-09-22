@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace MyCoreMvc.Common
+namespace VaCant.Common
 {
     public static class StringExtensions
     {

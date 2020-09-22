@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyCoreMvc.Repositorys
+namespace VaCant.Repositorys
 {
     public interface IRepository 
     { 

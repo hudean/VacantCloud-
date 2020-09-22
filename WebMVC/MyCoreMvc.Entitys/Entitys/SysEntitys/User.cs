@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace MyCoreMvc.Entitys
+namespace VaCant.Entitys
 {
     /// <summary>
     /// 后台用户表
@@ -16,19 +17,33 @@ namespace MyCoreMvc.Entitys
         /// 用户名称
         /// </summary>
         [Required]
+        [DisplayName("用户名称")]
         public string UserName { get; set; }
+
+        /// <summary>
+        /// 是否启用
+        /// </summary>
+        [DisplayName("是否启用")]
+        public bool IsActive { get; set; } = true;
+
+
         /// <summary>
         /// 用户邮箱
         /// </summary>
+        [Required]
+        [DisplayName("用户邮箱")]
         public string Email { get; set; }
         /// <summary>
         /// 用户电话
         /// </summary>
+        [Required]
+        [DisplayName("用户电话")]
         public string PhoneNum { get; set; }
         /// <summary>
         /// 用户密码
         /// </summary>
         [Required]
+        [DisplayName("用户密码")]
         public string Password { get; set; }
 
         /// <summary>
@@ -38,6 +53,8 @@ namespace MyCoreMvc.Entitys
         /// <summary>
         /// 用户地址
         /// </summary>
+        [DisplayName("用户地址")]
+        [Required]
         public string  Address { get; set; }
         /// <summary>
         /// 登入错误次数

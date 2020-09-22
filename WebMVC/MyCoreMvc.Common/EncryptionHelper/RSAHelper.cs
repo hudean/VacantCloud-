@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace MyCoreMvc.Common.EncryptionHelper
+namespace VaCant.Common.EncryptionHelper
 {
     /// <summary>
     /// RSA加密验证

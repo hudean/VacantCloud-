@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using System;
 using System.IO;
 
-namespace MyCoreMvc.Common
+namespace VaCant.Common
 {
     /// <summary>
     /// 读取appsettings.json配置信息

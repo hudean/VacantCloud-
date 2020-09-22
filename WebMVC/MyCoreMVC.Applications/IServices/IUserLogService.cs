@@ -1,11 +1,11 @@
-﻿using MyCoreMvc.Entitys;
-using MyCoreMVC.Applications.Dtos;
+﻿using VaCant.Entitys;
+using VaCant.Applications.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MyCoreMVC.Applications.IServices
+namespace VaCant.Applications.IServices
 {
     public interface IUserLogService : IBaseService
     {

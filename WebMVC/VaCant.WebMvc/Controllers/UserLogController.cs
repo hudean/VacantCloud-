@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MyCoreMvc.Entitys;
-using MyCoreMVC.Applications.IServices;
+using VaCant.Entitys;
+using VaCant.Applications.IServices;
 
 namespace VaCant.WebMvc.Controllers
 {

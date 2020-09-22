@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyCoreMvc.Common
+namespace VaCant.Common
 {
     /// <summary>
     /// AutoMapper扩展

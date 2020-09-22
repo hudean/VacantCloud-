@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyCoreMvc.Entitys;
+using VaCant.Entitys;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MyCoreMvc.Repositorys.EFCore
+namespace VaCant.Repositorys.EFCore
 {
 
 
@@ -144,6 +144,17 @@ namespace MyCoreMvc.Repositorys.EFCore
         public override TEntity Insert(TEntity entity)
         {
             return Table.Add(entity).Entity;
+        }
+
+        public override void BatchDelete(IEnumerable<TEntity> entities)
+        {
+            Table.RemoveRange(entities);
+        }
+
+
+        public override void BatchInsert(IEnumerable<TEntity> entities)
+        {
+            Table.AddRange(entities);
         }
 
         public override Task<TEntity> InsertAsync(TEntity entity)

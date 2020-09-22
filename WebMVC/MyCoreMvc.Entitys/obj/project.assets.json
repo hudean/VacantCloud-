@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj",
-      "projectName": "MyCoreMvc.Entitys",
-      "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj",
+      "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\VaCant.Entitys.csproj",
+      "projectName": "VaCant.Entitys",
+      "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\VaCant.Entitys.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
       "outputPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\obj\\",
       "projectStyle": "PackageReference",

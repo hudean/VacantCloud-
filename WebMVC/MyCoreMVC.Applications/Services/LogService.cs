@@ -1,13 +1,13 @@
-﻿using MyCoreMvc.Entitys;
-using MyCoreMvc.Repositorys;
-using MyCoreMVC.Applications.Dtos;
-using MyCoreMVC.Applications.IServices;
+﻿using VaCant.Entitys;
+using VaCant.Repositorys;
+using VaCant.Applications.Dtos;
+using VaCant.Applications.IServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MyCoreMVC.Applications.Services
+namespace VaCant.Applications.Services
 {
     public class LogService : ILogService
     {

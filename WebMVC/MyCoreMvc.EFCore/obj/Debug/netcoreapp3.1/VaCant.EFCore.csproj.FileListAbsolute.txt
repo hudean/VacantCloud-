@@ -1,0 +1,17 @@
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\VaCant.EFCore.deps.json
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\VaCant.EFCore.dll
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\VaCant.EFCore.pdb
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\VaCant.Common.dll
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\VaCant.Entitys.dll
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\VaCant.Common.pdb
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\VaCant.Entitys.pdb
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\VaCant.EFCore.csprojAssemblyReference.cache
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\VaCant.EFCore.AssemblyInfoInputs.cache
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\VaCant.EFCore.AssemblyInfo.cs
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\VaCant.EFCore.csproj.CopyComplete
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\VaCant.EFCore.dll
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\VaCant.EFCore.pdb
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\VaCant.EFCore.runtimeconfig.json
+E:\我的code\WebMVC\MyCoreMvc.EFCore\bin\Debug\netcoreapp3.1\VaCant.EFCore.runtimeconfig.dev.json
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\VaCant.EFCore.genruntimeconfig.cache
+E:\我的code\WebMVC\MyCoreMvc.EFCore\obj\Debug\netcoreapp3.1\VaCant.EFCore.csproj.CoreCompileInputs.cache

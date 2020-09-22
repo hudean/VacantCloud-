@@ -4,12 +4,12 @@
     "E:\\我的code\\WebMVC\\MyCoreMvc.Initialization\\MyCoreMvc.Initialization.csproj": {}
   },
   "projects": {
-    "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\MyCoreMVC.Applications.csproj": {
+    "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\VaCant.Applications.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\MyCoreMVC.Applications.csproj",
-        "projectName": "MyCoreMVC.Applications",
-        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\MyCoreMVC.Applications.csproj",
+        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\VaCant.Applications.csproj",
+        "projectName": "VaCant.Applications",
+        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\VaCant.Applications.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
         "outputPath": "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\obj\\",
         "projectStyle": "PackageReference",
@@ -30,14 +30,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj": {
-                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj"
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj"
               },
-              "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj": {
-                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj"
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\VaCant.Entitys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\VaCant.Entitys.csproj"
               },
-              "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj": {
-                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj"
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\VaCant.Repositorys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\VaCant.Repositorys.csproj"
               }
             }
           }
@@ -69,12 +69,12 @@
         }
       }
     },
-    "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj": {
+    "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj",
-        "projectName": "MyCoreMvc.Common",
-        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj",
+        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj",
+        "projectName": "VaCant.Common",
+        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
         "outputPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\obj\\",
         "projectStyle": "PackageReference",
@@ -154,12 +154,12 @@
         }
       }
     },
-    "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj": {
+    "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\VaCant.EFCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj",
-        "projectName": "MyCoreMvc.EFCore",
-        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj",
+        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\VaCant.EFCore.csproj",
+        "projectName": "VaCant.EFCore",
+        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\VaCant.EFCore.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
         "outputPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\obj\\",
         "projectStyle": "PackageReference",
@@ -180,8 +180,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj": {
-                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj"
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj"
+              },
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\VaCant.Entitys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\VaCant.Entitys.csproj"
               }
             }
           }
@@ -239,12 +242,12 @@
         }
       }
     },
-    "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj": {
+    "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\VaCant.Entitys.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj",
-        "projectName": "MyCoreMvc.Entitys",
-        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj",
+        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\VaCant.Entitys.csproj",
+        "projectName": "VaCant.Entitys",
+        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\VaCant.Entitys.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
         "outputPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\obj\\",
         "projectStyle": "PackageReference",
@@ -320,17 +323,17 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\MyCoreMVC.Applications.csproj": {
-                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\MyCoreMVC.Applications.csproj"
+              "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\VaCant.Applications.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMVC.Applications\\VaCant.Applications.csproj"
               },
-              "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj": {
-                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj"
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj"
               },
-              "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj": {
-                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj"
+              "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\VaCant.EFCore.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\VaCant.EFCore.csproj"
               },
-              "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj": {
-                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj"
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\VaCant.Repositorys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\VaCant.Repositorys.csproj"
               }
             }
           }
@@ -362,12 +365,12 @@
         }
       }
     },
-    "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj": {
+    "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\VaCant.Repositorys.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj",
-        "projectName": "MyCoreMvc.Repositorys",
-        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\MyCoreMvc.Repositorys.csproj",
+        "projectUniqueName": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\VaCant.Repositorys.csproj",
+        "projectName": "VaCant.Repositorys",
+        "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\VaCant.Repositorys.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
         "outputPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Repositorys\\obj\\",
         "projectStyle": "PackageReference",
@@ -388,11 +391,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj": {
-                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\MyCoreMvc.EFCore.csproj"
+              "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\VaCant.EFCore.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.EFCore\\VaCant.EFCore.csproj"
               },
-              "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj": {
-                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\MyCoreMvc.Entitys.csproj"
+              "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\VaCant.Entitys.csproj": {
+                "projectPath": "E:\\我的code\\WebMVC\\MyCoreMvc.Entitys\\VaCant.Entitys.csproj"
               }
             }
           }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gKqD7M/YCBIC9FKOa7jQBx9Xp31RYmIcsyMOkfImOCIHdTEgfY8EBpHn7IOxTRm+snyrMl+5KOsYspo8rn6DUA==",
+  "dgSpecHash": "o0dtXcVxkG7Ao+IK1VgF56p6Vg57YVGMtmUnVc/06CmTV7Rt5b7f2izSaih67J4cGj+a2oo3kuPhp/o/Kf39Ng==",
   "success": true,
-  "projectFilePath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\MyCoreMvc.Common.csproj",
+  "projectFilePath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

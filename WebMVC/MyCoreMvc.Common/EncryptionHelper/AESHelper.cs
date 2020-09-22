@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace MyCoreMvc.Common.EncryptionHelper
+namespace VaCant.Common.EncryptionHelper
 {
     /// <summary>
     /// AES加解密

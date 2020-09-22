@@ -5,7 +5,7 @@ using System.Xml;
 using System.Xml.Serialization;
 
 
-namespace MyCoreMvc.Common
+namespace VaCant.Common
 {
     public class XMLHelper
     {

@@ -6,7 +6,7 @@ using System.Data;
 using System.Text;
 using System.Linq;
 
-namespace MyCoreMvc.Common
+namespace VaCant.Common
 {
     /// <summary>
     /// JSON操作帮助类

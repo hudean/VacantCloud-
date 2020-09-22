@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyCoreMVC.Applications.Dtos
+namespace VaCant.Applications.Dtos
 {
     /// <summary>
     /// 权限

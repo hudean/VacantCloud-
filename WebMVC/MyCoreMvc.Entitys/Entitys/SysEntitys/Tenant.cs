@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace MyCoreMvc.Entitys
+namespace VaCant.Entitys
 {
     /// <summary>
     /// 租户表
