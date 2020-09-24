@@ -23,7 +23,6 @@
         factory(jQuery, jQuery.mapael);
     }
 }(function ($, Mapael) {
-
     "use strict";
 
     $.extend(true, Mapael, {
@@ -99,7 +98,7 @@
                     var x = (xPrime - self._xLeftPrime) * (self.width / (self._xRightPrime - self._xLeftPrime));
                     var y = (self._yTopPrime - yPrime) * (self.height / (self._yTopPrime - self._yBottomPrime));
 
-                    return {x: x, y: y};
+                    return { x: x, y: y };
                 },
                 elems: {
                     "AE": "m 620.12,393.97 0.5,-0.15 0.11,0.84 2.19,-0.48 2.32,0.08 1.69,0.09 1.92,-2.07 2.1,-1.98 1.77,-1.9 0.53,1.05 0.38,2.44 -1.43,0.01 -0.23,2 0.5,0.42 -1.27,0.6 -0.01,1.25 -0.82,1.26 -0.07,1.21 -0.57,0.64 -8.42,-1.52 -1.08,-3.08 z",
@@ -284,5 +283,4 @@
     });
 
     return Mapael;
-
 }));

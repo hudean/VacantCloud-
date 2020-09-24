@@ -10,4 +10,4 @@ interface Layout {
  * Possible grid layout modes
  */
 export declare const LAYOUT: Layout;
-export {};
+export { };

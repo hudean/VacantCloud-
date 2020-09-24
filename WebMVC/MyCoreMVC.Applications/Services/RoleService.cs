@@ -1,14 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using VaCant.Applications.Dtos;
+using VaCant.Applications.IServices;
 using VaCant.Common;
 using VaCant.Entitys;
 using VaCant.Repositorys;
-using VaCant.Applications.Dtos;
-using VaCant.Applications.IServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VaCant.Applications.Services
 {
@@ -20,12 +17,14 @@ namespace VaCant.Applications.Services
         private readonly IRepository<Role> _roleRepository;
         private readonly IRepository<User> _userRepository;
         private readonly IRepository<RolePermission> _rolePermissionRepository;
+
         public RoleService(IRepository<Role> roleRepository, IRepository<User> userRepository, IRepository<RolePermission> rolePermissionRepository)
         {
             _roleRepository = roleRepository;
             _userRepository = userRepository;
             _rolePermissionRepository = rolePermissionRepository;
         }
+
         /// <summary>
         /// 获取所有角色
         /// </summary>
@@ -33,7 +32,7 @@ namespace VaCant.Applications.Services
         /// <returns></returns>
         public IQueryable<RoleDto> GetAll(RoleInputDto dto)
         {
-            var query = _roleRepository.GetAll(); 
+            var query = _roleRepository.GetAll();
             if (string.IsNullOrEmpty(dto?.SearchRoleName))
             {
                 query = query.Where(u => u.RoleName.Contains(dto.SearchRoleName));
@@ -97,10 +96,9 @@ namespace VaCant.Applications.Services
             }
             var role = AutoMapperExtension.MapTo<RoleDto, Role>(inputDto);
 
-
             var result = _roleRepository.Insert(role);
             var permissionIds = inputDto.PermissionIds;
-           
+
             if (result != null)
             {
                 permissionIds.ForEach(r =>
@@ -115,15 +113,15 @@ namespace VaCant.Applications.Services
             }
             return null;
         }
+
         /// <summary>
         /// 根据id删除角色
         /// </summary>
         /// <param name="id"></param>
         public async Task DeleteAsync(long id)
         {
-           await  _roleRepository.DeleteAsync(id);
+            await _roleRepository.DeleteAsync(id);
         }
-
 
         /// <summary>
         /// 修改角色
@@ -132,7 +130,7 @@ namespace VaCant.Applications.Services
         /// <returns></returns>
         public async Task<RoleDto> UpdateAsync(RoleDto inputDto)
         {
-            var query = _roleRepository.GetAll().Where(r => r.RoleName.Contains(inputDto.RoleName)&&r.Id!= inputDto.Id).FirstOrDefault();
+            var query = _roleRepository.GetAll().Where(r => r.RoleName.Contains(inputDto.RoleName) && r.Id != inputDto.Id).FirstOrDefault();
             if (query != null)
             {
                 throw new AggregateException("修改失败，角色名称已存在！");
@@ -145,7 +143,7 @@ namespace VaCant.Applications.Services
             {
                 if (!permissionIds.Contains(r.PermissionId))
                 {
-                  await  _rolePermissionRepository.DeleteAsync(r);
+                    await _rolePermissionRepository.DeleteAsync(r);
                 }
                 else
                 {
@@ -166,6 +164,5 @@ namespace VaCant.Applications.Services
             }
             return null;
         }
-
     }
 }

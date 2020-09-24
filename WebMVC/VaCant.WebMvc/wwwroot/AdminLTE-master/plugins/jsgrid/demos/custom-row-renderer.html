@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,18 +18,30 @@
     <script src="../src/jsgrid.field.js"></script>
 
     <style>
-        .client-photo { float: left; margin: 0 20px 0 10px; }
-        .client-photo img { border-radius: 50%; border: 1px solid #ddd; }
-        .client-info { margin-top: 10px; }
-        .client-info p { line-height: 25px; }
+        .client-photo {
+            float: left;
+            margin: 0 20px 0 10px;
+        }
+
+            .client-photo img {
+                border-radius: 50%;
+                border: 1px solid #ddd;
+            }
+
+        .client-info {
+            margin-top: 10px;
+        }
+
+            .client-info p {
+                line-height: 25px;
+            }
     </style>
 </head>
 <body>
     <h1>Custom Row Renderer</h1>
     <div id="jsGrid"></div>
 
-    <script>
-        $(function() {
+    <script>$(function() {
 
             $("#jsGrid").jsGrid({
                 height: "80%",
@@ -68,12 +80,10 @@
                 ]
             });
 
-
             String.prototype.capitalize = function() {
                 return this.charAt(0).toUpperCase() + this.slice(1);
             };
 
-        });
-    </script>
+        });</script>
 </body>
 </html>

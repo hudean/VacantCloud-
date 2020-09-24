@@ -1,9 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
 using System.Linq;
 
 namespace VaCant.Common
@@ -45,9 +43,6 @@ namespace VaCant.Common
             return string.Empty;
         }
 
-
-
-
         /// <summary>
         /// Json反序列化
         /// </summary>
@@ -66,7 +61,6 @@ namespace VaCant.Common
             else
             {
                 Type type = typeof(T);
-
 
                 if (type == typeof(DataSet))
                 {

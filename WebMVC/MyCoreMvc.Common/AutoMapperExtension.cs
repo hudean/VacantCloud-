@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace VaCant.Common
 {
@@ -112,6 +111,5 @@ namespace VaCant.Common
             var mapper = config.CreateMapper();
             return mapper.Map<TDestination>(source);
         }
-
     }
 }

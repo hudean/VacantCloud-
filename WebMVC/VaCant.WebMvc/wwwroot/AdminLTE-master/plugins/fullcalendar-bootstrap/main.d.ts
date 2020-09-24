@@ -9,4 +9,3 @@ declare module '@fullcalendar/bootstrap' {
     const _default: import("@fullcalendar/core").PluginDef;
     export default _default;
 }
-

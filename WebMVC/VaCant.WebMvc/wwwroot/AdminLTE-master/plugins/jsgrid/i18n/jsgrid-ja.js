@@ -1,5 +1,4 @@
-(function(jsGrid) {
-
+(function (jsGrid) {
     jsGrid.locales.ja = {
         grid: {
             noDataContent: "データが見つかりません。",
@@ -42,5 +41,4 @@
             max: { message: "項目の値が不足しています。" }
         }
     };
-
 }(jsGrid, jQuery));

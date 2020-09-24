@@ -1,9 +1,5 @@
-﻿using VaCant.Entitys;
+﻿using System.Linq;
 using VaCant.Applications.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace VaCant.Applications.IServices
 {
@@ -42,12 +38,12 @@ namespace VaCant.Applications.IServices
         /// <param name="dto"></param>
         /// <returns></returns>
         public PermissionDto Add(PermissionDto dto);
+
         /// <summary>
         /// 根据id删除权限
         /// </summary>
         /// <param name="id"></param>
         public void Delete(long id);
-
 
         /// <summary>
         /// 修改权限

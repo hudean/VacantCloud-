@@ -1,5 +1,4 @@
-(function(jsGrid) {
-
+(function (jsGrid) {
     jsGrid.locales["zh-cn"] = {
         grid: {
             noDataContent: "暂无数据",
@@ -42,5 +41,4 @@
             max: { message: "字段值太大" }
         }
     };
-
 }(jsGrid, jQuery));

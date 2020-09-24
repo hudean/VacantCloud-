@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.Extensions.Caching.Memory;
+using System;
 
 namespace VaCant.Common
 {
@@ -16,6 +14,7 @@ namespace VaCant.Common
         /// 缓存操作类
         /// </summary>
         private static MemoryCache cache = new MemoryCache(new MemoryCacheOptions());
+
         /// <summary>
         /// 检查缓存是否存在
         /// </summary>
@@ -29,6 +28,7 @@ namespace VaCant.Common
         }
 
         #region 获取缓存值
+
         /// <summary>
         /// 获取缓存值
         /// </summary>
@@ -41,8 +41,10 @@ namespace VaCant.Common
             else
                 return default(object);
         }
+
         #endregion
         #region 设置缓存值
+
         /// <summary>
         /// 设置缓存值
         /// </summary>
@@ -57,6 +59,7 @@ namespace VaCant.Common
             }
             return false;
         }
+
         /// <summary>
         /// 设置缓存（滑动过期）
         /// </summary>
@@ -78,6 +81,7 @@ namespace VaCant.Common
             }
             return false;
         }
+
         /// <summary>
         /// 设置缓存（过期时间，是否滑动过期）
         /// </summary>
@@ -104,6 +108,7 @@ namespace VaCant.Common
             }
             return false;
         }
+
         #endregion
     }
 }

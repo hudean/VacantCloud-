@@ -40,6 +40,7 @@ namespace VaCant.Common
         {
             return Attribute.GetCustomAttributes(member, typeof(TAttr)) as TAttr[];
         }
+
         public static bool IsSubclassOfGeneric(this Type type, Type generic)
         {
             if (type == null || generic == null)
@@ -103,7 +104,6 @@ namespace VaCant.Common
             return false;
         }
 
-
         public static Type GetNonNullableType(this Type type)
         {
             if (!type.IsNullableType())
@@ -113,7 +113,6 @@ namespace VaCant.Common
 
             return type.GetGenericArguments()[0];
         }
-
 
         /// <summary>
         /// 获取<see cref="Nullable{TValue}"/>范型的构造类型
@@ -164,6 +163,7 @@ namespace VaCant.Common
             }
             return true;
         }
+
         /// <summary>
         /// 判断类型是否为 列表类型 <see cref="IList"/>
         /// </summary>
@@ -195,14 +195,19 @@ namespace VaCant.Common
                 {
                     case DisplayProperty.Name:
                         return display.GetName();
+
                     case DisplayProperty.ShortName:
                         return display.GetShortName();
+
                     case DisplayProperty.GroupName:
                         return display.GetGroupName();
+
                     case DisplayProperty.Description:
                         return display.GetDescription();
+
                     case DisplayProperty.Order:
                         return display.GetOrder();
+
                     case DisplayProperty.Prompt:
                         return display.GetPrompt();
                 }
@@ -258,7 +263,6 @@ namespace VaCant.Common
         {
             return val.Display(DisplayProperty.Order) as int?;
         }
-
 
         /// <summary>
         /// Checks whether <paramref name="givenType"/> implements/inherits <paramref name="genericType"/>.

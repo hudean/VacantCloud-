@@ -23,17 +23,17 @@
     border-bottom: 0;
 }
 
-.jsgrid-header-row > .jsgrid-header-cell:first-child,
-.jsgrid-filter-row > .jsgrid-cell:first-child,
-.jsgrid-insert-row > .jsgrid-cell:first-child {
-    border-left: none;
-}
+    .jsgrid-header-row > .jsgrid-header-cell:first-child,
+    .jsgrid-filter-row > .jsgrid-cell:first-child,
+    .jsgrid-insert-row > .jsgrid-cell:first-child {
+        border-left: none;
+    }
 
-.jsgrid-header-row > .jsgrid-header-cell:last-child,
-.jsgrid-filter-row > .jsgrid-cell:last-child,
-.jsgrid-insert-row > .jsgrid-cell:last-child {
-    border-right: none;
-}
+    .jsgrid-header-row > .jsgrid-header-cell:last-child,
+    .jsgrid-filter-row > .jsgrid-cell:last-child,
+    .jsgrid-insert-row > .jsgrid-cell:last-child {
+        border-right: none;
+    }
 
 .jsgrid-header-row .jsgrid-align-right,
 .jsgrid-header-row .jsgrid-align-left {
@@ -54,13 +54,13 @@
     scrollbar-dark-shadow-color: #f1f1f1;
 }
 
-.jsgrid-header-scrollbar::-webkit-scrollbar {
-    visibility: hidden;
-}
+    .jsgrid-header-scrollbar::-webkit-scrollbar {
+        visibility: hidden;
+    }
 
-.jsgrid-header-scrollbar::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
+    .jsgrid-header-scrollbar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
 
 .jsgrid-header-sortable:hover {
     cursor: pointer;
@@ -194,16 +194,59 @@
     opacity: .5;
 }
 
-.jsgrid-cancel-edit-button { background-position: 0 0; width: 16px; height: 16px; }
-.jsgrid-clear-filter-button { background-position: 0 -40px; width: 16px; height: 16px; }
-.jsgrid-delete-button { background-position: 0 -80px; width: 16px; height: 16px; }
-.jsgrid-edit-button { background-position: 0 -120px; width: 16px; height: 16px; }
-.jsgrid-insert-mode-button { background-position: 0 -160px; width: 24px; height: 24px; }
-.jsgrid-insert-button { background-position: 0 -208px; width: 16px; height: 16px; }
-.jsgrid-search-mode-button { background-position: 0 -248px; width: 24px; height: 24px; }
-.jsgrid-search-button { background-position: 0 -296px; width: 16px; height: 16px; }
-.jsgrid-update-button { background-position: 0 -336px; width: 16px; height: 16px; }
+.jsgrid-cancel-edit-button {
+    background-position: 0 0;
+    width: 16px;
+    height: 16px;
+}
 
+.jsgrid-clear-filter-button {
+    background-position: 0 -40px;
+    width: 16px;
+    height: 16px;
+}
+
+.jsgrid-delete-button {
+    background-position: 0 -80px;
+    width: 16px;
+    height: 16px;
+}
+
+.jsgrid-edit-button {
+    background-position: 0 -120px;
+    width: 16px;
+    height: 16px;
+}
+
+.jsgrid-insert-mode-button {
+    background-position: 0 -160px;
+    width: 24px;
+    height: 24px;
+}
+
+.jsgrid-insert-button {
+    background-position: 0 -208px;
+    width: 16px;
+    height: 16px;
+}
+
+.jsgrid-search-mode-button {
+    background-position: 0 -248px;
+    width: 24px;
+    height: 24px;
+}
+
+.jsgrid-search-button {
+    background-position: 0 -296px;
+    width: 16px;
+    height: 16px;
+}
+
+.jsgrid-update-button {
+    background-position: 0 -336px;
+    width: 16px;
+    height: 16px;
+}
 
 .jsgrid-load-shader {
     background: #ddd;
@@ -220,39 +263,54 @@
     text-align: center;
 }
 
-.jsgrid-load-panel:before {
-    content: ' ';
-    position: absolute;
-    top: .5em;
-    left: 50%;
-    margin-left: -1em;
-    width: 2em;
-    height: 2em;
-    border: 2px solid #009a67;
-    border-right-color: transparent;
-    border-radius: 50%;
-    -webkit-animation: indicator 1s linear infinite;
-    animation: indicator 1s linear infinite;
+    .jsgrid-load-panel:before {
+        content: ' ';
+        position: absolute;
+        top: .5em;
+        left: 50%;
+        margin-left: -1em;
+        width: 2em;
+        height: 2em;
+        border: 2px solid #009a67;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: indicator 1s linear infinite;
+        animation: indicator 1s linear infinite;
+    }
+
+@-webkit-keyframes indicator {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
-@-webkit-keyframes indicator
-{
-    from { -webkit-transform: rotate(0deg); }
-    50%  { -webkit-transform: rotate(180deg); }
-    to   { -webkit-transform: rotate(360deg); }
-}
+@keyframes indicator {
+    from {
+        transform: rotate(0deg);
+    }
 
-@keyframes indicator
-{
-    from { transform: rotate(0deg); }
-    50%  { transform: rotate(180deg); }
-    to   { transform: rotate(360deg); }
+    50% {
+        transform: rotate(180deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* old IE */
 .jsgrid-load-panel {
     padding-top: 1.5em\9;
 }
-.jsgrid-load-panel:before {
-    display: none\9;
-}
+
+    .jsgrid-load-panel:before {
+        display: none\9;
+    }

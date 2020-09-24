@@ -22,7 +22,7 @@ and limitations under the License.
 ***************************************************************************** */
 /* global Reflect, Promise */
 
-var extendStatics = function(d, b) {
+var extendStatics = function (d, b) {
     extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -35,7 +35,7 @@ function __extends(d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
 
-var __assign = function() {
+var __assign = function () {
     __assign = Object.assign || function __assign(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -71,7 +71,7 @@ var DayGridDateProfileGenerator = /** @class */ (function (_super) {
         if (this.options.monthMode &&
             this.options.fixedWeekCount) {
             var rowCnt = Math.ceil(// could be partial weeks due to hiddenDays
-            diffWeeks(start, end));
+                diffWeeks(start, end));
             end = addWeeks(end, 6 - rowCnt);
         }
         return { start: start, end: end };
@@ -233,8 +233,8 @@ var SimpleDayGridEventRenderer = /** @class */ (function (_super) {
         }
         titleHtml =
             '<span class="fc-title">' +
-                (htmlEscape(eventDef.title || '') || '&nbsp;') + // we always want one line of height
-                '</span>';
+            (htmlEscape(eventDef.title || '') || '&nbsp;') + // we always want one line of height
+            '</span>';
         return '<a class="' + classes.join(' ') + '"' +
             (eventDef.url ?
                 ' href="' + htmlEscape(eventDef.url) + '"' :
@@ -429,7 +429,7 @@ var DayGridEventRenderer = /** @class */ (function (_super) {
             seg.level = j;
             seg.leftCol = isRtl ? (colCnt - 1 - seg.lastCol) : seg.firstCol; // for sorting only
             seg.rightCol = isRtl ? (colCnt - 1 - seg.firstCol) : seg.lastCol // for sorting only
-            ;
+                ;
             (levels[j] || (levels[j] = [])).push(seg);
         }
         // order segments left-to-right. very important if calendar is RTL
@@ -561,16 +561,16 @@ var DayGridFillRenderer = /** @class */ (function (_super) {
             '</div>');
         trEl = skeletonEl.getElementsByTagName('tr')[0];
         if (startCol > 0) {
-            appendToElement(trEl, 
-            // will create (startCol + 1) td's
-            new Array(startCol + 1).join(EMPTY_CELL_HTML));
+            appendToElement(trEl,
+                // will create (startCol + 1) td's
+                new Array(startCol + 1).join(EMPTY_CELL_HTML));
         }
         seg.el.colSpan = endCol - startCol;
         trEl.appendChild(seg.el);
         if (endCol < colCnt) {
-            appendToElement(trEl, 
-            // will create (colCnt - endCol) td's
-            new Array(colCnt - endCol + 1).join(EMPTY_CELL_HTML));
+            appendToElement(trEl,
+                // will create (colCnt - endCol) td's
+                new Array(colCnt - endCol + 1).join(EMPTY_CELL_HTML));
         }
         var introHtml = dayGrid.renderProps.renderIntroHtml();
         if (introHtml) {
@@ -622,14 +622,14 @@ var DayTile = /** @class */ (function (_super) {
         );
         this.el.innerHTML =
             '<div class="fc-header ' + theme.getClass('popoverHeader') + '">' +
-                '<span class="fc-title">' +
-                htmlEscape(title) +
-                '</span>' +
-                '<span class="fc-close ' + theme.getIconClass('close') + '"></span>' +
-                '</div>' +
-                '<div class="fc-body ' + theme.getClass('popoverContent') + '">' +
-                '<div class="fc-event-container"></div>' +
-                '</div>';
+            '<span class="fc-title">' +
+            htmlEscape(title) +
+            '</span>' +
+            '<span class="fc-close ' + theme.getIconClass('close') + '"></span>' +
+            '</div>' +
+            '<div class="fc-body ' + theme.getClass('popoverContent') + '">' +
+            '<div class="fc-event-container"></div>' +
+            '</div>';
         this.segContainerEl = this.el.querySelector('.fc-event-container');
     };
     DayTile.prototype.queryHit = function (positionLeft, positionTop, elWidth, elHeight) {
@@ -791,7 +791,7 @@ var DayGrid = /** @class */ (function (_super) {
         this.rowPositions = new PositionCache(this.el, this.rowEls, false, true // vertical
         );
         this.colPositions = new PositionCache(this.el, this.cellEls.slice(0, colCnt), // only the first row
-        true, false // horizontal
+            true, false // horizontal
         );
         // trigger dayRender with each cell's element
         for (row = 0; row < rowCnt; row++) {
@@ -834,8 +834,8 @@ var DayGrid = /** @class */ (function (_super) {
             '<table>' +
             (this.getIsNumbersVisible() ?
                 '<thead>' +
-                    this.renderNumberTrHtml(row) +
-                    '</thead>' :
+                this.renderNumberTrHtml(row) +
+                '</thead>' :
                 '') +
             '</table>' +
             '</div>' +
@@ -1242,12 +1242,14 @@ var DayGrid = /** @class */ (function (_super) {
             var origRange = eventRange.range;
             var slicedRange = intersectRanges(origRange, dayRange);
             if (slicedRange) {
-                newSegs.push(__assign({}, seg, { eventRange: {
+                newSegs.push(__assign({}, seg, {
+                    eventRange: {
                         def: eventRange.def,
                         ui: __assign({}, eventRange.ui, { durationEditable: false }),
                         instance: eventRange.instance,
                         range: slicedRange
-                    }, isStart: seg.isStart && slicedRange.start.valueOf() === origRange.start.valueOf(), isEnd: seg.isEnd && slicedRange.end.valueOf() === origRange.end.valueOf() }));
+                    }, isStart: seg.isStart && slicedRange.start.valueOf() === origRange.start.valueOf(), isEnd: seg.isEnd && slicedRange.end.valueOf() === origRange.end.valueOf()
+                }));
             }
         }
         return newSegs;
@@ -1317,7 +1319,7 @@ var AbstractDayGridView = /** @class */ (function (_super) {
                 return '' +
                     '<td class="fc-week-number" ' + _this.weekNumberStyleAttr() + '>' +
                     buildGotoAnchorHtml(// aside from link, important for matchCellWidths
-                    options, dateEnv, { date: weekStart, type: 'week', forceOff: dayGrid.colCnt === 1 }, dateEnv.format(weekStart, WEEK_NUM_FORMAT$1) // inner HTML
+                        options, dateEnv, { date: weekStart, type: 'week', forceOff: dayGrid.colCnt === 1 }, dateEnv.format(weekStart, WEEK_NUM_FORMAT$1) // inner HTML
                     ) +
                     '</td>';
             }
@@ -1370,7 +1372,7 @@ var AbstractDayGridView = /** @class */ (function (_super) {
         this.el.classList.add('fc-dayGrid-view');
         this.el.innerHTML = this.renderSkeletonHtml();
         this.scroller = new ScrollComponent('hidden', // overflow x
-        'auto' // overflow y
+            'auto' // overflow y
         );
         var dayGridContainerEl = this.scroller.el;
         this.el.querySelector('.fc-body > tr > td').appendChild(dayGridContainerEl);
@@ -1398,10 +1400,10 @@ var AbstractDayGridView = /** @class */ (function (_super) {
             '<table class="' + theme.getClass('tableGrid') + '">' +
             (options.columnHeader ?
                 '<thead class="fc-head">' +
-                    '<tr>' +
-                    '<td class="fc-head-container ' + theme.getClass('widgetHeader') + '">&nbsp;</td>' +
-                    '</tr>' +
-                    '</thead>' :
+                '<tr>' +
+                '<td class="fc-head-container ' + theme.getClass('widgetHeader') + '">&nbsp;</td>' +
+                '</tr>' +
+                '</thead>' :
                 '') +
             '<tbody class="fc-body">' +
             '<tr>' +

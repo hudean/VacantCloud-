@@ -11,6 +11,7 @@ namespace VaCant.Common
     public class ReflectionHelper
     {
         #region Methods
+
         /// <summary>
         /// <para>return property name string by lamabda selector</para>
         /// <para>if in C# 6.0, can use nameof operator instead of this</para>
@@ -56,7 +57,6 @@ namespace VaCant.Common
                 throw new ArgumentException("Not is MemberExpression", nameof(express));
             }
 
-
             return GetClassName(memberExpress.Member.ReflectedType) + "." + GetPropertyName(express);
         }
 
@@ -89,7 +89,8 @@ namespace VaCant.Common
 
             return defaultValue;
         }
-        #endregion
+
+        #endregion Methods
     }
 
     public static class ReflectionHelperExtension

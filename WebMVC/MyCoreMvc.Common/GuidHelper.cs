@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace VaCant.Common
 {
@@ -11,8 +9,8 @@ namespace VaCant.Common
     {
         public static string GetGuidString()
         {
-           Guid guid = Guid.NewGuid();
-           return guid.ToString();
+            Guid guid = Guid.NewGuid();
+            return guid.ToString();
         }
 
         public static string GetGuidString(int length)

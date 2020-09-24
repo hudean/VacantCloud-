@@ -239,7 +239,7 @@ namespace VaCant.Common
             return value.Is<int>();
         }
 
-        #endregion
+        #endregion Convert
 
         /// <summary>
         /// 确保字符串以指定的字符结尾
@@ -271,7 +271,6 @@ namespace VaCant.Common
             {
                 return str;
             }
-
 
             return str + end;
         }
@@ -404,7 +403,6 @@ namespace VaCant.Common
             return str.Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n", Environment.NewLine);
         }
 
-
         /// <summary>
         /// 从字符串的结尾截取指定长度的字符
         /// </summary>
@@ -432,7 +430,7 @@ namespace VaCant.Common
         /// <param name="separator">指定分隔符</param>
         /// <returns>
         /// 如果 source 为空 则返回 null
-        /// 如果 source 没有任何元素 则返回 <see cref="System.String.Empty"/> 
+        /// 如果 source 没有任何元素 则返回 <see cref="System.String.Empty"/>
         /// </returns>
         public static string JoinAsString<T>(this IEnumerable<T> source, string separator)
         {
@@ -440,7 +438,6 @@ namespace VaCant.Common
 
             return string.Join(separator, source);
         }
-
 
         /// <summary>
         /// 使用 string.Split 方法以指定的分隔符分隔字符串
@@ -571,7 +568,7 @@ namespace VaCant.Common
             if (subLength % 2 == 1)
             {
                 //对字符的第二个字节进行判断(使用自身做下标,因为下标从0开始,实际检查的就是自己后面的一个字节)
-                //该UCS2字符是汉字时,第二个字节在默认编码中占1个字节，补全的话，长度超限,所以去掉这个截一半的汉字 
+                //该UCS2字符是汉字时,第二个字节在默认编码中占1个字节，补全的话，长度超限,所以去掉这个截一半的汉字
                 if (strBytes[subLength] > 0)
                 {
                     subLength = subLength - 1;
@@ -592,7 +589,6 @@ namespace VaCant.Common
             return subStr;
         }
 
-
         /// <summary>
         /// 返回可空安全字符串
         /// </summary>
@@ -600,6 +596,7 @@ namespace VaCant.Common
         {
             return value != null ? value.ToString() : string.Empty;
         }
+
         /// <summary>
         /// 日期格式化
         /// </summary>
@@ -641,6 +638,7 @@ namespace VaCant.Common
                 Str += DateTime.Now.ToString("yyyyMMddHHmmsss");
             return Str;
         }
+
         /// <summary>
         /// 生成数字加大小写字母随机字符串
         /// </summary>
@@ -705,6 +703,7 @@ namespace VaCant.Common
             }
             return value;
         }
+
         /// <summary>
         /// 每隔几位增加一个空格
         /// </summary>
@@ -717,6 +716,7 @@ namespace VaCant.Common
                 return string.Empty;
             return Regex.Replace(str, @"(\d{" + partition + "}(?!$))", "$1 ");
         }
+
         /// <summary>
         /// 获取日期的星期几
         /// </summary>
@@ -771,7 +771,6 @@ namespace VaCant.Common
                     }
                     else
                     {   //当不在有效范围内时,只取到字符串的结尾
-
                         p_Length = bsSrcString.Length - p_StartIndex;
                         p_TailString = "";
                     }

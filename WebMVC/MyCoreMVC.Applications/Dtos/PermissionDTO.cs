@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace VaCant.Applications.Dtos
+﻿namespace VaCant.Applications.Dtos
 {
     /// <summary>
     /// 权限

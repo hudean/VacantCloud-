@@ -11,9 +11,9 @@ const CardWidget = (($) => {
    * ====================================================
    */
 
-  const NAME               = 'CardWidget'
-  const DATA_KEY           = 'lte.cardwidget'
-  const EVENT_KEY          = `.${DATA_KEY}`
+  const NAME = 'CardWidget'
+  const DATA_KEY = 'lte.cardwidget'
+  const EVENT_KEY = `.${DATA_KEY}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Event = {
@@ -57,7 +57,7 @@ const CardWidget = (($) => {
 
   class CardWidget {
     constructor(element, settings) {
-      this._element  = element
+      this._element = element
       this._parent = element.parents(Selector.CARD).first()
 
       if (element.hasClass(ClassName.CARD)) {
@@ -113,7 +113,7 @@ const CardWidget = (($) => {
 
       this.collapse()
     }
-    
+
     maximize() {
       this._parent.find(this._settings.maximizeTrigger + ' .' + this._settings.maximizeIcon)
         .addClass(this._settings.minimizeIcon)
@@ -122,7 +122,7 @@ const CardWidget = (($) => {
         'height': this._parent.height(),
         'width': this._parent.width(),
         'transition': 'all .15s'
-      }).delay(150).queue(function(){
+      }).delay(150).queue(function () {
         $(this).addClass(ClassName.MAXIMIZED)
         $('html').addClass(ClassName.MAXIMIZED)
         if ($(this).hasClass(ClassName.COLLAPSED)) {
@@ -142,7 +142,7 @@ const CardWidget = (($) => {
         .removeClass(this._settings.minimizeIcon)
       this._parent.css('cssText', 'height:' + this._parent[0].style.height + ' !important;' +
         'width:' + this._parent[0].style.width + ' !important; transition: all .15s;'
-      ).delay(10).queue(function(){
+      ).delay(10).queue(function () {
         $(this).removeClass(ClassName.MAXIMIZED)
         $('html').removeClass(ClassName.MAXIMIZED)
         $(this).css({
@@ -195,7 +195,7 @@ const CardWidget = (($) => {
 
       if (!data) {
         data = new CardWidget($(this), _options)
-        $(this).data(DATA_KEY, typeof config === 'string' ? data: config)
+        $(this).data(DATA_KEY, typeof config === 'string' ? data : config)
       }
 
       if (typeof config === 'string' && config.match(/collapse|expand|remove|toggle|maximize|minimize|toggleMaximize/)) {
@@ -242,7 +242,7 @@ const CardWidget = (($) => {
 
   $.fn[NAME] = CardWidget._jQueryInterface
   $.fn[NAME].Constructor = CardWidget
-  $.fn[NAME].noConflict  = function () {
+  $.fn[NAME].noConflict = function () {
     $.fn[NAME] = JQUERY_NO_CONFLICT
     return CardWidget._jQueryInterface
   }

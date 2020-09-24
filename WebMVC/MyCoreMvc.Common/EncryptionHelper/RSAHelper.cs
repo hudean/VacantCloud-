@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace VaCant.Common.EncryptionHelper
 {
@@ -41,7 +40,6 @@ namespace VaCant.Common.EncryptionHelper
                     return string.Empty;
                 }
                 signatureBytes = rsaCsp.SignData(dataBytes, "SHA1");
-
             }
             catch (Exception ex)
             {
@@ -49,6 +47,7 @@ namespace VaCant.Common.EncryptionHelper
             }
             return Convert.ToBase64String(signatureBytes);
         }
+
         /// <summary>
         /// 截取字符串
         /// </summary>
@@ -106,7 +105,6 @@ namespace VaCant.Common.EncryptionHelper
                 if (bt != 0x00)
                     return null;
 
-
                 //------ all private key components are Integer sequences ----
                 elems = GetIntegerSize(binr);
                 MODULUS = binr.ReadBytes(elems);
@@ -131,7 +129,6 @@ namespace VaCant.Common.EncryptionHelper
 
                 elems = GetIntegerSize(binr);
                 IQ = binr.ReadBytes(elems);
-
 
                 // ------- create RSACryptoServiceProvider instance and initialize with public key -----
 
@@ -191,6 +188,7 @@ namespace VaCant.Common.EncryptionHelper
             binr.BaseStream.Seek(-1, SeekOrigin.Current);		//last ReadByte wasn't a removed zero, so back up a byte
             return count;
         }
+
         /// <summary>
         /// 验证签名
         /// </summary>
@@ -225,7 +223,6 @@ namespace VaCant.Common.EncryptionHelper
         /// 解析.net 生成的Pem
         private static RSAParameters ConvertFromPublicKey(string pemFileConent)
         {
-
             byte[] keyData = Convert.FromBase64String(pemFileConent);
             if (keyData.Length < 162)
             {

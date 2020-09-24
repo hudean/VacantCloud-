@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,9 +32,9 @@
             display: inline-block;
         }
 
-        .config-panel label {
-            margin-right: 10px;
-        }
+            .config-panel label {
+                margin-right: 10px;
+            }
     </style>
 </head>
 <body>
@@ -51,8 +51,7 @@
 
     <div id="jsGrid"></div>
 
-    <script>
-        $(function() {
+    <script>$(function() {
 
             $("#jsGrid").jsGrid({
                 height: "70%",
@@ -79,7 +78,6 @@
                 var $cb = $(this);
                 $("#jsGrid").jsGrid("option", $cb.attr("id"), $cb.is(":checked"));
             });
-        });
-    </script>
+        });</script>
 </body>
 </html>

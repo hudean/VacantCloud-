@@ -1,10 +1,7 @@
-﻿using VaCant.Entitys;
-using VaCant.Applications.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using VaCant.Applications.Dtos;
+using VaCant.Entitys;
 
 namespace VaCant.Applications.IServices
 {
@@ -46,12 +43,12 @@ namespace VaCant.Applications.IServices
         /// <param name="dto"></param>
         /// <returns></returns>
         public Task<RoleDto> AddAsync(RoleDto dto);
+
         /// <summary>
         /// 根据id删除角色
         /// </summary>
         /// <param name="id"></param>
         public Task DeleteAsync(long id);
-
 
         /// <summary>
         /// 修改角色

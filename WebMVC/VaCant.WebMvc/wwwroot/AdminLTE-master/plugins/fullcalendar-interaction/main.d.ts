@@ -320,4 +320,3 @@ declare module '@fullcalendar/interaction/OffsetTracker' {
         isWithinClipping(pageX: number, pageY: number): boolean;
     }
 }
-

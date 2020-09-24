@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace VaCant.Repositorys
@@ -18,8 +15,7 @@ namespace VaCant.Repositorys
             _dbContext = dbContext;
         }
 
-
-       public DbContext GetDbContext()
+        public DbContext GetDbContext()
         {
             return _dbContext;
         }

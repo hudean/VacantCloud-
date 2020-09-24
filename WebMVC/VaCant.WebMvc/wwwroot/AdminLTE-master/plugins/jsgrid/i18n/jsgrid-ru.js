@@ -1,5 +1,4 @@
-(function(jsGrid) {
-
+(function (jsGrid) {
     jsGrid.locales.ru = {
         grid: {
             noDataContent: "Данных не найдено",
@@ -42,6 +41,4 @@
             max: { message: "Введенное значение слишком большое" }
         }
     };
-
 }(jsGrid, jQuery));
-

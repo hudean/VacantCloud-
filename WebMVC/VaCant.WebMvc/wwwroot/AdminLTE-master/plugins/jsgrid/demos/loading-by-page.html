@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,7 +35,8 @@
 <body>
     <h1>Loading Data by Page</h1>
     <div class="pager-panel">
-        <label>Page:
+        <label>
+            Page:
             <select id="pager">
                 <option>1</option>
                 <option selected>2</option>
@@ -50,8 +51,7 @@
 
     <div id="jsGrid"></div>
 
-    <script>
-        $(function() {
+    <script>$(function() {
 
             $("#jsGrid").jsGrid({
                 height: "70%",
@@ -84,7 +84,6 @@
                 $("#jsGrid").jsGrid("openPage", page);
             });
 
-        });
-    </script>
+        });</script>
 </body>
 </html>

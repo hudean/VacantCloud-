@@ -19,8 +19,6 @@
     @grid_color_1: #dedede;
     @grid_color_2: silver;
 
-
-
     height: 55px;
 
     &.irs-with-grid {
@@ -66,7 +64,8 @@
         & > i:nth-child(1) {
             position: absolute;
             display: block;
-            top: -4px; left: 1px;
+            top: -4px;
+            left: 1px;
             width: (@handle_width - 6px);
             height: (@handle_width - 6px);
             border: 1px solid darken(@line_color, 15%);
@@ -78,7 +77,8 @@
             position: absolute;
             display: block;
             box-sizing: border-box;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             width: (@handle_width - 2);
             height: (@handle_height - 1);
             background: @handle_color_1;
@@ -90,8 +90,10 @@
             position: absolute;
             display: block;
             box-sizing: border-box;
-            top: 3px; left: 3px;
-            width: 4px; height: 5px;
+            top: 3px;
+            left: 3px;
+            width: 4px;
+            height: 5px;
             border-left: 1px solid darken(@line_color, 15%);
             border-right: 1px solid darken(@line_color, 15%);
         }

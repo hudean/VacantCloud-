@@ -221,4 +221,3 @@ declare module '@fullcalendar/timegrid/AllDaySplitter' {
         getKeysForEventDef(eventDef: EventDef): string[];
     }
 }
-

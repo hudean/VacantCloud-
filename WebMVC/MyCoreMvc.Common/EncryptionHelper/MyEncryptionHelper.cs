@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -12,6 +11,7 @@ namespace VaCant.Common.EncryptionHelper
     public class MyEncryptionHelper
     {
         #region MD5加密
+
         /// <summary>
         /// 32位的MD5加密 即后转16进制小写
         /// </summary>
@@ -61,10 +61,10 @@ namespace VaCant.Common.EncryptionHelper
             return strResult.ToUpper();
         }
 
-        #endregion
-
+        #endregion MD5加密
 
         #region Des加解密算法
+
         /// <summary>
         /// DES加密算法
         /// sKey为8位或16位
@@ -156,11 +156,9 @@ namespace VaCant.Common.EncryptionHelper
             catch { return null; }
         }
 
-        #endregion
-
+        #endregion Des加解密算法
 
         #region 系统WebApi接口DES base64加解密算法
-
 
         /// <summary>
         /// C# DES加密方法 返回base64字符串
@@ -237,11 +235,10 @@ namespace VaCant.Common.EncryptionHelper
             return "";
         }
 
+        #endregion 系统WebApi接口DES base64加解密算法
 
-        #endregion
+        #region AES base64加解密算法
 
-
-        #region  AES base64加解密算法
         /// <summary>
         /// 人社厅定位 AES base64 加密算法
         /// Key 为16位
@@ -266,24 +263,24 @@ namespace VaCant.Common.EncryptionHelper
             Array.Copy(Encoding.UTF8.GetBytes(Key.PadRight(bKey.Length)), bKey, bKey.Length);
             Byte[] bVector = new Byte[16];
             Array.Copy(Encoding.UTF8.GetBytes(Vector.PadRight(bVector.Length)), bVector, bVector.Length);
-            Byte[] Cryptograph = null; // 加密后的密文  
+            Byte[] Cryptograph = null; // 加密后的密文
             Rijndael Aes = Rijndael.Create();
-            //add 
+            //add
             Aes.Mode = CipherMode.CBC;//兼任其他语言的des
             Aes.BlockSize = 128;
             Aes.Padding = PaddingMode.PKCS7;
             //add end
             try
             {
-                // 开辟一块内存流  
+                // 开辟一块内存流
                 using (MemoryStream Memory = new MemoryStream())
                 {
-                    // 把内存流对象包装成加密流对象  
+                    // 把内存流对象包装成加密流对象
                     using (CryptoStream Encryptor = new CryptoStream(Memory,
                      Aes.CreateEncryptor(bKey, bVector),
                      CryptoStreamMode.Write))
                     {
-                        // 明文数据写入加密流  
+                        // 明文数据写入加密流
                         Encryptor.Write(plainBytes, 0, plainBytes.Length);
                         Encryptor.FlushFinalBlock();
 
@@ -329,24 +326,24 @@ namespace VaCant.Common.EncryptionHelper
                 Array.Copy(Encoding.UTF8.GetBytes(Key.PadRight(bKey.Length)), bKey, bKey.Length);
                 Byte[] bVector = new Byte[16];
                 Array.Copy(Encoding.UTF8.GetBytes(Vector.PadRight(bVector.Length)), bVector, bVector.Length);
-                Byte[] original = null; // 解密后的明文  
+                Byte[] original = null; // 解密后的明文
                 Rijndael Aes = Rijndael.Create();
-                //add 
+                //add
                 Aes.Mode = CipherMode.CBC;//兼任其他语言的des
                 Aes.BlockSize = 128;
                 Aes.Padding = PaddingMode.PKCS7;
                 //add end
                 try
                 {
-                    // 开辟一块内存流，存储密文  
+                    // 开辟一块内存流，存储密文
                     using (MemoryStream Memory = new MemoryStream(encryptedBytes))
                     {
-                        //把内存流对象包装成加密流对象  
+                        //把内存流对象包装成加密流对象
                         using (CryptoStream Decryptor = new CryptoStream(Memory,
                         Aes.CreateDecryptor(bKey, bVector),
                         CryptoStreamMode.Read))
                         {
-                            // 明文存储区  
+                            // 明文存储区
                             using (MemoryStream originalMemory = new MemoryStream())
                             {
                                 Byte[] Buffer = new Byte[1024];
@@ -369,6 +366,6 @@ namespace VaCant.Common.EncryptionHelper
             catch { return null; }
         }
 
-        #endregion
+        #endregion AES base64加解密算法
     }
 }

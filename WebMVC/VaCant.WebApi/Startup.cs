@@ -1,17 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using System.IO;
+using System.Linq;
 
 namespace VaCant.WebApi
 {
@@ -30,7 +24,8 @@ namespace VaCant.WebApi
             services.AddControllers();
             services.AddMemoryCache();
             //添加swagger文档
-            services.AddSwaggerGen(options => {
+            services.AddSwaggerGen(options =>
+            {
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1.0.0",
@@ -43,7 +38,7 @@ namespace VaCant.WebApi
                 //// 添加控制器层注释，true表示显示控制器注释
                 //options.IncludeXmlComments(xmlPath, true);
 
-                // JWT认证                                                 
+                // JWT认证
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Scheme = "bearer",
@@ -76,15 +71,12 @@ namespace VaCant.WebApi
                 {
                     options.IncludeXmlComments(aXml);
                 });
-
-
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             //if (env.IsDevelopment())
             //{
             //    app.UseDeveloperExceptionPage();
@@ -130,6 +122,7 @@ namespace VaCant.WebApi
             //    endpoints.MapControllers();
             //});
         }
+
         private void ApiLog()
         {
             //HttpHelper.HandleLog = log =>

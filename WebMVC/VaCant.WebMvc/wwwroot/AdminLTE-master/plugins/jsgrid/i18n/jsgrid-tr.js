@@ -1,5 +1,4 @@
-(function(jsGrid) {
-
+(function (jsGrid) {
     jsGrid.locales.tr = {
         grid: {
             noDataContent: "Kayıt Bulunamadı",
@@ -42,6 +41,4 @@
             max: { message: "Alan değeri çok büyüktür" }
         }
     };
-
 }(jsGrid, jQuery));
-

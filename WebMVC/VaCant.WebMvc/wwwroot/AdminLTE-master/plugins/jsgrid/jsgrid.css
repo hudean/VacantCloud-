@@ -10,15 +10,15 @@
     font-size: 1em;
 }
 
-.jsgrid, .jsgrid *, .jsgrid *:before, .jsgrid *:after {
-    box-sizing: border-box;
-}
+    .jsgrid, .jsgrid *, .jsgrid *:before, .jsgrid *:after {
+        box-sizing: border-box;
+    }
 
-.jsgrid input,
-.jsgrid textarea,
-.jsgrid select {
-    font-size: 1em;
-}
+        .jsgrid input,
+        .jsgrid textarea,
+        .jsgrid select {
+            font-size: 1em;
+        }
 
 .jsgrid-grid-header {
     overflow-x: hidden;
@@ -88,12 +88,11 @@
     padding: .3em .5em;
 }
 
-.jsgrid-filter-row input[type='checkbox'],
-.jsgrid-edit-row input[type='checkbox'],
-.jsgrid-insert-row input[type='checkbox'] {
-    width: auto;
-}
-
+    .jsgrid-filter-row input[type='checkbox'],
+    .jsgrid-edit-row input[type='checkbox'],
+    .jsgrid-insert-row input[type='checkbox'] {
+        width: auto;
+    }
 
 .jsgrid-selected-row .jsgrid-cell {
     cursor: pointer;

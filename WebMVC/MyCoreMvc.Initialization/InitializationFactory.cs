@@ -2,18 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using VaCant.Repositorys;
-using VaCant.Applications.IServices;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Common;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using VaCant.EFCore;
-using Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal;
+using VaCant.Repositorys;
 
 namespace VaCant.Initialization
 {
@@ -22,11 +14,10 @@ namespace VaCant.Initialization
     /// </summary>
     public static class InitializationFactory
     {
-
-        public static  void Injection(IServiceCollection services, IConfiguration Configuration)
+        public static void Injection(IServiceCollection services, IConfiguration Configuration)
         {
             string dbType = Configuration.GetValue<string>("DbType");
-            string DIMethod= Configuration.GetValue<string>("DIMethod");
+            string DIMethod = Configuration.GetValue<string>("DIMethod");
             //string dbType2 = Configuration["DbType"];
             string connStr = Configuration.GetConnectionString("Default");
             switch (dbType)
@@ -39,21 +30,22 @@ namespace VaCant.Initialization
                         options.UseSqlServer(connStr);
                     });
                     break;
+
                 case "MySql":
                     services.AddDbContext<EfCoreBaseDbContext>(options =>
                     {
                         options.UseMySql(connStr);
-
                     });
                     break;
+
                 case "Oracle":
                     // 支持Oracle或是更多数据库请参考上面SqlServer或是MySql的写法
                     break;
+
                 default:
                     throw new Exception("未找到数据库配置");
             }
 
-            
             InjectionRepositorys(services, DIMethod);
             InjectionServices.Injection(services, "VaCant.Applications", (ServiceLifetime)Enum.Parse(typeof(ServiceLifetime), DIMethod));
             try
@@ -66,20 +58,17 @@ namespace VaCant.Initialization
             }
             catch (Exception ex)
             {
-                throw new Exception("数据库配置错误请检查："+ex.ToString());
+                throw new Exception("数据库配置错误请检查：" + ex.ToString());
             }
-
-           
         }
 
-
         /// <summary>
-        /// 依赖注入仓储  
+        /// 依赖注入仓储
         /// 参考 文档https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1
         /// </summary>
         /// <param name="services"></param>
         /// <param name="DIMethod"></param>
-        public static void InjectionRepositorys(IServiceCollection services,string DIMethod)
+        public static void InjectionRepositorys(IServiceCollection services, string DIMethod)
         {
             switch (DIMethod)
             {
@@ -94,11 +83,13 @@ namespace VaCant.Initialization
                     services.AddTransient(typeof(IRepository<,>), typeof(EfCoreBaseRepository<,>));
                     services.AddTransient(typeof(IRepository<>), typeof(EfCoreBaseRepository<>));
                     break;
+
                 case "Singleton":
                     //单例 在首次请求它们时进行创建；或者在向容器直接提供实现实例时由开发人员进行创建。 很少用到此方法
                     services.AddSingleton(typeof(IRepository<,>), typeof(EfCoreBaseRepository<,>));
                     services.AddSingleton(typeof(IRepository<>), typeof(EfCoreBaseRepository<>));
                     break;
+
                 default:
                     services.AddScoped(typeof(IRepository<,>), typeof(EfCoreBaseRepository<,>));
                     services.AddScoped(typeof(IRepository<>), typeof(EfCoreBaseRepository<>));

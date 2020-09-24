@@ -1,19 +1,16 @@
 ﻿using ServiceStack.Host;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Filters;
 
 namespace VaCant.WebApi.Filter
 {
     /// <summary>
-    /// 基于http basic认证   
+    /// 基于http basic认证
     /// </summary>
     public class AuthorizationFilter : AuthorizationFilterAttribute
     {
@@ -54,14 +51,12 @@ namespace VaCant.WebApi.Filter
                         {
                             actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, new HttpException("no token"));
                         }
-
                     }
                     else
                     {
                         actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, new HttpException("no token"));
                     }
                 }
-
             }
             else
             {

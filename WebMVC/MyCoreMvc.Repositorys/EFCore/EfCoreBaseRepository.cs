@@ -578,6 +578,22 @@ namespace VaCant.Repositorys
         //    _dbContext.SaveChanges();
         //    return entity;
         //}
+
+        //public override void BatchDelete(IEnumerable<TEntity> entities)
+        //{
+        //    _dbContext.Set<TEntity>().RemoveRange(entities);
+        //}
+
+
+        //public override void BatchInsert(IEnumerable<TEntity> entities)
+        //{
+        //    _dbContext.Set<TEntity>().AddRange(entities);
+        //}
+
+        //public void BatchUpdate(IEnumerable<TEntity> entities)
+        //{
+        //    _dbContext.Set<TEntity>().UpdateRange(entities);
+        //}
         #endregion
 
 

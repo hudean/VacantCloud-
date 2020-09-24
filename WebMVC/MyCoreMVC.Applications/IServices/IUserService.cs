@@ -1,10 +1,7 @@
-﻿using VaCant.Entitys;
-using VaCant.Applications.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using VaCant.Applications.Dtos;
+using VaCant.Entitys;
 
 namespace VaCant.Applications.IServices
 {
@@ -18,6 +15,7 @@ namespace VaCant.Applications.IServices
         public IQueryable<UserDto> GetAll(UserInputDto dto);
 
         public IQueryable<User> GetAll();
+
         /// <summary>
         /// 分页获取用户列表
         /// </summary>
@@ -33,12 +31,12 @@ namespace VaCant.Applications.IServices
         public Task<UserDto> GetAsync(long id);
 
         public Task<UserDto> AddAsync(UserDto dto);
+
         /// <summary>
         /// 根据id删除用户
         /// </summary>
         /// <param name="id"></param>
         public Task DeleteAsync(long id);
-
 
         /// <summary>
         /// 修改用户

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VaCant.Entitys
 {
@@ -9,12 +6,13 @@ namespace VaCant.Entitys
     /// 角色权限表
     /// </summary>
     [Table("RolePermissions")]
-    public class RolePermission: Entity
+    public class RolePermission : Entity
     {
         /// <summary>
         /// 角色ID
         /// </summary>
         public long RoleId { get; set; }
+
         /// <summary>
         /// 权限id
         /// </summary>

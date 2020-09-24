@@ -11,9 +11,9 @@ const Toasts = (($) => {
    * ====================================================
    */
 
-  const NAME               = 'Toasts'
-  const DATA_KEY           = 'lte.toasts'
-  const EVENT_KEY          = `.${DATA_KEY}`
+  const NAME = 'Toasts'
+  const DATA_KEY = 'lte.toasts'
+  const EVENT_KEY = `.${DATA_KEY}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Event = {
@@ -76,7 +76,7 @@ const Toasts = (($) => {
    */
   class Toasts {
     constructor(element, config) {
-      this._config  = config
+      this._config = config
 
       this._prepareContainer();
 
@@ -91,7 +91,7 @@ const Toasts = (($) => {
 
       toast.data('autohide', this._config.autohide)
       toast.data('animation', this._config.fade)
-      
+
       if (this._config.class) {
         toast.addClass(this._config.class)
       }
@@ -104,7 +104,7 @@ const Toasts = (($) => {
 
       if (this._config.image != null) {
         var toast_image = $('<img />').addClass('rounded mr-2').attr('src', this._config.image).attr('alt', this._config.imageAlt)
-        
+
         if (this._config.imageHeight != null) {
           toast_image.height(this._config.imageHeight).width('auto')
         }
@@ -126,11 +126,11 @@ const Toasts = (($) => {
 
       if (this._config.close == true) {
         var toast_close = $('<button data-dismiss="toast" />').attr('type', 'button').addClass('ml-2 mb-1 close').attr('aria-label', 'Close').append('<span aria-hidden="true">&times;</span>')
-        
+
         if (this._config.title == null) {
           toast_close.toggleClass('ml-2 ml-auto')
         }
-        
+
         toast_header.append(toast_close)
       }
 
@@ -147,7 +147,6 @@ const Toasts = (($) => {
 
       toast.toast('show')
 
-
       if (this._config.autoremove) {
         toast.on('hidden.bs.toast', function () {
           $(this).delay(200).remove();
@@ -156,8 +155,6 @@ const Toasts = (($) => {
           $('body').trigger(removedEvent)
         })
       }
-
-
     }
 
     // Static
@@ -218,7 +215,7 @@ const Toasts = (($) => {
 
   $.fn[NAME] = Toasts._jQueryInterface
   $.fn[NAME].Constructor = Toasts
-  $.fn[NAME].noConflict  = function () {
+  $.fn[NAME].noConflict = function () {
     $.fn[NAME] = JQUERY_NO_CONFLICT
     return Toasts._jQueryInterface
   }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace VaCant.Applications.Dtos
 {
@@ -15,6 +12,5 @@ namespace VaCant.Applications.Dtos
         public List<string> PermissionNames { get; set; }
 
         public List<long> PermissionIds { get; set; }
-
     }
 }

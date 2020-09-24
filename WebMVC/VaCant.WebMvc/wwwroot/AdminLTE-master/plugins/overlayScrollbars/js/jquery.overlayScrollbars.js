@@ -13,24 +13,24 @@
 
 (function (global, factory) {
     if (typeof define === 'function' && define.amd)
-        define(['jquery'], function(framework) { return factory(global, global.document, undefined, framework); });
+        define(['jquery'], function (framework) { return factory(global, global.document, undefined, framework); });
     else if (typeof module === 'object' && typeof module.exports === 'object')
         module.exports = factory(global, global.document, undefined, require('jquery'));
     else
         factory(global, global.document, undefined, global.jQuery);
 }(typeof window !== 'undefined' ? window : this,
-    function(window, document, undefined, framework) {
+    function (window, document, undefined, framework) {
         'use strict';
         var PLUGINNAME = 'OverlayScrollbars';
         var TYPES = {
-            o : 'object',
-            f : 'function',
-            a : 'array',
-            s : 'string',
-            b : 'boolean',
-            n : 'number',
-            u : 'undefined',
-            z : 'null'
+            o: 'object',
+            f: 'function',
+            a: 'array',
+            s: 'string',
+            b: 'boolean',
+            n: 'number',
+            u: 'undefined',
+            z: 'null'
             //d : 'date',
             //e : 'error',
             //r : 'regexp',
@@ -52,23 +52,23 @@
             hOP: 'hasOwnProperty',
             bCR: 'getBoundingClientRect'
         };
-        var VENDORS = (function() {
+        var VENDORS = (function () {
             //https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix
-            var jsCache = { };
-            var cssCache = { };
+            var jsCache = {};
+            var cssCache = {};
             var cssPrefixes = ['-webkit-', '-moz-', '-o-', '-ms-'];
             var jsPrefixes = ['WebKit', 'Moz', 'O', 'MS'];
             function firstLetterToUpper(str) {
                 return str.charAt(0).toUpperCase() + str.slice(1);
             }
-          
+
             return {
                 _cssPrefixes: cssPrefixes,
                 _jsPrefixes: jsPrefixes,
-                _cssProperty : function(name) {
+                _cssProperty: function (name) {
                     var result = cssCache[name];
-                    
-                    if(cssCache[LEXICON.hOP](name))
+
+                    if (cssCache[LEXICON.hOP](name))
                         return result;
 
                     var uppercasedName = firstLetterToUpper(name);
@@ -86,33 +86,32 @@
                             currVendorWithoutDashes + uppercasedName, //webkitTransition
                             firstLetterToUpper(currVendorWithoutDashes) + uppercasedName //WebkitTransition
                         ];
-                        for(v = 0; v < resultPossibilities[LEXICON.l]; v++) {
-                            if(elmStyle[resultPossibilities[v]] !== undefined) {
+                        for (v = 0; v < resultPossibilities[LEXICON.l]; v++) {
+                            if (elmStyle[resultPossibilities[v]] !== undefined) {
                                 result = resultPossibilities[v];
                                 break;
                             }
                         }
                     }
-                    
+
                     cssCache[name] = result;
                     return result;
                 },
-                _jsAPI : function(name, isInterface, fallback) {
+                _jsAPI: function (name, isInterface, fallback) {
                     var i = 0;
                     var result = jsCache[name];
-                    
-                    if(!jsCache[LEXICON.hOP](name)) {
+
+                    if (!jsCache[LEXICON.hOP](name)) {
                         result = window[name];
-                        for(; i < jsPrefixes[LEXICON.l]; i++)
+                        for (; i < jsPrefixes[LEXICON.l]; i++)
                             result = result || window[(isInterface ? jsPrefixes[i] : jsPrefixes[i].toLowerCase()) + firstLetterToUpper(name)];
                         jsCache[name] = result;
                     }
                     return result || fallback;
                 }
-                
             }
         })();
-        var COMPATIBILITY = (function() {
+        var COMPATIBILITY = (function () {
             function windowSize(x) {
                 return x ? window.innerWidth || document.documentElement[LEXICON.cW] || document.body[LEXICON.cW] : window.innerHeight || document.documentElement[LEXICON.cH] || document.body[LEXICON.cH];
             }
@@ -123,10 +122,10 @@
                     // internal IsCallable function
                     //throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
                 }
-                var proto   = LEXICON.p;
-                var aArgs   = Array[proto].slice.call(arguments, 2);
-                var fNOP    = function() {};
-                var fBound  = function() { return func.apply(this instanceof fNOP ? this : thisObj, aArgs.concat(Array[proto].slice.call(arguments))); };
+                var proto = LEXICON.p;
+                var aArgs = Array[proto].slice.call(arguments, 2);
+                var fNOP = function () { };
+                var fBound = function () { return func.apply(this instanceof fNOP ? this : thisObj, aArgs.concat(Array[proto].slice.call(arguments))); };
 
                 if (func[proto])
                     fNOP[proto] = func[proto]; // Function.prototype doesn't have a prototype property
@@ -134,7 +133,7 @@
 
                 return fBound;
             }
-            
+
             return {
                 /**
                  * Gets the current window width.
@@ -176,7 +175,7 @@
                  * Gets the current time.
                  * @returns {number} The current time.
                  */
-                now: function() {
+                now: function () {
                     return Date.now && Date.now() || new Date().getTime();
                 },
 
@@ -184,8 +183,8 @@
                  * Stops the propagation of the given event.
                  * @param event The event of which the propagation shall be stoped.
                  */
-                stpP: function(event) {
-                    if(event.stopPropagation)
+                stpP: function (event) {
+                    if (event.stopPropagation)
                         event.stopPropagation();
                     else
                         event.cancelBubble = true;
@@ -195,8 +194,8 @@
                  * Prevents the default action of the given event.
                  * @param event The event of which the default action shall be prevented.
                  */
-                prvD: function(event) {
-                    if(event.preventDefault && event.cancelable)
+                prvD: function (event) {
+                    if (event.preventDefault && event.cancelable)
                         event.preventDefault();
                     else
                         event.returnValue = false;
@@ -207,7 +206,7 @@
                  * @param event The mouse event of which the pageX and pageX shall be got.
                  * @returns {{x: number, y: number}} x = pageX value, y = pageY value.
                  */
-                page: function(event) {
+                page: function (event) {
                     event = event.originalEvent || event;
 
                     var strPage = 'page';
@@ -220,29 +219,28 @@
                     var body = eventDoc.body;
 
                     //if touch event return return pageX/Y of it
-                    if(event.touches !== undefined) {
+                    if (event.touches !== undefined) {
                         var touch = event.touches[0];
                         return {
-                            x : touch[strPage + strX],
-                            y : touch[strPage + strY]
+                            x: touch[strPage + strX],
+                            y: touch[strPage + strY]
                         }
                     }
 
                     // Calculate pageX/Y if not native supported
                     if (!event[strPage + strX] && event[strClient + strX] && event[strClient + strX] != null) {
-
                         return {
-                            x : event[strClient + strX] +
-                            (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-                            (doc && doc.clientLeft || body && body.clientLeft || 0),
-                            y : event[strClient + strY] +
-                            (doc && doc.scrollTop || body && body.scrollTop || 0) -
-                            (doc && doc.clientTop || body && body.clientTop || 0)
+                            x: event[strClient + strX] +
+                                (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+                                (doc && doc.clientLeft || body && body.clientLeft || 0),
+                            y: event[strClient + strY] +
+                                (doc && doc.scrollTop || body && body.scrollTop || 0) -
+                                (doc && doc.clientTop || body && body.clientTop || 0)
                         }
                     }
                     return {
-                        x : event[strPage + strX],
-                        y : event[strPage + strY]
+                        x: event[strPage + strX],
+                        y: event[strPage + strY]
                     };
                 },
 
@@ -251,7 +249,7 @@
                  * @param event The mouse event of which the clicked button shal be got.
                  * @returns {number} The number of the clicked mouse button. (0 : none | 1 : leftButton | 2 : middleButton | 3 : rightButton)
                  */
-                mBtn: function(event) {
+                mBtn: function (event) {
                     var button = event.button;
                     if (!event.which && button !== undefined)
                         return (button & 1 ? 1 : (button & 2 ? 3 : (button & 4 ? 2 : 0)));
@@ -265,14 +263,14 @@
                  * @param arr The array.
                  * @returns {number} The zero based index of the item or -1 if the item isn't in the array.
                  */
-                inA : function(item, arr) {
+                inA: function (item, arr) {
                     for (var i = 0; i < arr[LEXICON.l]; i++)
                         //Sometiems in IE a "SCRIPT70" Permission denied error occurs if HTML elements in a iFrame are compared
                         try {
                             if (arr[i] === item)
                                 return i;
                         }
-                        catch(e) { }
+                        catch (e) { }
                     return -1;
                 },
 
@@ -281,7 +279,7 @@
                  * @param arr The potential array.
                  * @returns {boolean} True if the given value is a array, false otherwise.
                  */
-                isA: function(arr) {
+                isA: function (arr) {
                     var def = Array.isArray;
                     return def ? def(arr) : this.type(arr) == TYPES.a;
                 },
@@ -291,14 +289,13 @@
                  * @param obj The object of which the type shall be determined.
                  * @returns {string} The type of the given object.
                  */
-                type: function(obj) {
+                type: function (obj) {
                     if (obj === undefined)
                         return obj + '';
                     if (obj === null)
                         return obj + '';
                     return Object[LEXICON.p].toString.call(obj).replace(/^\[object (.+)\]$/, '$1').toLowerCase();
                 },
-
 
                 bind: bind
 
@@ -837,7 +834,6 @@
                 var _loopTimeOld = _getNow();
                 var _loopID;
 
-
                 /**
                  * The auto update loop which will run every 50 milliseconds or less if the update interval of a instance is lower than 50 milliseconds.
                  */
@@ -1094,7 +1090,7 @@
 
                 //attrs viewport shall inherit from target
                 var _viewportAttrsFromTarget = [LEXICON.ti];
-                
+
                 //options:
                 var _defaultOptions;
                 var _currentOptions;
@@ -1217,11 +1213,10 @@
                 var _resizeHorizontal;
                 var _resizeVertical;
 
-
                 //==== Event Listener ====//
 
                 /**
-                 * Adds or removes a event listener from the given element. 
+                 * Adds or removes a event listener from the given element.
                  * @param element The element to which the event listener shall be applied or removed.
                  * @param eventNames The name(s) of the events.
                  * @param listener The method which shall be called.
@@ -1247,7 +1242,6 @@
                         }
                     }
                 }
-
 
                 function addDestroyEventListener(element, eventNames, listener, passive) {
                     setupResponsiveEventListener(element, eventNames, listener, false, passive);
@@ -1313,7 +1307,6 @@
                                          expandChildCSS[_strWidth] = sizeResetWidth;
                                          expandChildCSS[_strHeight] = sizeResetHeight;
                                          expandElementChild.css(expandChildCSS);
-
 
                                          expandElement[_strScrollLeft](sizeResetWidth)[_strScrollTop](sizeResetHeight);
                                          shrinkElement[_strScrollLeft](sizeResetWidth)[_strScrollTop](sizeResetHeight);
@@ -1455,7 +1448,7 @@
                  * Freezes or unfreezes the given resize observer.
                  * @param targetElement The element to which the target resize observer is applied.
                  * @param freeze True if the resize observer shall be frozen, false otherwise.
-                 
+
                 function freezeResizeObserver(targetElement, freeze) {
                     if (targetElement !== undefined) {
                         if(freeze) {
@@ -1489,7 +1482,6 @@
                 }
                 */
 
-
                 //==== Mutation Observers ====//
 
                 /**
@@ -1518,7 +1510,7 @@
                                     mutationTarget = mutation.target;
                                     mutationAttrName = mutation.attributeName;
 
-                                    if(!doUpdate) {
+                                    if (!doUpdate) {
                                         if (mutationAttrName === LEXICON.c)
                                             doUpdate = hostClassNamesChanged(mutation.oldValue, mutationTarget.className);
                                         else if (mutationAttrName === LEXICON.s)
@@ -1526,12 +1518,12 @@
                                         else
                                             doUpdate = true;
                                     }
-                                    
+
                                     mutatedAttrs.push(mutationAttrName);
                                 });
-                                
+
                                 updateViewportAttrsFromTarget(mutatedAttrs);
-                                
+
                                 if (doUpdate)
                                     _base.update(_strAuto);
                             }
@@ -1615,7 +1607,6 @@
                         _mutationObserversConnected = false;
                     }
                 }
-
 
                 //==== Events of elements ====//
 
@@ -1704,7 +1695,6 @@
                         _hostElement.one('mouseover', hostOnMouseEnter);
                 }
 
-
                 //==== Update Detection ====//
 
                 /**
@@ -1772,7 +1762,6 @@
                                 break;
                             }
                         }
-
                     }
                     return changed;
                 }
@@ -1848,13 +1837,13 @@
                 }
 
                 /**
-                 * Returns true when a attribute which the MutationObserver would observe has changed.  
+                 * Returns true when a attribute which the MutationObserver would observe has changed.
                  * @returns {boolean} True if one of the attributes which a MutationObserver would observe has changed, false or undefined otherwise.
                  */
                 function meaningfulAttrsChanged() {
                     if (_sleeping || _mutationObserversConnected)
                         return;
-                    
+
                     var elem;
                     var curr;
                     var cache;
@@ -1876,8 +1865,8 @@
                             each(check._attrs, function (index, attr) {
                                 curr = attr.charAt(0) === ':' ? elem.is(attr) : elem.attr(attr);
                                 cache = _updateAutoCache[attr];
-                                
-                                if(checkCache(curr, cache)) {
+
+                                if (checkCache(curr, cache)) {
                                     changedAttrs.push(attr);
                                 }
 
@@ -1887,7 +1876,7 @@
                     });
 
                     updateViewportAttrsFromTarget(changedAttrs);
-                    
+
                     return changedAttrs[LEXICON.l] > 0;
                 }
 
@@ -1967,7 +1956,6 @@
                     return sizeIsAffected;
                 }
 
-
                 //==== Update ====//
 
                 /**
@@ -1980,7 +1968,7 @@
                     each(attrs, function (index, attr) {
                         if (COMPATIBILITY.inA(attr, _viewportAttrsFromTarget) > -1) {
                             var targetAttr = _targetElement.attr(attr);
-                            if(type(targetAttr) == TYPES.s) {
+                            if (type(targetAttr) == TYPES.s) {
                                 _viewportElement.attr(attr, targetAttr);
                             }
                             else {
@@ -1989,7 +1977,7 @@
                         }
                     });
                 }
-                
+
                 /**
                  * Updates the variables and size of the textarea element, and manages the scroll on new line or new character.
                  */
@@ -2568,7 +2556,7 @@
 
                         //Reset the viewport (very important for natively overlaid scrollbars and zoom change
                         //don't change the overflow prop as it is very expensive and affects performance !A LOT!
-                        if(!_nativeScrollbarStyling) {
+                        if (!_nativeScrollbarStyling) {
                             var viewportElementResetCSS = {};
                             var resetXTmp = _hasOverflowCache.y && _hideOverflowCache.ys && !ignoreOverlayScrollbarHiding ? (_nativeScrollbarIsOverlaid.y ? _viewportElement.css(isRTLLeft) : -_nativeScrollbarSize.y) : 0;
                             var resetBottomTmp = _hasOverflowCache.x && _hideOverflowCache.xs && !ignoreOverlayScrollbarHiding ? (_nativeScrollbarIsOverlaid.x ? _viewportElement.css(_strBottom) : -_nativeScrollbarSize.x) : 0;
@@ -2590,7 +2578,7 @@
                         };
 
                         //apply the correct viewport style and measure viewport size
-                        if(!_nativeScrollbarStyling) {
+                        if (!_nativeScrollbarStyling) {
                             viewportElementResetCSS[_strBottom] = wasHeightAuto ? _strEmpty : resetBottomTmp;
                             viewportElementResetCSS[isRTLLeft] = wasWidthAuto ? _strEmpty : resetXTmp;
                             _viewportElement.css(viewportElementResetCSS);
@@ -2827,7 +2815,7 @@
                             setViewportCSS(true);
                             setViewportCSS(false);
 
-                            // if the scroll container is too small and if there is any overflow with no overlay scrollbar (and scrollbar styling isn't possible), 
+                            // if the scroll container is too small and if there is any overflow with no overlay scrollbar (and scrollbar styling isn't possible),
                             // make viewport element greater in size (Firefox hide Scrollbars fix)
                             // because firefox starts hiding scrollbars on too small elements
                             // with this behavior the overflow calculation may be incorrect or the scrollbars would appear suddenly
@@ -3115,7 +3103,6 @@
                     dispatchCallback('onUpdated', { forced: force });
                 }
 
-
                 //==== Options ====//
 
                 /**
@@ -3131,7 +3118,6 @@
 
                     return validatedOpts._prepared;
                 }
-
 
                 //==== Structure ====//
 
@@ -3183,7 +3169,7 @@
                     _sizeObserverElement = _sizeObserverElement || selectOrGenerateDivByClass(classNameResizeObserverHost);
                     _textareaCoverElement = _textareaCoverElement || (_isTextarea ? selectOrGenerateDivByClass(_classNameTextareaCoverElement) : undefined);
 
-                    //on destroy, remove all generated class names from the host element before collecting the adopted attributes 
+                    //on destroy, remove all generated class names from the host element before collecting the adopted attributes
                     //to prevent adopting generated class names
                     if (destroy)
                         removeClass(_hostElement, hostElementClassNames);
@@ -3245,7 +3231,7 @@
                         _paddingElementNative = _paddingElement[0];
                         _viewportElementNative = _viewportElement[0];
                         _contentElementNative = _contentElement[0];
-                        
+
                         updateViewportAttrsFromTarget();
                     }
                     else {
@@ -3406,7 +3392,6 @@
                         }
                     }
 
-
                     if (_isTextarea) {
                         if (_msieVersion > 9 || !_autoUpdateRecommended) {
                             addDestroyEventListener(_targetElement, 'input', updateTextarea);
@@ -3426,7 +3411,6 @@
                     }
                     addDestroyEventListener(_viewportElement, _strScroll, viewportOnScroll, true);
                 }
-
 
                 //==== Scrollbars ====//
 
@@ -3910,7 +3894,6 @@
                     else
                         handleCSS[scrollbarVars._left_top] = handleOffset;
 
-
                     //only apply css if offset has changed and overflow exists.
                     if (!nativeOverlayScrollbarsAreActive()) {
                         scrollbarVars._handle.css(handleCSS);
@@ -3965,7 +3948,6 @@
                         _info: isHorizontal ? _scrollHorizontalInfo : _scrollVerticalInfo
                     };
                 }
-
 
                 //==== Scrollbar Corner ====//
 
@@ -4070,7 +4052,6 @@
                         }
                     });
                 }
-
 
                 //==== Utils ====//
 
@@ -4354,7 +4335,6 @@
                     FRAMEWORK.extend(obj, extendObjRoot, true);
                 }
 
-
                 //==== Utils Cache ====//
 
                 /**
@@ -4385,7 +4365,6 @@
                     }
                     return false;
                 }
-
 
                 //==== Shortcuts ====//
 
@@ -4427,7 +4406,6 @@
                     return _frameworkProto.find.call(el, selector).eq(0);
                 }
 
-
                 //==== API ====//
 
                 /**
@@ -4446,7 +4424,7 @@
                  * if "auto" then before a real update the content size and host element attributes gets checked, and if they changed only then the update method will be called.
                  * if "sync" then the async update process (MutationObserver or UpdateLoop) gets synchronized and a corresponding update takes place if one was needed due to pending changes.
                  * if "zoom" then a update takes place where it's assumed that content and host size changed
-                 * @returns {boolean|undefined} 
+                 * @returns {boolean|undefined}
                  * If force is "sync" then a boolean is returned which indicates whether a update was needed due to pending changes.
                  * If force is "auto" then a boolean is returned whether a update was needed due to attribute or size changes.
                  * undefined otherwise.
@@ -4463,7 +4441,7 @@
                     var doUpdateAuto;
                     var mutHost;
                     var mutContent;
-                    
+
                     if (isString) {
                         if (force === _strAuto) {
                             attrsChanged = meaningfulAttrsChanged();
@@ -4779,7 +4757,7 @@
                             return isX ? coordinates[0] : coordinates[1];
                         else if (type(coordinates) == TYPES.o) {
                             //decides RTL normalization "hack" with .n
-                            //normalizeRTL = type(coordinates.n) == TYPES.b ? coordinates.n : normalizeRTL; 
+                            //normalizeRTL = type(coordinates.n) == TYPES.b ? coordinates.n : normalizeRTL;
                             for (i = 0; i < coordinateProps[strLength]; i++)
                                 if (coordinateProps[i] in coordinates)
                                     return coordinates[coordinateProps[i]];
@@ -5261,7 +5239,7 @@
                     /* On a div Element The if checks only whether:
                      * - the targetElement has the class "os-host"
                      * - the targetElement has a a child with the class "os-padding"
-                     * 
+                     *
                      * If that's the case, its assumed the DOM has already the following structure:
                      * (The ".os-host" element is the targetElement)
                      *
@@ -5286,11 +5264,11 @@
                      *  </div>
                      *
                      * =====================================================================================
-                     * 
+                     *
                      * On a Textarea Element The if checks only whether:
-                     * - the targetElement has the class "os-textarea" 
-                     * - the targetElement is inside a element with the class "os-content" 
-                     * 
+                     * - the targetElement has the class "os-textarea"
+                     * - the targetElement is inside a element with the class "os-content"
+                     *
                      * If that's the case, its assumed the DOM has already the following structure:
                      * (The ".os-textarea" (textarea) element is the targetElement)
                      *
@@ -5359,8 +5337,8 @@
                     setupStructureEvents();
                     setupScrollbarEvents(true);
                     setupScrollbarEvents(false);
-                    setupScrollbarCornerEvents();   
-                    
+                    setupScrollbarCornerEvents();
+
                     //create mutation observers
                     createMutationObservers();
 

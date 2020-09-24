@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace VaCant.Entitys
 {
@@ -9,7 +7,7 @@ namespace VaCant.Entitys
     /// 用户日志
     /// </summary>
     [Table("UserLogs")]
-    public class UserLog:BaseEntity<long>
+    public class UserLog : BaseEntity<long>
     {
         /// <summary>
         /// 日志类型

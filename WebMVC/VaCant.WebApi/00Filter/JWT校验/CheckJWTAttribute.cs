@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -53,7 +51,6 @@ namespace VaCant.WebApi.Filter.JWT校验
             await Task.CompletedTask;
         }
     }
-
 
     /// <summary>
     /// 拓展类

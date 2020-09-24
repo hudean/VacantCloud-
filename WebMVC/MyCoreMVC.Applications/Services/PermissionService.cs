@@ -1,18 +1,17 @@
-﻿using VaCant.Common;
-using VaCant.Entitys;
-using VaCant.Repositorys;
+﻿using System;
+using System.Linq;
 using VaCant.Applications.Dtos;
 using VaCant.Applications.IServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using VaCant.Common;
+using VaCant.Entitys;
+using VaCant.Repositorys;
 
 namespace VaCant.Applications.Services
 {
     public class PermissionService : IPermissionService
     {
         private readonly IRepository<Permission> _permissionRepository;
+
         public PermissionService(IRepository<Permission> permissionRepository)
         {
             _permissionRepository = permissionRepository;
@@ -95,6 +94,7 @@ namespace VaCant.Applications.Services
             }
             return null;
         }
+
         /// <summary>
         /// 根据id删除权限
         /// </summary>
@@ -104,7 +104,6 @@ namespace VaCant.Applications.Services
             _permissionRepository.Delete(id);
         }
 
-
         /// <summary>
         /// 修改权限
         /// </summary>
@@ -112,7 +111,7 @@ namespace VaCant.Applications.Services
         /// <returns></returns>
         public PermissionDto Update(PermissionDto dto)
         {
-            var query = _permissionRepository.GetAll().Where(r => r.PermissionName.Contains(dto.PermissionName)&&r.Id!=dto.Id).FirstOrDefault();
+            var query = _permissionRepository.GetAll().Where(r => r.PermissionName.Contains(dto.PermissionName) && r.Id != dto.Id).FirstOrDefault();
             if (query != null)
             {
                 throw new AggregateException("修改失败，角色名称已存在！");

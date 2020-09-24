@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace VaCant.WebApi.Filter
 {
-
     public class BaseActionFilter : Attribute, IActionFilter
     {
         public void OnActionExecuted(ActionExecutedContext context)
@@ -19,7 +18,6 @@ namespace VaCant.WebApi.Filter
             throw new NotImplementedException();
         }
     }
-
 
     public class BaseActionFilterAsync : Attribute, IAsyncActionFilter
     {
@@ -151,7 +149,6 @@ namespace VaCant.WebApi.Filter
         }
     }
 
-
     /// <summary>
     /// Ajax请求结果
     /// </summary>
@@ -172,7 +169,6 @@ namespace VaCant.WebApi.Filter
         /// </summary>
         public string Msg { get; set; }
     }
-
 
     /// <summary>
     /// Ajax请求结果

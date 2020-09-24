@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -7,7 +6,8 @@ namespace VaCant.Common
 {
     public static class ValidatorHelper
     {
-        #region  验证输入字符串为数字(带小数)
+        #region 验证输入字符串为数字(带小数)
+
         /// <summary>
         /// 验证输入字符串为带小数点正数
         /// </summary>
@@ -17,6 +17,7 @@ namespace VaCant.Common
         {
             return Regex.IsMatch(str, "^([0]|([1-9]+\\d{0,}?))(.[\\d]+)?$");
         }
+
         /// <summary>
         /// 验证输入字符串为带小数点正负数
         /// </summary>
@@ -26,9 +27,11 @@ namespace VaCant.Common
         {
             return Regex.IsMatch(str, "^-?\\d+$|^(-?\\d+)(\\.\\d+)?$");
         }
-        #endregion
+
+        #endregion 验证输入字符串为数字(带小数)
 
         #region 验证中国电话格式是否有效，格式010-85849685
+
         /// <summary>
         /// 验证中国电话格式是否有效，格式010-85849685
         /// </summary>
@@ -38,9 +41,11 @@ namespace VaCant.Common
         {
             return Regex.IsMatch(str, @"^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$", RegexOptions.IgnoreCase);
         }
-        #endregion
+
+        #endregion 验证中国电话格式是否有效，格式010-85849685
 
         #region 验证输入字符串为电话号码
+
         /// <summary>
         /// 验证输入字符串为电话号码
         /// </summary>
@@ -49,11 +54,13 @@ namespace VaCant.Common
         public static bool IsPhone(this string str)
         {
             return Regex.IsMatch(str, @"(^(\d{2,4}[-_－—]?)?\d{3,8}([-_－—]?\d{3,8})?([-_－—]?\d{1,7})?$)|(^0?1[35]\d{9}$)");
-            //弱一点的验证：  @"\d{3,4}-\d{7,8}"         
+            //弱一点的验证：  @"\d{3,4}-\d{7,8}"
         }
-        #endregion
+
+        #endregion 验证输入字符串为电话号码
 
         #region 验证是否是有效传真号码
+
         /// <summary>
         /// 验证是否是有效传真号码
         /// </summary>
@@ -63,9 +70,11 @@ namespace VaCant.Common
         {
             return Regex.IsMatch(str, @"^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,12})+$");
         }
-        #endregion
+
+        #endregion 验证是否是有效传真号码
 
         #region 验证手机号是否合法
+
         /// <summary>
         /// 验证手机号是否合法 号段为13,14,15,16,17,18,19  0，86开头将自动识别
         /// </summary>
@@ -79,9 +88,11 @@ namespace VaCant.Common
             }
             return Regex.IsMatch(str, @"^(13|14|15|16|17|18|19)\d{9}$");
         }
-        #endregion
+
+        #endregion 验证手机号是否合法
 
         #region 验证身份证是否有效
+
         /// <summary>
         /// 验证身份证是否有效
         /// </summary>
@@ -139,6 +150,7 @@ namespace VaCant.Common
             Math.DivRem(sum, 11, out y);
             return arrVarifyCode[y] == str.Substring(17, 1).ToLower();
         }
+
         /// <summary>
         /// 验证输入字符串为15位的身份证号码
         /// </summary>
@@ -160,9 +172,11 @@ namespace VaCant.Common
             DateTime time;
             return DateTime.TryParse(birth, out time) != false;
         }
-        #endregion
+
+        #endregion 验证身份证是否有效
 
         #region 验证是否是有效邮箱地址
+
         /// <summary>
         /// 验证是否是有效邮箱地址
         /// </summary>
@@ -172,9 +186,11 @@ namespace VaCant.Common
         {
             return Regex.IsMatch(str, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
-        #endregion
+
+        #endregion 验证是否是有效邮箱地址
 
         #region 验证是否只含有汉字
+
         /// <summary>
         /// 验证是否只含有汉字
         /// </summary>
@@ -184,9 +200,11 @@ namespace VaCant.Common
         {
             return Regex.IsMatch(strln, @"^[\u4e00-\u9fa5]+$");
         }
-        #endregion
+
+        #endregion 验证是否只含有汉字
 
         #region 是否有多余的字符 防止SQL注入
+
         /// <summary>
         /// 是否有多余的字符 防止SQL注入
         /// </summary>
@@ -201,11 +219,13 @@ namespace VaCant.Common
             var arraryBadChar = badChars.Split(',');
             return arraryBadChar.Any(t => !str.Contains(t));
         }
-        #endregion
+
+        #endregion 是否有多余的字符 防止SQL注入
 
         #region 是否由数字、26个英文字母或者下划线組成的字串
+
         /// <summary>
-        /// 是否由数字、26个英文字母或者下划线組成的字串 
+        /// 是否由数字、26个英文字母或者下划线組成的字串
         /// </summary>
         /// <param name="str">输入字符</param>
         /// <returns></returns>
@@ -213,9 +233,11 @@ namespace VaCant.Common
         {
             return Regex.Match(str, "^[0-9a-zA-Z_]+$").Success;
         }
-        #endregion
+
+        #endregion 是否由数字、26个英文字母或者下划线組成的字串
 
         #region 由数字、26个英文字母、汉字組成的字串
+
         /// <summary>
         /// 由数字、26个英文字母、汉字組成的字串
         /// </summary>
@@ -225,9 +247,11 @@ namespace VaCant.Common
         {
             return Regex.Match(str, @"^[0-9a-zA-Z\u4e00-\u9fa5]+$").Success;
         }
-        #endregion
+
+        #endregion 由数字、26个英文字母、汉字組成的字串
 
         #region 由数字、26个英文字母組成的字串
+
         /// <summary>
         /// 是否由数字、26个英文字母組成的字串
         /// </summary>
@@ -237,9 +261,11 @@ namespace VaCant.Common
         {
             return Regex.Match(str, @"^[0-9a-zA-Z]+$").Success;
         }
-        #endregion
+
+        #endregion 由数字、26个英文字母組成的字串
 
         #region 验证输入字符串为邮政编码
+
         /// <summary>
         /// 验证输入字符串为邮政编码
         /// </summary>
@@ -249,9 +275,11 @@ namespace VaCant.Common
         {
             return Regex.IsMatch(str, @"\d{6}");
         }
-        #endregion
+
+        #endregion 验证输入字符串为邮政编码
 
         #region 检查对象的输入长度
+
         /// <summary>
         /// 检查对象的输入长度
         /// </summary>
@@ -267,9 +295,10 @@ namespace VaCant.Common
             return str.Length >= length;
         }
 
-        #endregion
+        #endregion 检查对象的输入长度
 
         #region 判断用户输入是否为日期
+
         /// <summary>
         /// 判断用户输入是否为日期
         /// </summary>
@@ -344,6 +373,7 @@ namespace VaCant.Common
             }
             return false;
         }
-        #endregion
+
+        #endregion 判断用户输入是否为日期
     }
 }

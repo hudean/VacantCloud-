@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace VaCant.Entitys
 {
@@ -11,7 +9,7 @@ namespace VaCant.Entitys
     /// 角色表
     /// </summary>
     [Table("Roles")]
-    public class Role: BaseAllEntity<long>
+    public class Role : BaseAllEntity<long>
     {
         [Required]
         [DisplayName("角色名称")]
@@ -33,6 +31,7 @@ namespace VaCant.Entitys
 
         //public ICollection<User> AdminUsers { get; set; } = new List<User>();
         public virtual ICollection<RolePermission> RolePermissions { get; set; } = new List<RolePermission>();
+
         public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
     }
 }

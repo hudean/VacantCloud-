@@ -32,12 +32,12 @@ h1 {
     border-bottom: 1px dotted #08c;
 }
 
-h1:before {
-    content: '#';
-    color: #666;
-    position: relative;
-    padding-right: 5px;
-}
+    h1:before {
+        content: '#';
+        color: #666;
+        position: relative;
+        padding-right: 5px;
+    }
 
 h2 {
     padding: 0;
@@ -45,15 +45,15 @@ h2 {
     font-size: 18px;
 }
 
-h2 a {
-    color: #444;
-    display: block;
-    background: #eee;
-    padding: 8px 12px;
-    margin-bottom: 0;
-    cursor: default;
-    text-decoration: none;
-}
+    h2 a {
+        color: #444;
+        display: block;
+        background: #eee;
+        padding: 8px 12px;
+        margin-bottom: 0;
+        cursor: default;
+        text-decoration: none;
+    }
 
 input.form-control {
     font-size: 14px;
@@ -71,13 +71,13 @@ label {
 }
 
 .gist {
-   overflow: auto;
+    overflow: auto;
 }
 
-.gist .blob-wrapper.data {
-   max-height: 350px;
-   overflow: auto;
-}
+    .gist .blob-wrapper.data {
+        max-height: 350px;
+        overflow: auto;
+    }
 
 .list-group-item {
     padding: 4px 0;
@@ -113,11 +113,12 @@ ul.nobullets {
     padding: 0;
     list-style: none;
 }
-ul.nobullets li {
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-    border-bottom: 1px dotted #ddd;
-}
+
+    ul.nobullets li {
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+        border-bottom: 1px dotted #ddd;
+    }
 
 input[type="text"] {
     padding: 6px;
@@ -132,10 +133,12 @@ input[type="text"] {
     color: #fff;
     text-align: center;
 }
-#footer a:link, #footer a:visited {
-    color: #fff;
-    border-bottom: 1px dotted #fff;
-}
+
+    #footer a:link, #footer a:visited {
+        color: #fff;
+        border-bottom: 1px dotted #fff;
+    }
+
 #jumbo {
     background: #c1deef;
     color: #000;
@@ -143,10 +146,11 @@ input[type="text"] {
     margin-bottom: 20px;
 }
 
-#jumbo h1 {
-    font-size: 28px;
-}
-#jumbo .btn {
-    border-radius: 0;
-    font-size: 16px;
-}
+    #jumbo h1 {
+        font-size: 28px;
+    }
+
+    #jumbo .btn {
+        border-radius: 0;
+        font-size: 16px;
+    }

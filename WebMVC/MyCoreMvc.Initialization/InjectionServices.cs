@@ -1,12 +1,10 @@
-﻿using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
-using VaCant.Applications.IServices;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
-using System.Text;
+using VaCant.Applications.IServices;
 
 namespace VaCant.Initialization
 {
@@ -15,7 +13,6 @@ namespace VaCant.Initialization
     /// </summary>
     public static class InjectionServices
     {
-
         /// <summary>
         /// 扩展方法 对IServiceCollection进行扩展
         /// </summary>
@@ -28,7 +25,6 @@ namespace VaCant.Initialization
                 services.RegisterService(assemblyName);
             }
         }
-
 
         public static void AddAssembly(this IServiceCollection service, string assemblyName
             , ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
@@ -50,29 +46,30 @@ namespace VaCant.Initialization
                         case ServiceLifetime.Transient:
                             service.AddTransient(inter, type);
                             break;
+
                         case ServiceLifetime.Scoped:
                             service.AddScoped(inter, type);
                             break;
+
                         case ServiceLifetime.Singleton:
                             service.AddSingleton(inter, type);
                             break;
+
                         default:
                             service.AddScoped(inter, type);
                             break;
                     }
-
                 }
             }
         }
-
 
         public static void Injection(this IServiceCollection services, string assemblyName
             , ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
         {
             #region 批量注入Services
+
             //加载程序集MyApplication
             var serviceAsm = Assembly.Load(new AssemblyName(assemblyName));
-
 
             foreach (Type serviceType in serviceAsm.GetTypes().Where(t => typeof(IBaseService).IsAssignableFrom(t) && !t.GetTypeInfo().IsAbstract))
             {
@@ -85,12 +82,15 @@ namespace VaCant.Initialization
                         case ServiceLifetime.Transient:
                             services.AddTransient(interfaceType, serviceType);
                             break;
+
                         case ServiceLifetime.Scoped:
                             services.AddScoped(interfaceType, serviceType);
                             break;
+
                         case ServiceLifetime.Singleton:
                             services.AddSingleton(interfaceType, serviceType);
                             break;
+
                         default:
                             services.AddScoped(interfaceType, serviceType);
                             break;
@@ -98,10 +98,9 @@ namespace VaCant.Initialization
                 }
             }
 
-            #endregion
+            #endregion 批量注入Services
         }
     }
-
 
     public class RuntimeHelper
     {
@@ -111,6 +110,7 @@ namespace VaCant.Initialization
             return AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(assemblyName));
         }
     }
+
     /// <summary>
     /// 服务扩展
     /// </summary>
@@ -128,10 +128,10 @@ namespace VaCant.Initialization
                     var interfaceTypes = item.GetInterfaces();
                     dics.Add(item, interfaceTypes);
                 }
-
             }
             return dics;
         }
+
         /// <summary>
         /// 注册单个单个程序集服务
         /// </summary>
@@ -147,7 +147,4 @@ namespace VaCant.Initialization
             }
         }
     }
-
 }
-
-

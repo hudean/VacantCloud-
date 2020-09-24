@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace VaCant.Common.EncryptionHelper
 {
@@ -31,9 +30,9 @@ namespace VaCant.Common.EncryptionHelper
         }
 
         /// <summary> 3DES解密</summary>
-        /// <returns>解密串</returns> 		
-        /// <param name="aStrString">加密串</param> 
-        /// <param name="key">密钥</param> 
+        /// <returns>解密串</returns>
+        /// <param name="aStrString">加密串</param>
+        /// <param name="key">密钥</param>
         public static string DecryptTripleDES(string aStrString, string key)
         {
             if (string.IsNullOrEmpty(aStrString))

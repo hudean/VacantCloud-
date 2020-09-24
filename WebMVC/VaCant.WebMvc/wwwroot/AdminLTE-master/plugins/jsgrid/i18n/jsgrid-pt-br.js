@@ -1,5 +1,4 @@
-(function(jsGrid) {
-
+(function (jsGrid) {
     jsGrid.locales["pt-br"] = {
         grid: {
             noDataContent: "Não encontrado",
@@ -42,5 +41,4 @@
             max: { message: "O valor é muito longo" }
         }
     };
-
 }(jsGrid, jQuery));

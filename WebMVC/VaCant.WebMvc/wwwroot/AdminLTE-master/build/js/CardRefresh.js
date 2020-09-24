@@ -99,7 +99,6 @@ const CardRefresh = (($) => {
       $(this._element).trigger(overlayRemovedEvent)
     };
 
-
     // Private
 
     _init(card) {

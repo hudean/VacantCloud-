@@ -1,10 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using System;
-using System.IO;
-
-namespace VaCant.Common
+﻿namespace VaCant.Common
 {
     /// <summary>
     /// 读取appsettings.json配置信息

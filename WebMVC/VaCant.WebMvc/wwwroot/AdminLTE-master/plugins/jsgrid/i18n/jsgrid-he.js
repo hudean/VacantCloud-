@@ -1,5 +1,4 @@
-(function(jsGrid) {
-
+(function (jsGrid) {
     jsGrid.locales.he = {
         grid: {
             noDataContent: "לא נמצא",
@@ -42,5 +41,4 @@
             max: { message: "גבוה מדי" }
         }
     };
-
 }(jsGrid, jQuery));

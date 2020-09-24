@@ -4,13 +4,12 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
-
 namespace VaCant.Common
 {
     public class XMLHelper
     {
         /// <summary>
-        /// 对象序列化成 XML String  
+        /// 对象序列化成 XML String
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
@@ -40,9 +39,9 @@ namespace VaCant.Common
             return xmlString;
         }
 
-        /// <summary>  
-        /// XML String 反序列化成对象  
-        /// </summary>  
+        /// <summary>
+        /// XML String 反序列化成对象
+        /// </summary>
         public static T XmlDeserialize<T>(string xmlString)
         {
             T t = default(T);
@@ -59,4 +58,3 @@ namespace VaCant.Common
         }
     }
 }
-

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace VaCant.Core.Authorization
+﻿namespace VaCant.Core.Authorization
 {
-
     /// <summary>
     /// 权限名称
     /// </summary>
@@ -18,10 +13,6 @@ namespace VaCant.Core.Authorization
 
         public const string Pages_Roles = "Pages.Roles";
 
-        #endregion
-
-        #region 页面级别
-
-        #endregion
+        #endregion 菜单级别
     }
 }

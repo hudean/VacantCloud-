@@ -6,3 +6,4 @@ E:\我的code\WebMVC\MyCoreMvc.Entitys\obj\Debug\netcoreapp3.1\VaCant.Entitys.As
 E:\我的code\WebMVC\MyCoreMvc.Entitys\obj\Debug\netcoreapp3.1\VaCant.Entitys.csproj.CoreCompileInputs.cache
 E:\我的code\WebMVC\MyCoreMvc.Entitys\obj\Debug\netcoreapp3.1\VaCant.Entitys.dll
 E:\我的code\WebMVC\MyCoreMvc.Entitys\obj\Debug\netcoreapp3.1\VaCant.Entitys.pdb
+E:\我的code\WebMVC\MyCoreMvc.Entitys\obj\Debug\netcoreapp3.1\VaCant.Entitys.csprojAssemblyReference.cache

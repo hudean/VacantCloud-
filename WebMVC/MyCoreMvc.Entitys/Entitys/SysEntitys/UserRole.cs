@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VaCant.Entitys
 {
@@ -9,7 +6,7 @@ namespace VaCant.Entitys
     /// 用户角色表
     /// </summary>
     [Table("UserRoles")]
-    public  class UserRole: Entity<long>
+    public class UserRole : Entity<long>
     {
         /// <summary>
         /// 用户Id
@@ -24,6 +21,5 @@ namespace VaCant.Entitys
         public virtual User User { get; set; }
 
         public virtual Role Role { get; set; }
-
     }
 }

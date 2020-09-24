@@ -1,5 +1,4 @@
-(function(jsGrid) {
-
+(function (jsGrid) {
     jsGrid.locales.ka = {
         grid: {
             noDataContent: "მონაცემები ცარიელია.",
@@ -42,5 +41,4 @@
             max: { message: "შეყვანილი ინფორმაციის ზომა საკმაოდ დიდი არის." }
         }
     };
-
 }(jsGrid, jQuery));

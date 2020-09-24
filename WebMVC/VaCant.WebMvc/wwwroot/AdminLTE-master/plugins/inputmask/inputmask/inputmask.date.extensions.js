@@ -6,67 +6,67 @@
 * Version: 4.0.9
 */
 
-(function(factory) {
+(function (factory) {
     if (typeof define === "function" && define.amd) {
-        define([ "./inputmask" ], factory);
+        define(["./inputmask"], factory);
     } else if (typeof exports === "object") {
         module.exports = factory(require("./inputmask"));
     } else {
         factory(window.Inputmask);
     }
-})(function(Inputmask) {
+})(function (Inputmask) {
     var $ = Inputmask.dependencyLib;
     var formatCode = {
-        d: [ "[1-9]|[12][0-9]|3[01]", Date.prototype.setDate, "day", Date.prototype.getDate ],
-        dd: [ "0[1-9]|[12][0-9]|3[01]", Date.prototype.setDate, "day", function() {
+        d: ["[1-9]|[12][0-9]|3[01]", Date.prototype.setDate, "day", Date.prototype.getDate],
+        dd: ["0[1-9]|[12][0-9]|3[01]", Date.prototype.setDate, "day", function () {
             return pad(Date.prototype.getDate.call(this), 2);
-        } ],
-        ddd: [ "" ],
-        dddd: [ "" ],
-        m: [ "[1-9]|1[012]", Date.prototype.setMonth, "month", function() {
+        }],
+        ddd: [""],
+        dddd: [""],
+        m: ["[1-9]|1[012]", Date.prototype.setMonth, "month", function () {
             return Date.prototype.getMonth.call(this) + 1;
-        } ],
-        mm: [ "0[1-9]|1[012]", Date.prototype.setMonth, "month", function() {
+        }],
+        mm: ["0[1-9]|1[012]", Date.prototype.setMonth, "month", function () {
             return pad(Date.prototype.getMonth.call(this) + 1, 2);
-        } ],
-        mmm: [ "" ],
-        mmmm: [ "" ],
-        yy: [ "[0-9]{2}", Date.prototype.setFullYear, "year", function() {
+        }],
+        mmm: [""],
+        mmmm: [""],
+        yy: ["[0-9]{2}", Date.prototype.setFullYear, "year", function () {
             return pad(Date.prototype.getFullYear.call(this), 2);
-        } ],
-        yyyy: [ "[0-9]{4}", Date.prototype.setFullYear, "year", function() {
+        }],
+        yyyy: ["[0-9]{4}", Date.prototype.setFullYear, "year", function () {
             return pad(Date.prototype.getFullYear.call(this), 4);
-        } ],
-        h: [ "[1-9]|1[0-2]", Date.prototype.setHours, "hours", Date.prototype.getHours ],
-        hh: [ "0[1-9]|1[0-2]", Date.prototype.setHours, "hours", function() {
+        }],
+        h: ["[1-9]|1[0-2]", Date.prototype.setHours, "hours", Date.prototype.getHours],
+        hh: ["0[1-9]|1[0-2]", Date.prototype.setHours, "hours", function () {
             return pad(Date.prototype.getHours.call(this), 2);
-        } ],
-        hhh: [ "[0-9]+", Date.prototype.setHours, "hours", Date.prototype.getHours ],
-        H: [ "1?[0-9]|2[0-3]", Date.prototype.setHours, "hours", Date.prototype.getHours ],
-        HH: [ "0[0-9]|1[0-9]|2[0-3]", Date.prototype.setHours, "hours", function() {
+        }],
+        hhh: ["[0-9]+", Date.prototype.setHours, "hours", Date.prototype.getHours],
+        H: ["1?[0-9]|2[0-3]", Date.prototype.setHours, "hours", Date.prototype.getHours],
+        HH: ["0[0-9]|1[0-9]|2[0-3]", Date.prototype.setHours, "hours", function () {
             return pad(Date.prototype.getHours.call(this), 2);
-        } ],
-        HHH: [ "[0-9]+", Date.prototype.setHours, "hours", Date.prototype.getHours ],
-        M: [ "[1-5]?[0-9]", Date.prototype.setMinutes, "minutes", Date.prototype.getMinutes ],
-        MM: [ "0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]", Date.prototype.setMinutes, "minutes", function() {
+        }],
+        HHH: ["[0-9]+", Date.prototype.setHours, "hours", Date.prototype.getHours],
+        M: ["[1-5]?[0-9]", Date.prototype.setMinutes, "minutes", Date.prototype.getMinutes],
+        MM: ["0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]", Date.prototype.setMinutes, "minutes", function () {
             return pad(Date.prototype.getMinutes.call(this), 2);
-        } ],
-        ss: [ "[0-5][0-9]", Date.prototype.setSeconds, "seconds", function() {
+        }],
+        ss: ["[0-5][0-9]", Date.prototype.setSeconds, "seconds", function () {
             return pad(Date.prototype.getSeconds.call(this), 2);
-        } ],
-        l: [ "[0-9]{3}", Date.prototype.setMilliseconds, "milliseconds", function() {
+        }],
+        l: ["[0-9]{3}", Date.prototype.setMilliseconds, "milliseconds", function () {
             return pad(Date.prototype.getMilliseconds.call(this), 3);
-        } ],
-        L: [ "[0-9]{2}", Date.prototype.setMilliseconds, "milliseconds", function() {
+        }],
+        L: ["[0-9]{2}", Date.prototype.setMilliseconds, "milliseconds", function () {
             return pad(Date.prototype.getMilliseconds.call(this), 2);
-        } ],
-        t: [ "[ap]" ],
-        tt: [ "[ap]m" ],
-        T: [ "[AP]" ],
-        TT: [ "[AP]M" ],
-        Z: [ "" ],
-        o: [ "" ],
-        S: [ "" ]
+        }],
+        t: ["[ap]"],
+        tt: ["[ap]m"],
+        T: ["[AP]"],
+        TT: ["[AP]M"],
+        Z: [""],
+        o: [""],
+        S: [""]
     }, formatAlias = {
         isoDate: "yyyy-mm-dd",
         isoTime: "HH:MM:ss",
@@ -113,16 +113,16 @@
                     mask += "(" + formatCode[match[0]][0] + ")";
                 } else {
                     switch (match[0]) {
-                      case "[":
-                        mask += "(";
-                        break;
+                        case "[":
+                            mask += "(";
+                            break;
 
-                      case "]":
-                        mask += ")?";
-                        break;
+                        case "]":
+                            mask += ")?";
+                            break;
 
-                      default:
-                        mask += Inputmask.escapeRegex(match[0]);
+                        default:
+                            mask += Inputmask.escapeRegex(match[0]);
                     }
                 }
             } else {
@@ -178,7 +178,7 @@
     }
     Inputmask.extendAliases({
         datetime: {
-            mask: function(opts) {
+            mask: function (opts) {
                 formatCode.S = opts.i18n.ordinalSuffix.join("|");
                 opts.inputFormat = formatAlias[opts.inputFormat] || opts.inputFormat;
                 opts.displayFormat = formatAlias[opts.displayFormat] || opts.displayFormat || opts.inputFormat;
@@ -194,11 +194,11 @@
             min: null,
             max: null,
             i18n: {
-                dayNames: [ "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
-                monthNames: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
-                ordinalSuffix: [ "st", "nd", "rd", "th" ]
+                dayNames: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                ordinalSuffix: ["st", "nd", "rd", "th"]
             },
-            postValidation: function(buffer, pos, currentResult, opts) {
+            postValidation: function (buffer, pos, currentResult, opts) {
                 opts.min = analyseMask(opts.min, opts.inputFormat, opts);
                 opts.max = analyseMask(opts.max, opts.inputFormat, opts);
                 var result = currentResult, dateParts = analyseMask(buffer.join(""), opts.inputFormat, opts);
@@ -217,7 +217,7 @@
                 }
                 return result;
             },
-            onKeyDown: function(e, buffer, caretPos, opts) {
+            onKeyDown: function (e, buffer, caretPos, opts) {
                 var input = this;
                 if (e.ctrlKey && e.keyCode === Inputmask.keyCode.RIGHT) {
                     var today = new Date(), match, date = "";
@@ -236,10 +236,10 @@
                     $(input).trigger("setvalue");
                 }
             },
-            onUnMask: function(maskedValue, unmaskedValue, opts) {
+            onUnMask: function (maskedValue, unmaskedValue, opts) {
                 return parse(opts.outputFormat, analyseMask(maskedValue, opts.inputFormat, opts), opts, true);
             },
-            casing: function(elem, test, pos, validPositions) {
+            casing: function (elem, test, pos, validPositions) {
                 if (test.nativeDef.indexOf("[ap]") == 0) return elem.toLowerCase();
                 if (test.nativeDef.indexOf("[AP]") == 0) return elem.toUpperCase();
                 return elem;

@@ -2731,4 +2731,3 @@ declare module '@fullcalendar/core/Toolbar' {
         toggleButtonEnabled(buttonName: any, bool: any): void;
     }
 }
-

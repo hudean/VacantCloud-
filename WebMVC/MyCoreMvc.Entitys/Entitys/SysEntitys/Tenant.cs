@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VaCant.Entitys
 {
@@ -15,14 +12,15 @@ namespace VaCant.Entitys
         /// 租户名称
         /// </summary>
         public string TenantName { get; set; }
+
         /// <summary>
         /// 是否启用
         /// </summary>
         public bool IsActive { get; set; }
+
         /// <summary>
         /// 是否删除 0否1是
         /// </summary>
         public bool IsDeleted { get; set; }
-
     }
 }
