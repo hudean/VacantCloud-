@@ -474,3 +474,4 @@ E:\我的code\WebMVC\VaCant.WebMvc\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.
 E:\我的code\WebMVC\VaCant.WebMvc\obj\Debug\netcoreapp3.1\VaCant.WebMvc.csproj.CoreCompileInputs.cache
 E:\我的code\WebMVC\VaCant.WebMvc\obj\Debug\netcoreapp3.1\VaCant.WebMvc.MvcApplicationPartsAssemblyInfo.cs
 E:\我的code\WebMVC\VaCant.WebMvc\obj\Debug\netcoreapp3.1\VaCant.WebMvc.MvcApplicationPartsAssemblyInfo.cache
+E:\我的code\WebMVC\VaCant.WebMvc\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs

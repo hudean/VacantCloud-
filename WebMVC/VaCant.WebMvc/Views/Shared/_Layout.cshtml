@@ -83,7 +83,7 @@
                             <dd><a href="">安全设置</a></dd>
                         </dl>
                     </li>
-                    <li class="layui-nav-item"><a href="">退了</a></li>
+                    <li class="layui-nav-item"><a href="~/Account/Logout">退了</a></li>
                 </ul>
             </div>
 
@@ -91,13 +91,14 @@
                 <div class="layui-side-scroll">
                     <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                     <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                        <li class="layui-nav-item"><a href="~/Home/Index">首页</a></li>
                         <li class="layui-nav-item layui-nav-itemed">
-                            <a class="" href="javascript:;">所有商品</a>
+                            <a class="" href="javascript:;">系统管理</a>
                             <dl class="layui-nav-child">
-                                <dd><a href="javascript:;">列表一</a></dd>
-                                <dd><a href="javascript:;">列表二</a></dd>
-                                <dd><a href="javascript:;">列表三</a></dd>
-                                <dd><a href="">超链接</a></dd>
+                                <dd><a href="~/User/Index">用户管理</a></dd>
+                                <dd><a href="~/Role/Index">角色管理</a></dd>
+                                <dd><a href="~/Permission/Index">权限管理</a></dd>
+                                <dd><a href="javascript:;">租户管理</a></dd>
                             </dl>
                         </li>
                         <li class="layui-nav-item">
@@ -108,7 +109,7 @@
                                 <dd><a href="">超链接</a></dd>
                             </dl>
                         </li>
-                        <li class="layui-nav-item"><a href="">云市场</a></li>
+
                     </ul>
                 </div>
             </div>

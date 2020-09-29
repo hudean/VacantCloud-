@@ -11,7 +11,7 @@ namespace VaCant.WebMvc.Controllers
     /// <summary>
     /// 权限控制器
     /// </summary>
-    public class PermissionController : Controller
+    public class PermissionController : BaseController
     {
         private readonly IPermissionService _permissionService;
         public PermissionController(IPermissionService permissionService)

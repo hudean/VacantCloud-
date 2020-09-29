@@ -12,7 +12,10 @@ using System.Collections.Immutable;
 
 namespace VaCant.WebMvc.Controllers
 {
-    public class UserController: Controller
+    /// <summary>
+    /// 用户控制器
+    /// </summary>
+    public class UserController: BaseController
     {
         private readonly IUserService _userService;
         private readonly IRoleService _roleService;

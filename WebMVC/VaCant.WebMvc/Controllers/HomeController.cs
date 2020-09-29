@@ -12,11 +12,13 @@ using VaCant.WebMvc.Models;
 namespace VaCant.WebMvc.Controllers
 {
     /// <summary>
-    /// 控制器
+    /// 首页控制器
     /// </summary>
-    [ServiceFilter(typeof(VaCantAuthorizationFilter))]
+    //[ServiceFilter(typeof(VaCantAuthorizationFilter))]
+    //[ServiceFilter(typeof(VaCantAuthorizationFilter))]
+    [CheckPermission("SSS")]
    // [VaCantMvcAuthorize(PermissionNames.Pages_Tenants)]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -29,6 +31,9 @@ namespace VaCant.WebMvc.Controllers
         /// 首页
         /// </summary>
         /// <returns></returns>
+        [CheckPermission("YYY")]
+        [CheckPermission("Y999")]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();

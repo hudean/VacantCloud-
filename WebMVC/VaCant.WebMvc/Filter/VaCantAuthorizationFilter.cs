@@ -14,6 +14,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace VaCant.WebMvc.Filter
 {
@@ -22,6 +23,7 @@ namespace VaCant.WebMvc.Filter
         public ILogger Logger { get; set; }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
+            return;
             //匿名标识 无需验证
             if (context.Filters.Any(e => (e as AllowAnonymous) != null))
             {
@@ -65,6 +67,20 @@ namespace VaCant.WebMvc.Filter
 
             #endregion
 
+            #region 获取访问目标对象上的特性
+
+            //所有目标对象上所有特性Attribute
+            var attrs = context.ActionDescriptor.EndpointMetadata.ToList();
+            //获取所有目标对象上所有特性CheckPermissionAttribute
+            var attrrs = context.ActionDescriptor.EndpointMetadata.ToList().Where(r => r as CheckPermissionAttribute != null).ToList();
+            //获取CheckPermissionAttribute最下面的一个
+            var attr = endpoint?.Metadata.GetMetadata<CheckPermissionAttribute>();
+            //获取过滤器特性
+            //var pAttr = context.Filters.Where(r => r as VaCantAuthorizationFilter != null).ToList();
+           
+
+            #endregion
+
             #region 获取当前访问的区域、控制器和action
 
             //1. 获取区域、控制器、Action的名称
@@ -98,6 +114,7 @@ namespace VaCant.WebMvc.Filter
             #endregion
 
             #region 另一种思路
+
             //bool isHasAttr = false;
             //string attrName = typeof(CheckPermissionAttribute).ToString();
             ////所有目标对象上所有特性
@@ -161,12 +178,11 @@ namespace VaCant.WebMvc.Filter
 
     }
 
-    public static class ss
+    public static class ActionDescriptorExtension
     {
         public static bool IsControllerAction(this ActionDescriptor actionDescriptor)
         {
             return actionDescriptor is ControllerActionDescriptor;
         }
     }
-
 }

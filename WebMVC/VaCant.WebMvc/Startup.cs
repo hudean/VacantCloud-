@@ -29,10 +29,11 @@ namespace VaCant.WebMvc
         }
 
         public IConfiguration Configuration { get; }
-
+        //ConfigureServices添加服务和功能，  Configure配置添加好的服务的使用方式
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //AddRazorRuntimeCompilation 可以使页面像以前一样可以修改页面实时刷新，而不需要重新生成
             services.AddControllersWithViews().AddRazorRuntimeCompilation(); ;
             #region 已注释
             //注册服务连接数据库
@@ -56,13 +57,30 @@ namespace VaCant.WebMvc
             services.AddSession();
 
             #region 第一种权限过滤
+            //全局注册Filter
             services.AddMvc(options =>
             {
                 // options.Filters.Add(typeof(Filter.VaCantAuthorizationFilter));
                 // options.Filters.Add<Filter.CheckLoginAuthorizeFilter>();
                 options.Filters.Add<Filter.MyExceptionFilter>();
+               // options.Filters.Add<Filter.MyActionFilter>();
             });
-            //services.AddScoped<VaCantAuthorizationFilter>();
+            //只在控制器或action上[ServiceFilter(typeof(VaCantAuthorizationFilter))]才有用
+            services.AddScoped<VaCantAuthorizationFilter>();
+            //services.AddAuthentication(option =>
+            //{
+            //    option.DefaultScheme = "Cookie";
+            //    option.DefaultChallengeScheme = "Cookie";
+            //    option.DefaultAuthenticateScheme = "Cookie";
+            //    option.DefaultForbidScheme = "Cookie";
+            //    option.DefaultSignInScheme = "Cookie";
+            //    option.DefaultSignOutScheme = "Cookie";
+            //}).AddCookie("Cookie", option =>
+            //{
+            //    option.LoginPath = "/Account/Login";
+            //    option.AccessDeniedPath = "/Account/Forbidden";
+            //    //.......
+            //});
             #endregion
 
 
@@ -101,14 +119,15 @@ namespace VaCant.WebMvc
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
+            //开启身份认证
             app.UseAuthorization();
             
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                     pattern: "{controller=User}/{action=Index}/{id?}");
-                     //pattern: "{controller=Account}/{action=Login}/{id?}");
+                     //pattern: "{controller=Home}/{action=Index}/{id?}");
+                     pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

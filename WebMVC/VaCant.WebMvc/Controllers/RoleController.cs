@@ -11,7 +11,7 @@ namespace VaCant.WebMvc.Controllers
     /// <summary>
     /// 角色控制器
     /// </summary>
-    public class RoleController : Controller
+    public class RoleController : BaseController
     {
         private readonly IRoleService _roleService;
         public RoleController(IRoleService roleService)

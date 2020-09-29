@@ -11,7 +11,7 @@ namespace VaCant.WebMvc.Controllers
     /// <summary>
     /// 用户日志控制器
     /// </summary>
-    public class UserLogController : Controller
+    public class UserLogController : BaseController
     {
         private readonly IUserLogService _userLogService;
         public UserLogController(IUserLogService userLogService)

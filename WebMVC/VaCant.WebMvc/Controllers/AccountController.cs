@@ -47,18 +47,18 @@ namespace VaCant.WebMvc.Controllers
             {
                 return View();
             }
-            bool result = false; //_userService.CheckLogin(model.UserName, model.Password);
-            var list = _userService.GetAll().ToList();
-            long userId = _userService.GetAll().ToList().FirstOrDefault(r => r.UserName == model.UserName && r.Password == model.Password).Id;
-            if (result)
+            //bool result = false; //_userService.CheckLogin(model.UserName, model.Password);
+            var user = _userService.GetAll().FirstOrDefault(r => r.UserName == model.UserName && r.Password == model.Password);
+
+            if (user!=null)
             {
+                long userId = user.Id;
                 HttpContext.Session.SetString("LoginUserId", userId.ToString());
+                HttpContext.Session.SetString("LoginUserName", user.UserName);
                 return RedirectToAction("Index", "Home");
             }
             return View();
         }
-
-
 
         /// <summary>
         /// 登出

@@ -9,7 +9,7 @@ namespace VaCant.WebMvc.Controllers
     /// <summary>
     /// 菜单控制器
     /// </summary>
-    public class MenuController : Controller
+    public class MenuController : BaseController
     {
         public IActionResult Index()
         {

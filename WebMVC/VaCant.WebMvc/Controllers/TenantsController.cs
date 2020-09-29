@@ -12,7 +12,7 @@ namespace VaCant.WebMvc.Controllers
     /// 租户控制器
     /// </summary>
     [VaCantMvcAuthorize(PermissionNames.Pages_Tenants)]
-    public class TenantsController : Controller
+    public class TenantsController : BaseController
     {
         /// <summary>
         /// 列表
