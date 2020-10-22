@@ -23,7 +23,11 @@ namespace VaCant.WebMvc.Filter
         public ILogger Logger { get; set; }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            return;
+            //权限过滤的两种思路 认证过滤器和方法过滤器都可以
+            //一：在每个控制器和action上添加相应的特性标签，把标签名称存到数据库权限表中，获取当前请求控制器下的action的对应的特性标签 与数据库存储的进行对比，相同就是有权限
+            //二：把每个控制器和action以 ControllerName_ActionName 的形式存在数据库权限表中，获取当前访问的控制器名称和Action 名称与当前用户的所在角色下的权限进行比对 ，相同就是有权限
+
+            //return;
             //匿名标识 无需验证
             if (context.Filters.Any(e => (e as AllowAnonymous) != null))
             {
@@ -70,11 +74,11 @@ namespace VaCant.WebMvc.Filter
             #region 获取访问目标对象上的特性
 
             //所有目标对象上所有特性Attribute
-            var attrs = context.ActionDescriptor.EndpointMetadata.ToList();
+            //var attrs = context.ActionDescriptor.EndpointMetadata.ToList();
             //获取所有目标对象上所有特性CheckPermissionAttribute
-            var attrrs = context.ActionDescriptor.EndpointMetadata.ToList().Where(r => r as CheckPermissionAttribute != null).ToList();
+            var attrs = context.ActionDescriptor.EndpointMetadata.ToList().Where(r => r as CheckPermissionAttribute != null).ToList();
             //获取CheckPermissionAttribute最下面的一个
-            var attr = endpoint?.Metadata.GetMetadata<CheckPermissionAttribute>();
+            //var attr = endpoint?.Metadata.GetMetadata<CheckPermissionAttribute>();
             //获取过滤器特性
             //var pAttr = context.Filters.Where(r => r as VaCantAuthorizationFilter != null).ToList();
            
@@ -96,45 +100,48 @@ namespace VaCant.WebMvc.Filter
             #endregion
 
             #region 当前登入的非admin用户的权限检查
-           //context.GetPropertyName
-            //获取当前控制器或action上的Attribute
-            var pAttrs= context.Filters.Where(r => r as VaCantMvcAuthorizeAttribute != null).ToList();
-            if (pAttrs.Count > 0)
+            //获取当前用户对应角色的所有权限
+           var permissionNames= CacheCommon.GetCacheByPermissionNames();
+            if (permissionNames != null && permissionNames.Count > 0)
             {
-                foreach (VaCantMvcAuthorizeAttribute pattr in pAttrs)
+                foreach (var item in attrs)
                 {
-                    var strs=pattr.Permissions;
-
-
-
+                    if (!permissionNames.Contains(item.ToString()))
+                    {
+                        if (IsAjaxRequest(context.HttpContext.Request))
+                        {
+                            //是ajax请求
+                            context.Result = new JsonResult(new { status = "error", message = "你没有权限" });
+                        }
+                        else
+                        {
+                            var result = new RedirectResult("~/Home/Index");
+                            context.Result = result;
+                        }
                         return;
+                    }
                 }
             }
-
+            else
+            {
+                if (IsAjaxRequest(context.HttpContext.Request))
+                {
+                    //是ajax请求
+                    context.Result = new JsonResult(new { status = "error", message = "你没有任何权限" });
+                }
+                else
+                {
+                    var result = new RedirectResult("~/Home/Index");
+                    context.Result = result;
+                }
+                return;
+            }
+            
             #endregion
 
-            #region 另一种思路
-
-            //bool isHasAttr = false;
-            //string attrName = typeof(CheckPermissionAttribute).ToString();
-            ////所有目标对象上所有特性
-            //var data = context.ActionDescriptor.EndpointMetadata.ToList();
-            ////循环比对是否含有skip特性
-
-            //foreach (var item in data)
-            //{
-            //    if (data.ToString().Equals(attrName))
-            //    {
-            //        isHasAttr = true;
-            //    }
-            //}
-            //if (isHasAttr)
-            //{
-            //    return;
-            //}
-            #endregion
 
         }
+
         /// <summary>
         /// 判断是否是ajax请求
         /// </summary>

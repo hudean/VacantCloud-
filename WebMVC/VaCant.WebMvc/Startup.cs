@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Quartz;
+using Quartz.Impl;
 using VaCant.EFCore;
 using VaCant.Initialization;
 using VaCant.WebMvc.Filter;
@@ -83,8 +85,12 @@ namespace VaCant.WebMvc
             //});
             #endregion
 
+            #region Quartz定时任务
 
-
+            //注册ISchedulerFactory的实例
+            //services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
+            //StartQuartzAsync();
+            #endregion
 
             #region 第二种权限过滤
             ////权限要求参数
@@ -129,6 +135,32 @@ namespace VaCant.WebMvc
                      //pattern: "{controller=Home}/{action=Index}/{id?}");
                      pattern: "{controller=Account}/{action=Login}/{id?}");
             });
+        }
+
+        /// <summary>
+        /// Quartz异步执行定时任务
+        /// </summary>
+        /// <returns></returns>
+        private async Task StartQuartzAsync()
+        {
+            // 参考文章 https://www.cnblogs.com/MicroHeart/p/9402731.html
+            //https://www.cnblogs.com/dangzhensheng/p/10496278.html
+            StdSchedulerFactory _schedulerFactory = new StdSchedulerFactory();
+            //1.通过工场类获得调度器
+            IScheduler _scheduler = await _schedulerFactory.GetScheduler();
+            //2.开启调度器
+            await _scheduler.Start();
+            //3.创建触发器(也叫时间策略)
+            var trigger = TriggerBuilder.Create()
+                            .WithSimpleSchedule(x => x.WithIntervalInSeconds(3).RepeatForever())//每10秒执行一次
+                            .Build();
+            //4.创建作业实例
+            //Jobs即我们需要执行的作业
+            var jobDetail = JobBuilder.Create<DemoJob>()
+                            .WithIdentity("Myjob", "group")//我们给这个作业取了个“Myjob”的名字，并取了个组名为“group”
+                            .Build();
+            //5.将触发器和作业任务绑定到调度器中
+            await _scheduler.ScheduleJob(jobDetail, trigger);
         }
     }
 }

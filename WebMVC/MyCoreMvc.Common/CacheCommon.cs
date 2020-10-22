@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using System;
+using System.Collections.Generic;
 
 namespace VaCant.Common
 {
@@ -41,6 +42,18 @@ namespace VaCant.Common
             else
                 return default(object);
         }
+
+        /// <summary>
+        /// 获取当前用户缓存的权限名称
+        /// </summary>
+        /// <returns></returns>
+        public static List<string> GetCacheByPermissionNames()
+        {
+            object obj = GetCache("permissionNames");
+            var list = obj as List<string>;
+            return list;
+        }
+
 
         #endregion
         #region 设置缓存值

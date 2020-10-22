@@ -56,5 +56,12 @@ namespace VaCant.Applications.IServices
         /// <param name="user"></param>
         /// <returns></returns>
         public Task<RoleDto> UpdateAsync(RoleDto dto);
+
+        /// <summary>
+        /// 根据登入的用户获取对应角色下的权限
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public IQueryable<RolePermission> GetPermissionByUser(long userId);
     }
 }

@@ -5,16 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VaCant.WebMvc.Models.InputModel;
+using VaCant.WebMvc.Filter;
 
 namespace VaCant.WebMvc.Controllers
 {
     /// <summary>
     /// 角色控制器
     /// </summary>
-    public class RoleController : BaseController
+    [CheckPermission("Log_GetLogList")]
+    public class RolesController : BaseController
     {
         private readonly IRoleService _roleService;
-        public RoleController(IRoleService roleService)
+        public RolesController(IRoleService roleService)
         {
             _roleService = roleService;
         }

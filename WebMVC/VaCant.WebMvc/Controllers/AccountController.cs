@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using VaCant.Applications.IServices;
 using Microsoft.AspNetCore.Http;
+using Quartz;
 
 namespace VaCant.WebMvc.Controllers
 {
@@ -20,9 +21,11 @@ namespace VaCant.WebMvc.Controllers
     {
 
         private readonly IUserService _userService;
-        public AccountController(IUserService userService)
+        private readonly IRoleService _roleService;
+        public AccountController(IUserService userService, IRoleService roleService)
         {
             _userService = userService;
+            _roleService = roleService;
         }
 
         /// <summary>
@@ -55,6 +58,11 @@ namespace VaCant.WebMvc.Controllers
                 long userId = user.Id;
                 HttpContext.Session.SetString("LoginUserId", userId.ToString());
                 HttpContext.Session.SetString("LoginUserName", user.UserName);
+               var permissionNames= _roleService.GetPermissionByUser(userId).ToList()?.Select(r=>r.Permission.PermissionName).ToList();
+                if (permissionNames != null)
+                {
+                    CacheCommon.SetCache("permissionNames", permissionNames, TimeSpan.FromMinutes(30),true);               
+                }
                 return RedirectToAction("Index", "Home");
             }
             return View();

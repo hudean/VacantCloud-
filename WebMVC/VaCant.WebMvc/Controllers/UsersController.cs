@@ -9,17 +9,20 @@ using VaCant.WebMvc.Models.InputModel;
 using Microsoft.EntityFrameworkCore;
 using VaCant.WebMvc.Models.ViewModel;
 using System.Collections.Immutable;
+using VaCant.WebMvc.Filter;
+using VaCant.Core.Authorization;
 
 namespace VaCant.WebMvc.Controllers
 {
     /// <summary>
     /// 用户控制器
     /// </summary>
-    public class UserController: BaseController
+    [CheckPermission(PermissionNames.Pages_Users)]
+    public class UsersController: BaseController
     {
         private readonly IUserService _userService;
         private readonly IRoleService _roleService;
-        public UserController(IUserService userService, IRoleService roleService)
+        public UsersController(IUserService userService, IRoleService roleService)
         {
             _userService = userService;
             _roleService = roleService;
@@ -62,6 +65,7 @@ namespace VaCant.WebMvc.Controllers
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> CreatOrEdit(UserCreatOrEditInputModel model)
         {
             if (!ModelState.IsValid)
@@ -101,6 +105,7 @@ namespace VaCant.WebMvc.Controllers
         }
 
 
+        [HttpGet]
         public async Task<IActionResult> Detail(int userid)
         {
            var model= await _userService.GetAsync(userid);
@@ -121,7 +126,7 @@ namespace VaCant.WebMvc.Controllers
             {
                 return View("error");
             }
-          await  _userService.DeleteAsync(userId);
+            await  _userService.DeleteAsync(userId);
 
             return RedirectToAction("Index");
         }

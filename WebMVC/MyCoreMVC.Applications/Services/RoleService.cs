@@ -6,6 +6,7 @@ using VaCant.Applications.IServices;
 using VaCant.Common;
 using VaCant.Entitys;
 using VaCant.Repositorys;
+using Microsoft.EntityFrameworkCore;
 
 namespace VaCant.Applications.Services
 {
@@ -17,12 +18,14 @@ namespace VaCant.Applications.Services
         private readonly IRepository<Role> _roleRepository;
         private readonly IRepository<User> _userRepository;
         private readonly IRepository<RolePermission> _rolePermissionRepository;
+        private readonly IRepository<UserRole> _userRoleRepository;
 
-        public RoleService(IRepository<Role> roleRepository, IRepository<User> userRepository, IRepository<RolePermission> rolePermissionRepository)
+        public RoleService(IRepository<Role> roleRepository, IRepository<User> userRepository, IRepository<RolePermission> rolePermissionRepository, IRepository<UserRole> userRoleRepository)
         {
             _roleRepository = roleRepository;
             _userRepository = userRepository;
             _rolePermissionRepository = rolePermissionRepository;
+            _userRoleRepository = userRoleRepository;
         }
 
         /// <summary>
@@ -163,6 +166,17 @@ namespace VaCant.Applications.Services
                 return inputDto;
             }
             return null;
+        }
+
+        /// <summary>
+        /// 根据登入的用户获取对应角色下的权限
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public IQueryable<RolePermission> GetPermissionByUser(long userId)
+        {
+           var roleIds= _userRoleRepository.GetAll().Where(r => r.UserId == userId).ToList().Select(r=>r.RoleId);
+           return _rolePermissionRepository.GetAll().Where(r => roleIds.Contains(r.RoleId)).Include(r => r.Permission);
         }
     }
 }

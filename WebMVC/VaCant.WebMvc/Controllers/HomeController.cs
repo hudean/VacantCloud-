@@ -15,8 +15,8 @@ namespace VaCant.WebMvc.Controllers
     /// 首页控制器
     /// </summary>
     //[ServiceFilter(typeof(VaCantAuthorizationFilter))]
-    //[ServiceFilter(typeof(VaCantAuthorizationFilter))]
-    [CheckPermission("SSS")]
+    [ServiceFilter(typeof(VaCantAuthorizationFilter))]
+    [CheckPermission("Home")]
    // [VaCantMvcAuthorize(PermissionNames.Pages_Tenants)]
     public class HomeController : BaseController
     {
@@ -31,9 +31,7 @@ namespace VaCant.WebMvc.Controllers
         /// 首页
         /// </summary>
         /// <returns></returns>
-        [CheckPermission("YYY")]
-        [CheckPermission("Y999")]
-        [AllowAnonymous]
+        [CheckPermission("Home_Index")]
         public IActionResult Index()
         {
             return View();

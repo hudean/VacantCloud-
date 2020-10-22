@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VaCant.Entitys;
 using VaCant.Applications.IServices;
+using VaCant.WebMvc.Filter;
 
 namespace VaCant.WebMvc.Controllers
 {
     /// <summary>
     /// 用户日志控制器
     /// </summary>
+    [CheckPermission("Log_GetLogList")]
     public class UserLogController : BaseController
     {
         private readonly IUserLogService _userLogService;

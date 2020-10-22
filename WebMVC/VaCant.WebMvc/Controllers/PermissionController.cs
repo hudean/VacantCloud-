@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VaCant.Applications.IServices;
+using VaCant.WebMvc.Filter;
 using VaCant.WebMvc.Models.InputModel;
 
 namespace VaCant.WebMvc.Controllers
@@ -11,6 +12,7 @@ namespace VaCant.WebMvc.Controllers
     /// <summary>
     /// 权限控制器
     /// </summary>
+    [CheckPermission("Log_GetLogList")]
     public class PermissionController : BaseController
     {
         private readonly IPermissionService _permissionService;
