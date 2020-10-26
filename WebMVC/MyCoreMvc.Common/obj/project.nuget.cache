@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "o0dtXcVxkG7Ao+IK1VgF56p6Vg57YVGMtmUnVc/06CmTV7Rt5b7f2izSaih67J4cGj+a2oo3kuPhp/o/Kf39Ng==",
+  "dgSpecHash": "Bezv9NE6i0lDdl1JTjoAQjLZZ8V9gNkNEGf4s9LMA3useJR8YXiNKEpU6prIMaEcXU3dPBJw6SJJewgYMN6vYQ==",
   "success": true,
   "projectFilePath": "E:\\我的code\\WebMVC\\MyCoreMvc.Common\\VaCant.Common.csproj",
   "expectedPackageFiles": [
@@ -18,8 +18,11 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\rabbitmq.client\\6.2.1\\rabbitmq.client.6.2.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
   ],
   "logs": []
 }

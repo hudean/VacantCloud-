@@ -3,7 +3,6 @@ E:\我的code\WebMVC\MyCoreMvc.Common\bin\Debug\netcoreapp3.1\VaCant.Common.dll
 E:\我的code\WebMVC\MyCoreMvc.Common\bin\Debug\netcoreapp3.1\VaCant.Common.pdb
 E:\我的code\WebMVC\MyCoreMvc.Common\obj\Debug\netcoreapp3.1\VaCant.Common.AssemblyInfoInputs.cache
 E:\我的code\WebMVC\MyCoreMvc.Common\obj\Debug\netcoreapp3.1\VaCant.Common.AssemblyInfo.cs
-E:\我的code\WebMVC\MyCoreMvc.Common\obj\Debug\netcoreapp3.1\VaCant.Common.csproj.CoreCompileInputs.cache
 E:\我的code\WebMVC\MyCoreMvc.Common\obj\Debug\netcoreapp3.1\VaCant.Common.dll
 E:\我的code\WebMVC\MyCoreMvc.Common\obj\Debug\netcoreapp3.1\VaCant.Common.pdb
 E:\我的code\WebMVC\MyCoreMvc.Common\obj\Debug\netcoreapp3.1\VaCant.Common.csprojAssemblyReference.cache
